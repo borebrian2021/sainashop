@@ -1,0 +1,113 @@
+﻿@{ ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout_website.cshtml"; }
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="cssload-loader"></div>
+        </div>
+    </div>
+
+    <section id="main-banner-page" class="position-relative page-header sign-up-header parallax section-nav-smooth">
+        <div class="overlay overlay-dark opacity-8 z-index-1"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="page-titles whitecolor text-center padding_top padding_bottom">
+                        <h2 class="font-xlight">Create The</h2>
+                        <h2 class="font-bold">Account To Unlock</h2>
+                        <h2 class="font-xlight">Unlimited</h2>
+                        <h3 class="font-light pt-2">Offers And Facilities Provided By Us</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="gradient-bg title-wrap">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 whitecolor">
+                        <h3 class="double-left">Signup</h3>
+                        <ul class="breadcrumb top10 bottom10 double-right">
+                            <li class="breadcrumb-item hover-light"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item hover-light">Signup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Page Header ends -->
+    <!-- Main sign-up section starts -->
+    <section id="ourfaq" class="bglight position-relative padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center wow fadeIn" data-wow-delay="300ms">
+                    <h2 class="heading bottom40 darkcolor font-light2">
+                        <span class="font-normal">Sign</span> Up
+                        <span class="divider-center"></span>
+                    </h2>
+                    <div class="col-md-8 offset-md-2 heading_space">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 pr-lg-0 whitebox">
+                    <div class="widget logincontainer">
+                        <h3 class="darkcolor bottom35 text-center text-md-left">Create Your account </h3>
+                        <form class="getin_form border-form" id="register">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group bottom35">
+                                        <label for="registerName" class="d-none"></label>
+                                        <input class="form-control" type="text" placeholder="Full Name:" required id="registerName">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group bottom35">
+                                        <label for="registerEmail" class="d-none"></label>
+                                        <input class="form-control" type="email" placeholder="Email:" required id="registerEmail">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group bottom35">
+                                        <label for="registerPass" class="d-none"></label>
+                                        <input class="form-control" type="password" placeholder="Password:" required id="registerPass">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group bottom35">
+                                        <label for="registerPassConfirm" class="d-none"></label>
+                                        <input class="form-control" type="password" placeholder="Confirm Password:" required id="registerPassConfirm">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group bottom35">
+                                        <div class="form-check text-left">
+                                            <input class="form-check-input" checked type="checkbox" value="" id="rememberMe">
+                                            <label class="form-check-label" for="rememberMe">
+                                                Remember me on this device
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="button gradient-btn w-100">Register</button>
+                                    <p class="top20 log-meta"> Already have an account? &nbsp;<a asp-action="login" asp-controller="Web" class="defaultcolor">Sign In</a> </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block pl-lg-0">
+                    <div class=" image login-image h-100">
+                        <img src="~/images/general.jpg" alt="" class="h-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main sign-up section ends -->
+</body>
+
+<!-- Mirrored from trax.acrothemes.com/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Jul 2021 07:23:47 GMT -->
+</html>

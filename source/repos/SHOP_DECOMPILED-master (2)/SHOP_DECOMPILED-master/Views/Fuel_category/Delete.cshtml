@@ -1,0 +1,72 @@
+﻿@model SHOP_DECOMPILED.Models.Fuel_category
+
+@{
+    ViewData["Title"] = "Delete fuel";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+<br />
+@*<small>Navigation</small>*@
+<ul class="breadcrumb">
+   
+    <li class="breadcrumb-item"><a href="~/Fuel_category/index">Registered fuel</a></li>
+    <li class="breadcrumb-item"><a href="~/Fuel_category/Details/@Model.id">Fuel details</a></li>
+    <li class="breadcrumb-item active">Delete fuel</li>
+</ul>
+<br />
+<div class="container-fluid w3-card p-3 bg-white">
+    <table>
+        <tr>
+            <td class="pr-3"><img src="~/fuel_icons/fuel_station.png" class="logo_card" /></td>
+            <td class="pl-3 border_left">
+                <h5>Do you want to delete <strong>@Html.DisplayFor(model => model.Fuel_names)</strong>? This will delete all related data.</h5>
+
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+<p>
+    <a class="btn btn-sm bg-white w3-card mt-2"><i class="fa fa-home"></i>&nbsp;Home</a>
+</p>
+<div class="w3-card p-2 bg-white">
+
+    <h4>Fuel details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fuel_names)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fuel_names)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tank_capacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tank_capacity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Current_quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Current_quantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="@Model.id" />
+
+        <button type="submit" class="btn btn-danger  btn-sm w3-card">Yes</button>|
+        <a asp-action="index" class="btn btn-sm btn-light bg-white w3-card">No</a>
+        |
+
+        <a asp-action="Index" class="btn btn-sm btn-light bg-white w3-card">Back to List</a>
+    </form>
+</div>

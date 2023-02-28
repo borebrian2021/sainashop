@@ -1,0 +1,74 @@
+﻿@model SHOP_DECOMPILED.Models.Fuel_station_reg
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container-fluid w3-card p-3 bg-white">
+    <table>
+        <tr>
+            <td class="pr-3"><img src="~/fuel_icons/fuel_station.png" class="logo_card" /></td>
+            <td class="pl-3 border_left">
+                <h5> @Html.DisplayFor(model => model.Station_Name)</h5>
+
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+<br />
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="~/Fuel_station_reg/index">List of fuel stations</a></li>
+    <li class="breadcrumb-item active">Modify station details</li>
+</ul>
+<p>
+    <a class="btn btn-sm bg-white w3-card mt-2">Modify station details</a>
+</p>
+
+<div class="w3-card p-3 bg-white p2">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="id" />
+
+                <div class="form-group" hidden>
+                    <label asp-for="Owners_id" class="control-label"></label>
+                    <input asp-for="Owners_id" value="@ViewBag.user_id" class="form-control" />
+                    <span asp-validation-for="Owners_id" class="text-danger"></span>
+                </div>
+                <div class="group">
+
+                    <input asp-for="Station_Name" class="form-control" />
+                    <span class="highlight"></span>
+                    <span asp-validation-for="Station_Name" class="bar"></span>
+                    <label asp-for="Station_Name"></label>
+
+
+                </div>
+                <div class="group">
+
+                    <input asp-for="Location" class="form-control" />
+                    <span class="highlight"></span>
+                    <span asp-validation-for="Location" class="bar"></span>
+                    <label asp-for="Location"></label>
+
+
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-white bg-white w3-card"><i class="fa fa-cloud-upload" aria-hidden="true"></i> &nbsp;Submit</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

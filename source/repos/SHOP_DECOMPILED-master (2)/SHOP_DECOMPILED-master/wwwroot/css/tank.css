@@ -1,0 +1,61 @@
+﻿.container_outside {
+    width: 200px;
+    border-radius: 30px;
+    height: 300px;
+    position: relative;
+    /*background-color: #A04000;*/
+    background-image: linear-gradient(to right,#15badf, #d8e1e3,#15badf);
+}
+.tank_lid {
+    background-image: linear-gradient(to right,#818181, #d8e1e3,#818181);
+    height: 20px;
+    width: 100px;
+    margin-left: 0px;
+    margin-left: 65px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.tank_levels {
+    background-color: white;
+    /*height: 100px;*/
+    padding-left:25px;
+    padding-top:40px;
+    width: 100%;
+    border-radius: 30px;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
+}
+.tank_outer_holder {
+    width: 100%;
+
+    padding: 0px;
+}container_outside
+.tank_row{
+
+    width:200px;
+}
+.dot{
+    height:20px;
+    width:20px;
+    border-radius:100px;
+    background-color:aquamarine;
+}
+ .fuel{
+
+    background-color:blueviolet;
+}
+.capacity {
+    background-color: #A04000;
+}
+.current_capacity {
+    background-color: #3498DB;
+}
+.meter {
+    background-color:brown;
+}
+.font_total{
+    font-size:20px;
+}
+..fuel_display{
+
+}

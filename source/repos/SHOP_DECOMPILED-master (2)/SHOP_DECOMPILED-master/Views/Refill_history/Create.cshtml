@@ -1,0 +1,59 @@
+﻿@model SHOP_DECOMPILED.Models.Refill_history
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>Refill_history</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fuel_id" class="control-label"></label>
+                <input asp-for="Fuel_id" class="form-control" />
+                <span asp-validation-for="Fuel_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ammount_refilled" class="control-label"></label>
+                <input asp-for="Ammount_refilled" class="form-control" />
+                <span asp-validation-for="Ammount_refilled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_refilled" class="control-label"></label>
+                <input asp-for="Date_refilled" class="form-control" />
+                <span asp-validation-for="Date_refilled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="initial_readings" class="control-label"></label>
+                <input asp-for="initial_readings" class="form-control" />
+                <span asp-validation-for="initial_readings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="final_readings" class="control-label"></label>
+                <input asp-for="final_readings" class="form-control" />
+                <span asp-validation-for="final_readings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="agent_id" class="control-label"></label>
+                <input asp-for="agent_id" class="form-control" />
+                <span asp-validation-for="agent_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

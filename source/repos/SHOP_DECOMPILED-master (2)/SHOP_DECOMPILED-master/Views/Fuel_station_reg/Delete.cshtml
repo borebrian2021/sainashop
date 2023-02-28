@@ -1,0 +1,61 @@
+﻿@model SHOP_DECOMPILED.Models.Fuel_station_reg
+
+@{
+    ViewData["Title"] = "Delete station";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="~/Fuel_station_reg/index">List of fuel stations</a></li>
+    <li class="breadcrumb-item active">Remove fuel station</li>
+</ul>
+<div class="container-fluid w3-card p-3 bg-white">
+    <table>
+        <tr>
+            <td class="pr-3"><img src="~/fuel_icons/fuel_station.png" class="logo_card" /></td>
+            <td class="pl-3 border_left">
+                <h5>Do you want to delete <strong>@Html.DisplayFor(model => model.Station_Name)</strong>? This will delete all related data.</h5>
+
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<p>
+    <a class="btn btn-sm bg-white w3-card mt-2">Delete station</a>
+</p>
+<div class="w3-card p-2 bg-white">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Owners_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Owners_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Station_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Station_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+    </dl>
+    <br />
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+
+        <button type="submit" class="btn btn-danger  btn-sm w3-card">Yes</button>|
+        <a asp-action="index" class="btn btn-sm btn-light bg-white w3-card">No</a>
+        |
+
+        <a asp-action="Index" class="btn btn-sm btn-light bg-white w3-card">Back to List</a>
+    </form>
+</div>
+
+

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SHOP_DECOMPILED.Models.Fuel_station_reg>
+
+@{
+    ViewData["Title"] = "Registered stations";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+<br />
+@*<small>Navigation</small>*@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="~/System_users/index">System users</a></li>
+    <li class="breadcrumb-item active">List of fuel stations</li>
+</ul>
+<br />
+<div class="container-fluid w3-card p-3 bg-white">
+    <h5>SELECT FUEL STATION</h5>
+
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-sm bg-white w3-card mt-2"><i class="fa fa-plus-circle"></i>&nbsp;Add new station</a>
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-6 col-12">
+            <div class="container-fluid w3-card p-2 bg-white mb-2">
+                <table>
+                    <tr>
+                        <td rowspan="2"><img src="~/fuel_icons/FUEL.png" class="logo" /></td>
+                        <td class="pl-3">@Html.DisplayFor(modelItem => item.Station_Name)</td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="pl-2">
+                            @*<a asp-action="Edit" class="btn btn-light btn-sm w3-card" asp-route-id="@item.id">&nbsp;Modify</a>
+                            <a asp-action="Delete" class="btn btn-light bg-white w3-card btn-sm" asp-route-id="@item.id">&nbsp;Delete</a>*@
+                            <a asp-action="Details" class="btn btn-light bg-white w3-card btn-sm" asp-route-id="@item.id">
+                                <i class="fa fa-th-large"></i>&nbsp;Manage station
+                            </a>
+                            <a asp-action="index" asp-controller="Fuel_category" class="btn btn-light bg-white w3-card btn-sm" asp-route-station_id="@item.id">&nbsp; Proceed&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                           
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+</div>

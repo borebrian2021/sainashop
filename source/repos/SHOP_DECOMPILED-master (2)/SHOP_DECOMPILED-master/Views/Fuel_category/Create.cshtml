@@ -1,0 +1,81 @@
+﻿@model SHOP_DECOMPILED.Models.Fuel_category
+
+@{
+    ViewData["Title"] = "Create new uers";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+
+
+@*<hr />*@
+<div class="row">
+    <div class="col-lg-6 text-center mb-3">
+        <img src="/fuel_icons/add.png" class="logoClassic_w" />
+        <h5>Add fuel category</h5>
+        <h6>Add fuel category such as Super1,Super 2 e.tc.</h6>
+        @*<small>NB:Manage system users in admin dashboad</small><br />*@
+        <a href="~/Fuel_category/index" class="btn btn-white bg-white btn-sm w3-card"><i class="fa fa-angle-float-left"></i>&nbsp;Uploaded category</a>
+
+    </div>
+    <div class="col-md-6">
+      
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="group">
+                    <input asp-for="Station_id" hidden value="@ViewBag.station_id" class="form-control" />
+                    <select asp-for="Fuel_names" class="form-control">
+                        <option value="Super">Super</option>
+
+                        <option value="Diesel">Diesel</option>
+
+                    </select>
+                    <span class="highlight"></span>
+                    <span asp-validation-for="Fuel_names" class="bar"></span>
+
+                </div>
+                <div class="group">
+
+                    <input asp-for="Tank_capacity" class="form-control" />
+                    <span class="highlight"></span>
+                    <span asp-validation-for="Tank_capacity" class="bar"></span>
+                    <label asp-for="Tank_capacity"></label>
+
+
+                </div>
+                <div class="group">
+
+                    <input asp-for="Current_quantity" class="form-control" />
+                    <span class="highlight"></span>
+                    <span asp-validation-for="Current_quantity" class="bar"></span>
+                    <label asp-for="Current_quantity"></label>
+
+
+                </div>
+                <div class="group">
+
+                    <input asp-for="Price" class="form-control" />
+                    <span class="highlight"></span>
+                    <span asp-validation-for="Price" class="bar"></span>
+                    <label asp-for="Price"></label>
+
+
+                </div>
+
+
+
+
+                <div class="form-group">
+                    @*<input type="submit" value="Create" class="btn btn-default" />*@
+                    <button type="submit" class="btn btn-white bg-white w3-card"><i class="fa fa-cloud-upload" aria-hidden="true"></i> &nbsp;Register</button>
+
+                </div>
+            </form>
+      
+        </div>
+    </div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

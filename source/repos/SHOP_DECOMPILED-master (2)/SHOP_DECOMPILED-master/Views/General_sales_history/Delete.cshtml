@@ -1,0 +1,63 @@
+﻿@model SHOP_DECOMPILED.Models.General_sales_history
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>General_sales_history</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Attendant_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attendant_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_cash_made)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Total_cash_made)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cash_paybill)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cash_paybill)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cash_at_hand)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cash_at_hand)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Expenses)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Expenses)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.On_credit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.On_credit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Availlable_cash)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Availlable_cash)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

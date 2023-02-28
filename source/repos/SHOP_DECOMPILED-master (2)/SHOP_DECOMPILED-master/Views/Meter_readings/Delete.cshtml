@@ -1,0 +1,76 @@
+﻿@model SHOP_DECOMPILED.Models.Meter_readings
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+<ul class="breadcrumb">
+
+    <li class="breadcrumb-item"><a href="~/Fuel_category/index">Meter readings</a></li>
+    <li class="breadcrumb-item active">Delete readings</li>
+</ul>
+<br />
+<div class="container-fluid w3-card p-3 bg-white">
+    <table>
+        <tr>
+            <td class="pr-3"><img src="~/fuel_icons/fuel_station.png" class="logo_card" /></td>
+            <td class="pl-3 border_left">
+                <h5>Do you want to delete <strong>@Html.DisplayFor(model => model.Label)</strong>? Note: This will delete all related data.</h5>
+
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+<p>
+    <a class="btn btn-sm bg-white w3-card mt-2"><i class="fa fa-home"></i>&nbsp;Home</a>
+</p>
+<div>
+    <div class="w3-card p-2 bg-white">
+
+
+        <h4>Meterreadings</h4>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Fuel_id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Fuel_id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Current_readings)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Current_readings)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Previous_readings)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Previous_readings)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Agent_id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Agent_id)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <button type="submit" class="btn btn-danger  btn-sm w3-card">Yes</button>|
+            <a asp-action="index" class="btn btn-sm btn-light bg-white w3-card">No</a>
+            |
+
+            <a asp-action="Index" class="btn btn-sm btn-light bg-white w3-card">Back to List</a>
+        </form>
+    </div>
+    </div>

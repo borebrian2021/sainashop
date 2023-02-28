@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SHOP_DECOMPILED.Models.System_users>
+
+@{
+    ViewData["Title"] = "List of users";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+
+}
+
+<div class="container-fluid w3-card p-3 bg-white">
+    <h5>LIST OF SYSTEM USERS</h5>
+
+</div>
+
+<p>
+    <table>
+        <tr>
+            <td>
+                <a asp-action="Create" class="btn w3-card bg-white mt-3 btn-sm">
+                    <i class="fa fa-plus-circle"></i>&nbsp;      Add New
+                </a>
+            </td>
+            
+        </tr>
+    </table>
+   
+</p>
+<div class="container-fluid" style="overflow:scroll">
+
+
+    <table class="table bg-white w3-card " style="overflow:scroll">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Full_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.National_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Roles)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Full_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.National_id)
+                    </td>
+                    <td>
+                        @if (item.Roles == 1)
+                        {
+                            <p>Admin</p>
+                        }
+                        else
+                        {
+                            <p>Attendant</p>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-sm w3-card btn-success" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Delete" class="btn btn-sm w3-card btn-danger" asp-route-id="@item.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table">
+        <tr>
+           
+            <td class="text-right">
+                <a asp-action="index" asp-controller="Fuel_station_reg" class="btn w3-card bg-white mt-3 btn-sm">
+                    Proceed&nbsp;<i class="fa fa-angle-float-right"></i>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+</div>

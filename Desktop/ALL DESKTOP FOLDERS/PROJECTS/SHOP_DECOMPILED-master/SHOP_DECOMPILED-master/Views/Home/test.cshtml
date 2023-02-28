@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<html>
+   <script src="/lib/jquery/dist/jquery.js"></script>
+   <script language="JavaScript" type="text/javascript"> var $jQuery = jQuery.noConflict(); </script>
+ 
+   <script type="text/javascript">
+     jQuery(document).ready(function()
+     {
+         jQuery("#notepad_link").on("click", function (event) 
+         {      
+           event.preventDefault(); // Recommended to stop the link from doing anything else
+           document.dispatchEvent(new CustomEvent('funcIntraLaunch',
+           {
+              'detail': { task: 'run',
+                          program: 'BarTend.exe',
+                          workingfolder: 'C:\\Program Files (x86)\\Seagull\\BarTender UltraLite',
+                          switches: '',
+                          windowstate: 'max',
+                          showerrors: 'true'
+                        } })); 
+         });
+     });
+   </script>
+ 
+   <body>
+      <a href="#" id="notepad_link">Open notepad</a>
+   </body>
+</html>

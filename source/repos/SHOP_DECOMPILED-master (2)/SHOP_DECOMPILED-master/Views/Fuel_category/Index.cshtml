@@ -1,0 +1,94 @@
+﻿@model IEnumerable<SHOP_DECOMPILED.Models.Fuel_category>
+
+@{
+    ViewData["Title"] = "Fuel category";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+
+
+<div class="container-fluid w3-card p-3 bg-white">
+    <h5>Fuel in stock</h5>
+
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-sm bg-white w3-card mt-2" asp-route-station_id="@ViewBag.station_id"><i class="fa fa-plus-circle"></i>&nbsp;Add new fuel</a>
+</p>
+<br />
+@*<small>Navigation</small>*@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="~/Fuel_station_reg/index">List of fuel stations</a></li>
+    <li class="breadcrumb-item active">List of fuel</li>
+</ul>
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-lg-6 col-12">
+            <div class="container-fluid w3-card p-2 bg-white mb-2">
+                <table>
+                    <tr>
+                        <td rowspan="2"><img src="~/fuel_icons/FUEL.png" class="logo" /></td>
+                        <td class="pl-3"><strong>@Html.DisplayFor(modelItem => item.Fuel_names) </strong>&nbsp;|&nbsp;<strong class="text-danger">Ksh.@Html.DisplayFor(modelItem => item.Price)</strong>&nbsp;|&nbsp;@Html.DisplayFor(modelItem => item.Current_quantity) .Litres</td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="pl-2">
+                            @*<a asp-action="Edit" class="btn btn-light btn-sm w3-card" asp-route-id="@item.id">&nbsp;Modify</a>*@
+                            @*<a asp-action="Delete" class="btn btn-light bg-white w3-card btn-sm" asp-route-id="@item.id">&nbsp;Delete</a>*@
+                            <a asp-action="Details" class="btn btn-light bg-white w3-card btn-sm" asp-route-id="@item.id">&nbsp;Manage fuel</a>
+                            <a asp-action="Details" class="btn btn-light bg-white w3-card btn-sm" asp-route-id="@item.id">&nbsp;Open</a>
+                            <a asp-action="index" asp-controller="Meter_readings" class="btn btn-light bg-white w3-card btn-sm" asp-route-station_id="@item.Station_id">&nbsp; Proceed&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fuel_names)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tank_capacity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Current_quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fuel_names)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tank_capacity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Current_quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

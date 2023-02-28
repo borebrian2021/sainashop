@@ -1,0 +1,239 @@
+﻿@{
+    ViewData["Title"] = "Labels";
+    ViewData["Page"] = " | Labels";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card_log_in text-center">
+            <div class="container-fluid text-center">
+                <h3 class="text">Labels generator</h3>
+                <button onclick="print_sample()">Print</button>
+                <hr />
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARsAAACyCAMAAABFl5uBAAAAilBMVEX///8AAAB5eXnU1NSbm5vCwsLd3d3l5eVnZ2dqamooKCjg4OC3t7e5ubmEhIT19fWOjo6kpKRaWlpDQ0PLy8s7Ozvv7++BgYHExMSVlZX4+PixsbGcnJyCgoLq6uqtra0eHh5KSkpTU1Nzc3NfX18YGBgxMTEbGxsTExNCQkIsLCw2NjYLCwtOTk7YrEJjAAAIWklEQVR4nO2ZW3uqOhCGCXjCA2irIGixVntc9v//vZ2ETDIJuHR17f3sm28uWnKcyctkMsEogkB+JHVR1FGUF0VEfwsnuW7PqW+uK+1Q6hJRx0LPZfte6RjoLUgp/2tHdAwsmA1UqvtmvGKg7R4YSA85TSSlEmIXRakQSRR9CSGbhJNjFG2FKGmKWFeOqNj2iaKREA9RNNSlPTWew47PuuOZ6qxeKWPdJTJ/x6S91bsUYkHTTalJt4yolOlipjs+6JrC6Z2S3jl1n+vGo9ZrDdT/EyHSKNoJUeniQPeNNZvHkI1c8ppUt9o7bKTqmRATYrOiRrnqmddxo21MqW6gVxITm6lhM2VsMoI41NNJvRuPzYxKS4IoO05CNlbvgrovdOODx+aL2MQa4gBswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswAZswOY/Z7MJ2bxoNk80RdnD5lXbeO6wmYQd37SNE6qrtN7TXWwWNN3bbTbnkI3Va9nMdeOLx+b5FpuqjGtJwMlezhvHc5piF8u6uKGiKpXSriYuJZJEN26pcXW1YyvDOJYaD6olLjw2RdwqN3oXumM73ZIM0y0NdVx4HVVNfs1A1Zjoxr3WSwYub7H5H4Wx+R8FbK4L2FwXsLku97IphttFwSvGw+GIl5vD0ymNq6GtGG6NDO0BEG2rOE3L1ZiNG6/itNzlvrZ+NuuBHu2pjerhdu1VLJan9JT5MyZb39jWPPs8srYqcaPuZPPBEhstG5axSFnRkfhBBN3Zf6BlTKmmsuMmpmbvTd7L5pNGx7x2T6abZVqtbo3qPDcnu5UDX08puPwpm2OIZqRTwR6TxONVNg+uil71l63xpu9jE7vRc1bNF+NpFdZzJv7r0PLM2n02r3/I5sRSWKuPd5GJ6kDpGm8oyStkCjhcKJkb/5JZ3FS3HSxXqeh9WEeNzOi86XrY1EJcEplvqaTtzVXPfY+QxQeVSOWlc6dP0WWz9bwvmS9aGaZ8oXexWTlvMNJ4Bqpl/LLzDYiEv08UEuPnL+Zd59LmWj/tdDJtpYeNTLR37dOJEl3Tk4fB1LqDvh4oS2U0+FiFbB5ZGszlna/8HjYS8iWY44nuIa2M3dsjn0jcXorsmozdlZl/7kz+8LZGD5ulXc1B3wZaWQcO/SHezRPxl7e+ab0N2Iz0Bagr37473WajbjQzf4462OVbd3WilrUXDZVs7JiD4bZ0gefkvcgeNmdLdsgW+s3uaa32bzfhqNVx9IcomfQnKSXdMlu5g00Q/Ey3FS8fnBu9GgIyLGSHBTf8Yr1vYUx9cnp8lT1sHFlpcmke5f3yyO1onBtlhnup9mrAJowIRuTG9jbobTay8LmaPGQ8iwjcRh2k5OYbE0J2Juwv2SBaKn3pGDjqR88Beti4Tce+baTO8aiJ9sTAvC7dHrAJIoKRJjgQbrOx3wjEY011uzBdYJvjxbAf2HG0Vyg6klLNaOO0sGyth42MqG4NJm4XYXaYuFxgxb3dZxNGBCO/wtPjJpvMnfzWjvZwiN2rzrps1rttMktWH9YOadFnwEb530n9z6f0zcQqiDpsKMo2NgVY6rNr6I7rtcdmd4XNXkeEdZBTHYL9eQcbtbhB3e6RpbVAOfXpt2xIHult9LGRMVxcssHJ33xX2FBS5ti03NnC72PTDgvZBMGmy6bSM6aOjUpBWh0j6wEmNjA2S3cohWwai8QFQMvGXTX8fEMYNiKsMjOeafAg8vyGhenre2reQgnYHDrXCjVbqp2iHVvnea3/snY61ijwUXIQu6OdxeIjpXOdRbltkzg7EslSPH+xz6NKcm1AnrMQ5GLxzGxEmnnr4gSLxXsebz020za0JT6bt9BubUBNSPqE0aWsRL6RdFBVe7lbnqo2v9s5Q97COHehCneGb72oN87HXX/uyIafU9okyWizryq1Ix8GLevCHWEVP3Q4G9nnSw2Tr/Z7sKRlN/798C5hbOYmqWH7gFItlvtd7HlixPqNW92Cx4K2yy66IWf7XteG7JjbYX2T8t2MJ6wBGyb0ShadK85tGbtMc2mcY8/nbkP7zBEMo/3QnrjurrP305KXYEf1ilvr3ESSWS8bithnvkdusxmwi8jdIqxN8kn/VpCPtTRyrdtxQ22GyCyI/iqhMmF6ZYmk3hZa+uf3FZnbbUuU6llrh/oU0xgbJ5aI579evGmHjaWnxI11rfInnzrlbr7oI+Q79AiW37ifvkrvGpWrDJAu2Dafzb1ry4GY/14Ku13CzI2dU2qydnNv3YkVde9TSvxYHAcXs7tEu+BLlorOEtgZrt6qOMZZ+mwNX5RZqn9ccxfed1lKs1KdTO42plIc/6PmFZGhX0yyUn0g8z+zcTYq5fg6ZbH6ZpN4XTps1n/PRvE1EgzmbFTCbcR4/tIU2YeKte0z9epuxmEt7NOif6Z6C69sp/RaF6eZsTn97OeDeqm+XE47kz9NXxmtlXqv4pKSBnXX2GS+R8xilWXLk9fWJOJt6t3ofyNNqbxS/KqCdGP7/symWLc/837Pgy6dUyh5nbJkL/t6/oHfaMlvd1FZ0rUCn+lKInWnHXcZ8nc6IJB/Tf4B3Ez3sf/Uvh4AAAAASUVORK5CYII=" style="height:100px;" />
+                <button data-toggle="modal" data-target="#add_items" type="submit" class="btn btn-default button-general m-2 w-100 text-centre"> <i class="fa fa-plus"></i> &nbsp; Add item</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="card_log_in text-center">
+            <div class="container-fluid text-center">
+                <h2 class="text">Availlable Items</h2>
+                <hr />
+                <img src="https://www.seekpng.com/png/full/957-9573156_general-store-items-png.png" style="height:100px;" />
+                <br />
+                <br />
+
+                <div id="del_1" class="w3-container city">
+
+                    <div class="card_tabs text-center p-2">
+                        <div class=" text-center p-2">
+                            <table id="deliveries" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th class="th-sm">
+                                            Item No.
+                                        </th>
+
+                                        <th class="th-sm">
+                                            Date
+                                        </th>
+                                        <th class="th-sm">
+                                            Item Name
+                                        </th>
+                                        <th class="th-sm">
+                                            Quantity
+                                        </th>
+                                        <th class="th-sm">
+                                            Price
+                                        </th>
+
+                                        <th class="th-sm">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img src="https://freepngimg.com/thumb/shopping/13-2-shopping-free-png-image-thumb.png" class="round" /></td>
+                                        <td>5465456</td>
+                                        <td>05/10/2022</td>
+                                        <td>Kiwi Small</td>
+                                        <td>20</td>
+                                        <td>45/=</td>
+                                        <td>
+
+
+                                            <button type="button" class="btn btn-light dropdown-toggle btn-sm custome_bt" data-toggle="dropdown">
+                                                More  <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu container-fluid" role="menu" style="border-radius:20px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;border:none;">
+                                                <li style="font-size:20px;width:100%"><a data-target="#printL" data-toggle="modal" class="link_1" onclick="generateBarcode_('4567655','KIWI 25g','Ksh. 45');"><i class="fa fa-print"></i>&nbsp;Print lebel(s)</a></li>
+                                                <li style="font-size:20px;width:100%"><a class="link_2" onclick="modify();"> <i class="fa fa-plus"></i>&nbsp;Add items</a></li>
+                                                <li style="font-size:20px;width:100%"><a asp-action="delete_client" asp-controller="home" class="link_3"><i class="fa fa-database"></i>&nbsp;Delete</a></li>
+
+
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@*<button onclick="googleSignin()">Google Signin</button>
+    <button onclick="googleSignout()">Google Signout</button>*@
+
+<div class="modal fade" id="add_items" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                    @*Add items to system*@
+                    <button  class="btn btn-danger" onclick="print_sample();">Print</button>
+
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="receipt">
+
+                    <label>Enter Item name</label>
+                    <input class="form-control" name="item_name" required placeholder="Enter item name" type="text" />
+
+                    @{
+                        Random rnd = new Random();
+                        int num = rnd.Next(000000, 999999);
+
+
+                    }
+                    <input class="form-control" name="no" value="@num" hidden type="text" />
+                    <label>Enter Date:</label>
+                    <input class="form-control" name="date" required placeholder="Enter date here" type="date" />
+
+                    <label>Enter Quantity:</label><br />
+                    <input class="form-control" name="date" required placeholder="Enter quantity" vlaue="0" name="cash" type="number" />
+                    <label>Enter price:</label>
+                    <input class="form-control" name="date" required placeholder="Enter price" name="price" type="number" />
+
+
+
+
+                    <button type="submit" class="btn btn-success m-3">Submit</button>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<dilv class="modal fade" id="printL" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Labels Printing </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="generator">
+                    <form id="form">
+                        <input type="text" id="barcodeValue" hidden>
+                        <div id="config" style="display:none">
+                            <div class="config">
+                                <div class="title">Type</div>
+                                <input type="radio" name="btype" id="ean8" value="ean8" checked="checked"><label for="ean8">EAN 8</label><br />
+                                <input type="radio" name="btype" id="ean13" value="ean13"><label for="ean13">EAN 13</label><br />
+                                <input type="radio" name="btype" id="upc" value="upc"><label for="upc">UPC</label><br />
+                                <input type="radio" name="btype" id="std25" value="std25"><label for="std25">standard 2 of 5 (industrial)</label><br />
+                                <input type="radio" name="btype" id="int25" value="int25"><label for="int25">interleaved 2 of 5</label><br />
+                                <input type="radio" name="btype" id="code11" value="code11"><label for="code11">code 11</label><br />
+                                <input type="radio" name="btype" id="code39" value="code39"><label for="code39">code 39</label><br />
+                                <input type="radio" name="btype" id="code93" value="code93"><label for="code93">code 93</label><br />
+                                <input type="radio" name="btype" id="code128" value="code128"><label for="code128">code 128</label><br />
+                                <input type="radio" name="btype" id="codabar" value="codabar"><label for="codabar">codabar</label><br />
+                                <input type="radio" name="btype" id="msi" value="msi"><label for="msi">MSI</label><br />
+                                <input type="radio" name="btype" id="datamatrix" value="datamatrix"><label for="datamatrix">Data Matrix</label><br /><br />
+                            </div>
+
+                            <div class="config">
+                                <div class="title">Misc</div>
+                                Background : <input type="text" id="bgColor" value="#FFFFFF" size="7"><br />
+                                "1" Bars : <input type="text" id="color" value="#000000" size="7"><br />
+                                <div id="barcode1D">
+                                    bar width: <input type="text" id="barWidth" value="1" size="3"><br />
+                                    bar height: <input type="text" id="barHeight" value="30" size="3"><br />
+                                </div>
+                                <div id="barcode2D">
+                                    Module Size: <input type="text" id="moduleSize" value="5" size="3"><br />
+                                    Form: <input type="checkbox" name="rectangular" id="rectangular"><label for="rectangular">Rectangular</label><br />
+                                </div>
+                                <div id="miscCanvas">
+                                    x : <input type="text" id="posX" value="10" size="3"><br />
+                                    y : <input type="text" id="posY" value="20" size="3"><br />
+                                </div>
+                            </div>
+
+                            <div class="config">
+                                <div class="title">Format</div>
+                                <input type="radio" id="css" name="renderer" value="css" checked="checked"><label for="css">CSS</label><br />
+                                <input type="radio" id="bmp" name="renderer" value="bmp"><label for="bmp">BMP (not usable in IE)</label><br />
+                                <input type="radio" id="svg" name="renderer" value="svg"><label for="svg">SVG (not usable in IE)</label><br />
+                                <input type="radio" id="canvas" name="renderer" value="canvas"><label for="canvas">Canvas (not usable in IE)</label><br />
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="barcode_older print p-1 text-centre" style="color:black;font-weight:900">
+                    <small id="i_name" class="m-0" style="font-size:10px;color:black">SUPREME SAI ENT.</small><br />
+                    <small id="i_name" class="m-0" style="font-size:10px;color:black">Kiwi 25Kg</small> &nbsp;| &nbsp;
+                    <small id="i_name" class="m-0">45/=</small>
+                    <div id="barcodeTarget" class="barcodeTarget "></div>
+                    <canvas id="canvasTarget" width="50" height="50"></canvas>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="window.print();return false;">Print</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+
+
+            </div>
+        </div>
+    </div>
+</dilv>
+@section scripts_{
+    <script type="text/javascript">
+
+   
+    </script>
+  
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script type="module" src="~/Pos_printer/lib/zip-fs.js" med></script>
+    <script src="~/Pos_printer/scripts/zip-ext.js"></script>
+    <script src="~/Pos_printer/scripts/deflate.js"></script>
+    <script src="~/Pos_printer/scripts/JSPrintManager.js"></script>*@
+}

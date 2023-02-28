@@ -1,0 +1,103 @@
+﻿@model SHOP_DECOMPILED.Models.System_users
+
+@{
+    ViewData["Title"] = "Create new uers";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+
+}
+
+
+<div class="row">
+    <div class="col-lg-6 text-center mb-3">
+        <img src="/fuel_icons/welcome.png" class="logoClassic_w" />
+        <h5>Fuel Sales Module</h5>
+        <h6>Add new system users to the system</h6>
+        <small>NB:Manage system users in admin dashboad</small><br />
+        <a href="#" class="btn btn-white w3-card">Log in</a>
+
+    </div>
+    <div class="col-lg-6 p-3">
+      
+                            <form asp-action="Create" class="m-3">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="group">
+
+
+                                    <input asp-for="Full_name" class="form-control" />
+
+                                    <span class="highlight"></span>
+                                    <span asp-validation-for="Full_name" class="bar"></span>
+                                    <label asp-for="Full_name"></label>
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" asp-for="station_id" asp-items="@(new SelectList(@ViewBag.Drop_sulier,"id","Station_Name"))"></select>
+                                    <a class="btn btn-sm w3-card bg-white m-2" asp-action="Index" asp-controller="Fuel_station_reg"><i class="fa fa-plus-circle"></i>&nbsp;Add stations</a>
+                                </div>
+
+                                <div class="group">
+
+
+                                    <input asp-for="Phone"  value="+254"class="form-control" />
+                                    <span class="highlight"></span>
+                                    <span asp-validation-for="Phone" class="bar"></span>
+                                    <label asp-for="Phone"></label>
+
+
+                                </div>
+                                <div class="group">
+
+                                    <input asp-for="National_id" class="form-control" />
+                                    <span class="highlight"></span>
+                                    <span asp-validation-for="National_id" class="bar"></span>
+                                    <label asp-for="National_id"></label>
+
+
+                                </div>
+                                <div class="group">
+
+                                    <input asp-for="Password" class="form-control" />
+                                    <span class="highlight"></span>
+                                    <span asp-validation-for="Password" class="bar"></span>
+                                    <label asp-for="Password"></label>
+
+
+                                </div>
+                                <div class="group">
+
+
+                                    <select asp-for="Roles" class="form-control">
+                                        <option value="1">Admin</option>
+                                        <option value="2">Attendant</option>
+
+                                    </select>
+                                    <span class="highlight"></span>
+                                    <span asp-validation-for="Roles" class="bar"></span>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-white bg-white w3-card"><i class="fa fa-cloud-upload" aria-hidden="true"></i> &nbsp;Register</button>
+
+                                    @*<input type="submit" value="Create" class="btn btn-white w3-card" />*@
+                                </div>
+                            </form>
+                            @*<a class="btn btn-white w3-card" href="/home/expiries">View details</a>*@
+                        </div>
+                    </div>
+           
+
+
+@section Scripts {
+   
+  
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+
+
+}

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <div class="card_log_in text-center">
+            <div class="container-fluid text-center">
+                <p class="text">Please Choose Service to access</p>
+
+                <hr />
+
+               
+                 <img src="/Images/select.svg" style="height:80px;" />
+
+                    <a asp-controller="system_two" asp-action="Log_in" type="submit" class="btn btn-default button-general m-2 w-100 text-left" >Workshop</a>
+                    <a  asp-controller="log_in" asp-action="Log_in" class="btn btn-default button-general m-2 w-100 text-left">Shop</a>
+              
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+
+@*<button onclick="googleSignin()">Google Signin</button>
+<button onclick="googleSignout()">Google Signout</button>*@

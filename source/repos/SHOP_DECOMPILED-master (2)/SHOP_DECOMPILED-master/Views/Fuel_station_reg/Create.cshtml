@@ -1,0 +1,65 @@
+﻿@model SHOP_DECOMPILED.Models.Fuel_station_reg
+
+@{
+    ViewData["Title"] = "Register fuel station";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-6 text-center mb-3">
+        <img src="/fuel_icons/welcome.png" class="logoClassic_w" />
+        <h5>Fuel station REGISTRATION</h5>
+        <h6>Add multiple fuel station to the system</h6>
+     
+        <p>
+            <a class="btn btn-sm bg-white w3-card mt-2" asp-action="index">
+                <i class="fa fa-home"></i>&nbsp;Home
+            </a>
+        </p>
+
+    </div>
+    <div class="col-lg-6 p-3">
+    
+                        <div class="row">
+                            <div class="col-md-4">
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <div class="form-group" hidden>
+                                        <label asp-for="Owners_id" class="control-label"></label>
+                                        <input asp-for="Owners_id" value="@ViewBag.user_id" class="form-control" />
+                                        <span asp-validation-for="Owners_id" class="text-danger"></span>
+                                    </div>
+                                    <div class="group">
+
+                                        <input asp-for="Station_Name" class="form-control" />
+                                        <span class="highlight"></span>
+                                        <span asp-validation-for="Station_Name" class="bar"></span>
+                                        <label asp-for="Station_Name"></label>
+
+
+                                    </div>
+                                    <div class="group">
+
+                                        <input asp-for="Location" class="form-control" />
+                                        <span class="highlight"></span>
+                                        <span asp-validation-for="Location" class="bar"></span>
+                                        <label asp-for="Location"></label>
+
+
+                                    </div>
+                                   
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-white bg-white w3-card"><i class="fa fa-cloud-upload" aria-hidden="true"></i> &nbsp;Submit</button>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        </div>
+                        </div>
+                       
+
+                        @section Scripts {
+                            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                        }

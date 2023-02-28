@@ -1,0 +1,942 @@
+﻿@{Layout = "~/Views/Shared/fuel_layout.cshtml";
+    ViewData["Title"] = "Attendant"; }
+<div class="row mt-2">
+
+    <div class="col-lg-12">
+
+
+        <div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="bg-white p-2 w3-card">
+                        <div class="card-body text-left">
+                            <div class="row">
+                                @*<div class="col-lg-4 col-4 border-right-account">
+                                        <p><img class="icons" src="~/icons/account.png" alt="card image"></p>
+                                    </div>*@
+
+                                <div class="col-lg-12 col-12 ">
+                                    <table>
+                                        <tr>
+                                            <td class="text-capitalize">
+                                                @ViewBag.station_name<br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @*<span class="badge badge-secondary">*@
+                                                <b>
+
+                                                    @ViewBag.NAME
+                                                </b>
+                                                @*</span>*@
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @*<span class="badge badge-secondary">*@
+                                               Attendant
+                                                @*</span>*@
+                                            </td>
+                                        </tr>
+                                        <!--<tr>
+                                            <td>-->
+                                        @*<span class="badge badge-secondary">*@
+                                        <!--<button class="btn w3-card bg-white" onclick="upload_data();"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;Submit sales</button>-->
+                                        @*</span>*@
+                                        <!--</td>
+                                        </tr>-->
+
+
+                                    </table>
+
+                                    @*<a href="" class="btn btn-light btn-sm">More details &nbsp;<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></a>*@
+
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@if (@ViewBag.expired_list != null)
+{
+    <div class="row">
+        <div class="col-lg-12">
+
+
+            <div class="image-flip">
+                <div class="mainflip flip-0">
+                    <div class="frontside">
+                        <div class="card w3-card side_custome_expired">
+                            <div class="card-body text-left">
+                                <div class="row">
+
+
+                                    <div class="col-lg-12 col-12">
+                                        <h1 class="card-title">@ViewBag.expired_list </h1>
+                                        @*<a href="" class="btn btn-light btn-sm">More details &nbsp;<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></a>*@
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <p class="card-text">Expired items </p>
+                                <a class="btn btn-white w3-card" href="/home/expiries">View details</a>
+
+                            </div>
+                            @*<div class="card-body text-left">
+                                <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                                <h4 class="card-title">Messages</h4>
+                                <p class="card-text">67</p>*@
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>}
+
+<div class="row">
+    @foreach (var item in ViewBag.Meter_details)
+    {
+    <div class="col-lg-3">
+
+       
+            <div class="image-flip ">
+                <div class="mainflip flip-0">
+                    <div class="frontside">
+                        <div class="card w3-card p-0 side_custome">
+                            <div class="card-body text-left">
+                                <div class="row">
+                                    <div class="col-lg-12 col-12">
+                                        <table class="w-100">
+                                            <tr>
+                                                <!--<td>-->
+                                                @*  <p><img class="icons" src="~/images/meter12.png" alt="card image"></p>*@
+
+                                                <!--</td>-->
+                                                <td>
+                                                    <h6><strong>@item.Label</strong></h6>
+                                                </td>
+                                                <td>
+                                                    <h4><strong>&nbsp;|&nbsp;@item.Current_readings</strong></h4>
+                                                </td>
+                                                <td rowspan="2" class="text-right">
+                                                    <a asp-action="Details" asp-route-id="@item.fuel_id" asp-controller="fuel_category">
+                                                        <img src="~/fuel_icons/info.png" class="logoClassic" />
+                                                        </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h6 style=" color:#15badf;
+">
+                                                        @{ 
+                                                            double x = Math.Round(@item.Current_quantity);
+                                                        }
+                                                        <strong>@x Litres</strong>
+                                                    </h6>
+                                                </td>
+                                                <td>
+                                                    <h6><strong>&nbsp;|&nbsp;Ksh. @item.Price&nbsp;/&nbsp;Littre</strong></h6>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+                            </div>
+                            @*<div class="card-body text-left">
+                        <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                        <h4 class="card-title">Messages</h4>
+                        <p class="card-text">67</p>*@
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+     
+    </div> 
+    }
+
+
+</div>
+
+<div class="container-fluid  bg-white  background_bottom fixed-bottom custome_footer text-center p-bw3-card pt-2  w3-card sell_1">
+    <table class="table">
+        <tr>
+
+            <td class="border-0">
+
+                <button class="btn btn-light text-dark w3-card mb-3 font_custome" id="submit_button"><img src="~/images/information.png" class="sell" />&nbsp;&nbsp;&nbsp;SUBMIT SALES</button>
+
+                <button class="btn btn-light text-dark w3-card  mb-3 font_custome" data-toggle="modal" data-target="#sell_itemsf"  id=""><img src="~/images/meter12.png" class="sell" />&nbsp;&nbsp;&nbsp;SUBMITTED TODAY</button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
+@*//SUBMIT SALES*@
+<div class="modal fade custome_modal_radius" id="submit_sales_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/fuel_icons/FUEL.png" class="sell" />&nbsp;<b>SELECT FUEL</b>
+            </div>
+            <div class="modal-body  p-2 " style="z-index:1020">
+
+                <div class="row" id="selecting_fuel">
+                    @foreach (var item in ViewBag.Meter_details)
+                    {
+                        <div class="col-12 col-lg-12" onclick="go_to_confirm_meter('@item.Current_readings','@item.fuel_id','@item.Label','@item.Price','@item.Current_quantity','@item.id');">
+                            <div class="meter_readings_list" onclick="go_to_confirm_meter('@item.Current_readings','@item.fuel_id','@item.Label','@item.Price','@item.Current_quantity','@item.id');">
+                                <div class="w3-card m-3 p-2">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <img src="~/fuel_icons/drop.png" class="sell" />
+
+                                            </td>
+                                            <td class="pl-5 pr-3">
+                                                <p id="fuel_name_repeater">@item.Label</p>
+                                            </td>
+                                            <td class="pl-3" style="border-left:2px grey solid">
+                                                <b> @item.Current_readings</b>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    </div>
+                <div class="row" id="_submitting_input">
+                    <div class="col-lg-12">
+                     @*   <form asp-action="submit_meter_readings">*@
+                            <input id="fuel_id" hidden>
+                            <table class="" style="width:100%;">
+                                <tr>
+                                    <td colspan="2">
+                                        ENTER CLOSING STOCK<br />
+                                        Carefully enter clossing meter readings for:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="col-12 col-lg-12">
+                                            <div class="fuel_display ">
+                                                <p id="fuel_label"> </p>
+                                                <p id="Previous_meter" hidden> </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="group">
+                                            <input class="form-control" type="number" min="0" name="mod_name" id="enter_meter" placeholder="Enter meter here" type="text">
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <button id="back_to_choose_fuel" class="w3-card btn "><i class="fa fa-angle-float-left" aria-hidden="true"></i>Back</button>
+
+
+                                    </td>
+                                    <td class="text-center">
+                                        <button id="next_to_confirm_meter" class="w3-card btn ">Next&nbsp;<i class="fa fa-angle-float-right" aria-hidden="true"></i></button>
+                                    </td>
+                                </tr>
+                            </table>
+                        @*</form>*@
+                    </div>
+                </div>
+                <div class="row " id="_confirm_meter">
+
+
+
+                    <div class="col-lg-12 text-center">
+                        <img src="~/fuel_icons/confirm.png" class="big_images" />
+                        <table class="m-5" >
+                            <tr>
+                                <td colspan="2">
+                                    <h2>CONFIRM</h2> <br />
+                                    <p>Confirm meter readings entered.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Closing meter:</td>
+                                <td colspan="2">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="fuel_display ">
+                                            <h3 >   <strong id="fuel_confirm_meter"></strong> </h3>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr> <tr>
+                                <td>Previous meter:</td>
+                                <td colspan="2">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="fuel_display ">
+                                            <h3 >   <strong id="p_meter"></strong> </h3>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr><tr>
+                                <td>Litres sold:</td>
+                                <td colspan="2">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="fuel_display ">
+                                            <h3 ><strong id="sold"></strong> </h3>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            
+                            <tr>
+                                <td>Price/Litre:</td>
+                                <td colspan="2">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="fuel_display ">
+                                            <h3 >   <strong id="price"></strong> </h3>
+                                            <h3 >   <strong id="f_id" hidden></strong> </h3>
+                                            <h3 >   <strong id="m_id" hidden></strong> </h3>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr><tr>
+                                <td><strong>TOTAL Ksh.</strong></td>
+                                <td colspan="2">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="fuel_display ">
+                                            <h4>    <strong id="total"></strong> </h4>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <button class="w3-card btn " id="modify_meter"><i class="fa fa-angle-float-left" aria-hidden="true"></i>&nbsp;Modify</button>
+                                </td>
+                                <td class="text-center">
+                                    <button class="w3-card btn " id="submit_meter">Submit&nbsp;<i class="fa fa-angle-float-right" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button class="btn w3-card" data-dismiss="modal">Exit</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*//SOLD ITEMS*@
+<div class="modal fade custome_modal_radius" id="sold_items_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>SOLD ITEMS TODAY</b>
+
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                                    <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                                    <input id="search_sold_items" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search"
+                                           aria-label="Search">
+                                    &nbsp;
+                                    <button class="btn btn-primary btn-sm" id="sold_items_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+
+                                    <button class="btn btn-white btn-sm w3-card" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Exit</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr />
+
+
+                    </div>
+
+                </div>
+                <div class="row mt-1 p-2">
+                    <table class="table font_flex" id="sold_items">
+                        <tr>
+                            <th class="border_none" style="border:none">Date</th>
+                            <th class="border_none" style="border:none">Brand</th>
+                            <th class="border_none" style="border:none">Sold</th>
+                            <th class="border_none" style="border:none">Price</th>
+                            <th class="border_none" style="border:none">Total</th>
+
+                        </tr>
+                        @if (@ViewBag.JoinList != null)
+                        {
+                            @foreach (var item in @ViewBag.JoinList)
+                            {
+                                <tr>
+                                    <td>@item.DateTime</td>
+                                    <td>@item.Item_name</td>
+
+                                    <td>@item.quantity_sold</td>
+                                    <td>@item.Item_price</td>
+                                    <td class="total_per_brand_sold_0">@item.Total_cash_made</td>
+
+                                </tr>
+                            }}
+                        <tr>
+                            <td colspan="2" class="text-left" style="border:none;font-size:30px;"><b>TOTAL:</b></td>
+                            <td colspan="2" style="border:none;font-size:30px;" class="border_none text-left">Ksh.<b id="total_attendant"></b></td>
+                        </tr>
+                    </table>
+
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+@*//SELECT ITEM*@
+
+@*//CALCULATE CASH*@
+
+<div class="modal fade custome_modal_radius" id="calculate_modal">
+    <div class="modal-dialog" style="z-index:1020">
+        <div class="modal-content" style="z-index:1020">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2 grey_custome">
+                <img src="~/icons/finance.png" class="sell" />&nbsp; <h3 class="pr-2" id="item_selected_finance"></h3>
+
+            </div>
+
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+
+                <table class="table" style="z-index:1020">
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Item price:</td>
+                        <td class="border-0"><p id="item_price"></p></td>
+                    </tr>
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Items sold:</td>
+                        <td class="border-0"><p id="items_sold_finance"></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">NB:Enter discounted value here</td>
+                    </tr>
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Total Cash Expected:</td>
+                        <td class="border-0"><input id="total_cash_paid_out" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td class="border-0 text-center" colspan="2">
+                            @*<form asp-action="post_finish">*@
+                            <input name="id_finish" id="id_finish" hidden />
+                            <input name="quantity_sold" id="quantity_sold" hidden />
+                            <input name="submit_price" id="submit_price" hidden />
+                            <input name="Total_cash_made" id="Total_cash_made" hidden />
+                            <input name="DateTime" id="DateTime" value="@DateTime.Now.ToString("dd/MM/yyyy")" hidden />
+                            <button class="btn w3-card-lg" id="next">Next &nbsp;&nbsp;<img src="~/icons/next.png" class="sell_lg" /></button>
+                            @*</form>*@
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*//SELECTED ITEM*@
+
+<div class="modal fade custome_modal_radius" id="selected_item">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content" style="z-index:1020">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2 grey_custome">
+                <img src="~/images/sell.png" class="sell" />&nbsp; <p id="item_selected"></p>
+
+            </div>
+
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <table class="table" style="z-index:1020">
+                    @*<tr>
+                            <td>
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp; Item selected:
+                            </td>
+                            <td>
+                                <p id="item_selected"></p>
+                            </td>
+                        </tr>*@
+                    <tr>
+                        <td class="grey_custome border-0">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp; Current Quantity:
+                        </td>
+                        <td class="border-0">
+                            <p id="current_quantity"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="border-0 text-center">
+                            <p class="grey_custome">Please enter quantity sold</p>
+                            @*<form asp-action="restock">*@
+                            <div class="input-group mb-3 w3-card">
+                                <div class="input-group-prepend text-light">
+                                    <a class="btn btn-primary" style="
+" onclick="dincrementInput('quantity_selector')">
+                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <input hidden min="0" autocomplete="on" name="id_select_quantity" id="id_for_restock" type="number"><br />
+                                <input hidden autocomplete="on" id="price_for_quantity_selector" type="number">
+                                <input class="form-control" min="0.5" name="ammount" id="quantity_selector" value="1" type="number">
+                                <div class="input-group-append text-light w3-card">
+                                    <a style="
+" class="btn btn-primary" onclick="incrementInput('quantity_selector')">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td class="text-center border-0">
+                                        <button data-dismiss="modal" data-target="#sell_itemsf" data-toggle="modal" class="btn reduced_radius reduced_radius w3-card"><img src="~/icons/back.png" class="sell_lg" />&nbsp;&nbsp;&nbsp;Back</button>
+                                    </td>
+                                    <td class="text-center border-0">
+                                        <button id="submit_quantity" class="btn reduced_radius reduced_radius w3-card">Next&nbsp;&nbsp;&nbsp;<img src="~/icons/next.png" class="sell_lg" /></button>
+
+                                </tr>
+                            </table>
+                            @*</form>*@
+
+                        </td>
+
+                    </tr>
+                </table>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Button to Open the Modal -->
+<!-- The Modal -->
+<div class="modal" id="done" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content w3-card">
+
+            <table class="table">
+                <tr>
+                    <td rowspan="2">
+                        <img src="/gif/done.gif" class="done" />
+                    </td>
+                    <td>
+                        <p>Item sold successfully.Customer receipt has been downloaded to your local machine!.</p>
+                        <a asp-action="refresh" asp-controller="home" class="btn w3-card">Ok</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-header ">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="upload">
+    <div class="modal-dialog">
+        <div class="modal-content w3-card">
+
+            <!-- Modal Header -->
+            <div class="modal-body text-center">
+                <p id="completed">Please wait for data upload to complete</p><br />
+                <img id="upload_img" src="/gif/loading1.gif" class="loading" /><br />
+                <img id="done_img" src="/gif/done.gif" class="done" /><br />
+
+                <p id="uploading_text">Uploading...</p><br />
+                <button id="close_mod" class="btn w3-card bg-white">Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="confirm_sale">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content w3-card">
+
+            <!-- Modal Header -->
+            <div class="modal-header ">
+
+
+
+                <table class="table table-sm border-0">
+                    <tr>
+                        <td colspan="2" class="border-0">
+                            <p>Please confirm sales before submitting</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <img src="/gif/cofirm.gif" class="confirm_gif" />
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="border-0">Item:</td>
+                                    <td class="border-0"><p id="item_name_confirm"></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0">To be sold:</td>
+                                    <td class="border-0"><p id="item_sold_confirm"></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0">Buying Price:</td>
+                                    <td class="border-0"><p id="cost_price_confirm"></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0">Selling price:</td>
+                                    <td class="border-0"><p id="price_confirm"></p></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="border-0">Sub-Total:</td>
+                                    <td class="border-0"><p id="sub_total_confirm"></p></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Receipt printing:</td>
+                        <td>
+                            <div class="custom-control custom-switch mt-3">
+                                <input type="checkbox" class="custom-control-input" id="customSwitches" checked>
+                                <label class="custom-control-label" for="customSwitches" id="p_status">On</label>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-0 text-left">
+                            <button class="btn w3-card" id="finish_submit">Finish</button>
+                        </td>
+
+                        <td class="border-0 text-right">
+                            <button class="btn w3-card" onclick="goBack()">Back</button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+@section increment{
+
+
+
+    <script src="~/js/side_menu.js"></script>
+
+
+
+    <script type="text/javascript">
+        function truncator(numToTruncate, intDecimalPlaces) {
+            var numPower = Math.pow(10, intDecimalPlaces); // "numPowerConverter" might be better
+            return ~~(numToTruncate * numPower) / numPower;
+        }
+//LAUNCHING SUBMIT METER MODAL
+        $("#submit_button").click(function () {
+            $("#_submitting_input").hide("slow");
+            $("#_confirm_meter").hide("slow");
+            $("#selecting_fuel").show("slow");
+        $("#submit_sales_modal").modal('show');
+
+
+        });
+         
+
+
+        $("#modify_meter").click(function () {
+            $("#_submitting_input").show("slow");
+            $("#_confirm_meter").hide("slow");
+            $("#selecting_fuel").hide("slow");
+        $("#submit_sales_modal").modal('show');
+
+
+        });
+
+        //LETS GO BACK TO CHOOSE IMAGE
+        //$("#fuel_confirm_meter").click(function () {
+
+
+        //}
+        $("#submit_meter").click(function () {
+
+            var p_meter =$("#p_meter").text();
+            var c_meter = $("#fuel_confirm_meter").text();
+            var sold = $("#sold").text();
+            var total =$("#total").text();
+            var price = $("#price").text();
+            var f_id = $("#f_id").text();
+            var m_id = $("#m_id").text();
+            $.ajax({
+                type: "POST",
+                url: "/Calculations/Submit_fuel_sales",
+                data: {
+                    "p_meter": p_meter, "sold": sold, "total": total, "f_id": f_id, "c_meter": c_meter, "price": price,"m_id":m_id,
+                },
+                success: function (response) {
+                    //$("#selecting_fuel").hide("slow");
+
+                    if (response.response_msg == 'failure') {
+                        swal("Error!", "Failed to submit check tank levels and try ", "error");
+
+                    }
+                    else {
+                        swal("Sucess!","Successfully submitted!","success", {
+                            buttons: {
+                               
+                                catch: {
+                                    text: "Ok",
+                                    value: "Submit",
+                                },
+                               /* defeat: true,*/
+                            },
+                        })
+                            .then((value) => {
+                                switch (value) {
+
+
+                                    case "catch":
+                                        window.location.reload();
+                                        break;
+
+                                    default:
+                                        window.location.reload();
+                                }
+                            });
+                        //swal("Success", "Meter submitted successfully!", "success");
+
+                    }
+                    $("#submit_sales_modal").modal('hide');
+                }
+
+
+                ,
+                failure: function (response) {
+                swal("error", "Failed to upload", "warning");
+
+
+
+                },
+                error: function (response) {
+                    swal("error", response.error, "warning");
+
+
+                }
+            });
+        });
+
+            $("#back_to_choose_fuel").click(function () {
+            $("#_submitting_input").hide();
+            $("#_confirm_meter").hide();
+            $("#selecting_fuel").show("slow");
+        $("#submit_sales_modal").modal('show');
+
+
+        });
+
+        $("#next_to_confirm_meter").click(function () {
+
+            //var entered_meter = $("#enter_meter").val();
+            //let inputValue = $('#enter_meter').val();
+            if (document.getElementById("enter_meter").value.length == 0) {
+
+
+                swal("Warning", "Please enter meter reading before proceeding", "warning");
+
+            }
+            else {
+                var p_meter = $("#Previous_meter").text();
+                var c_meter = $("#enter_meter").val();
+                var price = $("#price").text();
+                var sold = c_meter - p_meter;
+                var final_sold = truncator(sold, 4);
+                var total = sold * price;
+                var final_total = truncator(total, 3);
+
+                //LETS BIND SABTRACTION RESULTS
+                $("#p_meter").text(p_meter);
+                $("#total").text(final_total);
+                $("#sold").text(final_sold);
+                if (parseInt(p_meter) > parseInt(c_meter)) {
+                    swal("Invalid input", "Meter entered is invalid pleaseread the meter carefully and try again!", "error");
+                   /* alert(p_meter + c_meter)*/
+
+                }
+                else {
+
+                    var entered_meter = $("#enter_meter").val();
+                    $("#fuel_confirm_meter").text(entered_meter);
+                    $("#_submitting_input").hide("slow");
+                    $("#_confirm_meter").show("slow");
+                    $("#selecting_fuel").hide("slow");
+                    //alert(p_meter)
+                }
+                //LETS CHECK VALIDITY OF THE METER RADINGS
+                //$.ajax({
+                //    type: "POST",
+                //    url: "/System_users/check_meter_validity",
+
+                //    data: {
+                //        "name": null
+                //    },
+                //    success: function (response) {
+
+
+                //    },
+                //    failure: function (response) {
+                //        $("#total_2").text("Error happened while calculating total cash");
+                //        swal("Something is wrong", response.responseText, "error");
+
+
+                //    },
+                //    error: function (response) {
+                //        swal("Something is wrong", response.responseText, "error");
+
+                //        //$('#mymodalWarning').modal('show');
+
+                //    }
+                //});
+
+
+
+
+
+
+
+
+
+
+            }
+
+        });
+        //$("#submit_button").click(function () {
+        //    $("#_submitting_input").hide();
+        //    $("#_confirm_meter").hide();
+        //    $("#submit_sales_modal").modal('show');
+
+        //});
+        function go_to_confirm_meter(meter_meter_readings, fuel_id,fuel_category,price,c_quantity,id) {
+            //$("#_submitting_input").text(meter_meter_readings);
+            $("#selecting_fuel").hide("slow");
+            $("#_submitting_input").show("slow");
+            $("#fuel_label").text(fuel_category);
+            $("#price").text(price);
+            $("#Previous_meter").text(meter_meter_readings);
+            $("#f_id").text(fuel_id);
+            $("#m_id").text(id);
+            //swal("Invalid meter number", "Something is wrong with the meter readings you entered please check and try again!", "error");
+
+        };
+
+
+
+
+
+
+
+        </script>
+
+   
+
+
+}
+
+<script type="module" src="~/Pos_printer/lib/zip.js" med></script>
+<script src="~/Pos_printer/scripts/zip-ext.js"></script>
+<script src="~/Pos_printer/scripts/deflate.js"></script>
+<script src="~/Pos_printer/scripts/JSPrintManager.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>

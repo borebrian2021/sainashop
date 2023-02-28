@@ -1,0 +1,295 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>f42e6dcc-ee09-4b15-9581-48cd8723511e</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\animated.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\core.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\fixed-width.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\font-awesome.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\icons.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\larger.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\list.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\mixins.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\path.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\screen-reader.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\stacked.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\less\variables.less" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_animated.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_core.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_icons.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_larger.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_list.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_mixins.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_path.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_stacked.scss" />
+    <None Include="wwwroot\font-awesome-4.7.0\font-awesome-4.7.0\scss\_variables.scss" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\core.js" />
+    <None Include="wwwroot\js\engine.js" />
+    <None Include="wwwroot\js\full-screen-helper.min.js" />
+    <None Include="wwwroot\js\functions.js" />
+    <None Include="wwwroot\js\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\js\jquery-countTo.js" />
+    <None Include="wwwroot\js\jquery.appear.js" />
+    <None Include="wwwroot\js\jquery.countdown.js" />
+    <None Include="wwwroot\js\jquery.cubeportfolio.min.js" />
+    <None Include="wwwroot\js\jquery.fancybox.min.js" />
+    <None Include="wwwroot\js\jquery.pagepiling.min.js" />
+    <None Include="wwwroot\js\map.js" />
+    <None Include="wwwroot\js\morphext.min.js" />
+    <None Include="wwwroot\js\owl.carousel.min.js" />
+    <None Include="wwwroot\js\parallaxie.js" />
+    <None Include="wwwroot\js\particles.min.js" />
+    <None Include="wwwroot\js\propper.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.actions.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.carousel.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.kenburn.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.layeranimation.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.migration.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.navigation.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.parallax.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.slideanims.min.js" />
+    <None Include="wwwroot\js\revolution\extensions\revolution.extension.video.min.js" />
+    <None Include="wwwroot\js\revolution\jquery.themepunch.revolution.min.js" />
+    <None Include="wwwroot\js\revolution\jquery.themepunch.tools.min.js" />
+    <None Include="wwwroot\js\side_menu.js" />
+    <None Include="wwwroot\js\side_menu_functions.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\site_web.js" />
+    <None Include="wwwroot\js\slider.js" />
+    <None Include="wwwroot\js\tableHTMLExport.js" />
+    <None Include="wwwroot\js\tooltipster.min.js" />
+    <None Include="wwwroot\js\typed.min.js" />
+    <None Include="wwwroot\js\wow.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.dataTables.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.dataTables.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.foundation.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.foundation.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.jqueryui.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.jqueryui.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.material.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.material.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.semanticui.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.semanticui.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.uikit.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.uikit.min.js" />
+    <None Include="wwwroot\lib\datatables\js\jquery.dataTables.js" />
+    <None Include="wwwroot\lib\datatables\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\Pos_printer\components\App.js" />
+    <None Include="wwwroot\Pos_printer\components\DemoStartPage.js" />
+    <None Include="wwwroot\Pos_printer\components\InstallJSPMClientApp.js" />
+    <None Include="wwwroot\Pos_printer\components\JSPMStatus.js" />
+    <None Include="wwwroot\Pos_printer\components\Printers.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintersInfoSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintersWatcherSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingDOCSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingFilesSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingMultiplePrintJobsSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingPDFSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingPwdProtectedFilesSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingRawCommandsSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingTXTSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintingXLSSample.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintJob.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintJobForFiles.js" />
+    <None Include="wwwroot\Pos_printer\components\PrintJobForRawCommands.js" />
+    <None Include="wwwroot\Pos_printer\components\ScanningSample.js" />
+    <None Include="wwwroot\Pos_printer\components\SerialPortBIDISample.js" />
+    <None Include="wwwroot\Pos_printer\components\WebsiteBlocked.js" />
+    <None Include="wwwroot\Pos_printer\dist\README.md" />
+    <None Include="wwwroot\Pos_printer\dist\z-worker-pako.js" />
+    <None Include="wwwroot\Pos_printer\dist\z-worker.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip-fs-full.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip-fs-full.min.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip-fs.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip-fs.min.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip-full.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip-full.min.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip.js" />
+    <None Include="wwwroot\Pos_printer\dist\zip.min.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\codecs\codec-pool.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\codecs\codec.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\codecs\crc32.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\codecs\crypto.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\codecs\deflate.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\codecs\inflate.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\constants.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\engine.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\stream.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\util\cp437-decode.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\util\mime-type.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\util\stream-codec-shim.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\z-worker-core.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\zip-core.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\zip-entry.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\zip-fs-core.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\zip-reader.js" />
+    <None Include="wwwroot\Pos_printer\lib\core\zip-writer.js" />
+    <None Include="wwwroot\Pos_printer\lib\z-worker-inline.js" />
+    <None Include="wwwroot\Pos_printer\lib\z-worker-pako.js" />
+    <None Include="wwwroot\Pos_printer\lib\z-worker.js" />
+    <None Include="wwwroot\Pos_printer\lib\zip-fs.js" />
+    <None Include="wwwroot\Pos_printer\lib\zip-full.js" />
+    <None Include="wwwroot\Pos_printer\lib\zip.js" />
+    <None Include="wwwroot\Pos_printer\POS TEST.html" />
+    <None Include="wwwroot\Pos_printer\scripts\cptable.js" />
+    <None Include="wwwroot\Pos_printer\scripts\cputils.js" />
+    <None Include="wwwroot\Pos_printer\scripts\deflate.js" />
+    <None Include="wwwroot\Pos_printer\scripts\ie11.js" />
+    <None Include="wwwroot\Pos_printer\scripts\JSPrintManager.d.ts" />
+    <None Include="wwwroot\Pos_printer\scripts\JSPrintManager.js" />
+    <None Include="wwwroot\Pos_printer\scripts\zip-ext.js" />
+    <None Include="wwwroot\Pos_printer\scripts\zip.js" />
+    <None Include="wwwroot\Pos_printer\tests\data\lorem-encrypted.zip" />
+    <None Include="wwwroot\Pos_printer\tests\data\lorem-invalid-crc.zip" />
+    <None Include="wwwroot\Pos_printer\tests\data\lorem-store.zip" />
+    <None Include="wwwroot\Pos_printer\tests\data\lorem-zip64.zip" />
+    <None Include="wwwroot\Pos_printer\tests\data\lorem.txt" />
+    <None Include="wwwroot\Pos_printer\tests\data\lorem.zip" />
+    <None Include="wwwroot\Pos_printer\tests\index.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\config.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-array.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-array.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-base64.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-base64.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-blob.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-blob.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-codecs-interoperability.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-codecs-interoperability.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-crypto.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-crypto.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-extra-field.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-extra-field.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-base64.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-base64.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-export-options.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-export-options.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-http-import.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-http-import.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-http-reader.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-http-reader.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-replace.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-replace.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-text.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-text.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-unzip-store.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs-unzip-store.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-fs.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-http-crypto.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-http-crypto.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-http-zip64.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-http-zip64.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-invalid-crc.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-invalid-crc.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-no-worker.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-no-worker.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-pako-no-worker.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-pako-no-worker.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-pako.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-pako.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-parallel-reads.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-parallel-reads.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-parallel-writes-auto-buffered.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-parallel-writes-auto-buffered.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-parallel-writes.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-parallel-writes.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-require.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-require.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-store.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-store.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-sw-worker.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-sw.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-sw.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-wrapped.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-wrapped.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-zip64-crypto.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-zip64-crypto.js" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-zip64.html" />
+    <None Include="wwwroot\Pos_printer\tests\pages\test-zip64.js" />
+    <None Include="wwwroot\Pos_printer\tests\vendor\pako.min.js" />
+    <None Include="wwwroot\Pos_printer\tests\vendor\pako_deflate.min.js" />
+    <None Include="wwwroot\Pos_printer\tests\vendor\pako_inflate.min.js" />
+    <None Include="wwwroot\Pos_printer\tests\vendor\require.js" />
+    <None Include="wwwroot\svg\bd.svg" />
+    <None Include="wwwroot\svg\bg_svg.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.0" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="19.1.0.57" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="18.4.0.35" />
+    <PackageReference Include="Twilio.AspNet.Core" Version="5.37.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Log_in\log_in.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Fuel_station\" />
+  </ItemGroup>
+
+</Project>

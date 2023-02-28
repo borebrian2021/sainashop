@@ -1,0 +1,175 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+}
+<link href="~/css/w3school.css" asp-append-version="true" rel="stylesheet" />
+
+
+
+
+
+<div class="modal  fade" data-backdrop="static" id="inv" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-6 col-lg-6">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Receipt</h5>
+                    </div>
+                    <div class="col-6 col-lg-6 text-right">
+                        <a href="#" class="btn btn-success btn-sm custome_bt" onclick="window.print();return false;" data-toggle="modal" data-target="#invoice"><i class="fa fa-print"></i></a>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-body">
+                <div class="container print">
+
+                    <img src="/Images/saina_logo.png" class="inv-logo" style="height:150px;width:150px" />
+                    <div class="  text-center">
+                        <div class="row">
+                            <div class="col-lg-4 text-left">
+                                <ul>
+                                    <li>P.O. BOX. 65-30706</li>
+                                    <li>CHEBIEMIT</li>
+
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+
+                                <h1 class="font-weight-bolder text-dark"><u>INVOICE</u></h1>
+
+                            </div>
+                            <div class="col-lg-4 text-right">
+                                <ul>
+                                    <li>0724411559 | 0720100002</li>
+                                    <li>paulsai@@gmail.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h3>SUPREME SAI ENTERPRISE</h3>
+                                <i class="text-center">
+                                    <strong>
+                                        Dealers in office Furnitures,House hold furnitures,Steel doors,Windows
+                                        ,Double decker beds & Interior Design
+                                    </strong>
+                                </i>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-6 text-left">
+                                <p><u><strong>Location</strong></u></p>
+                                <p>Kapsowar -Iten Highway</p>
+                            </div><div class="col-lg-6 text-right">
+                                <strong>Date:</strong> <u>@DateTime.Now</u>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col-lg-12 text-left">
+                                <p><strong>M/s:</strong><u>@ViewBag.ms</u></p>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-6 text-left">
+                                <p><strong>L.P.O No:</strong><u>@ViewBag.lpo</u></p>
+                            </div>
+                            <div class="col-lg-6 text-right">
+                                <p><strong>Delivery  No:</strong><u>@ViewBag.d_no </u></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="inv-body">
+                        <table class="w-100 ">
+                            <thead>
+                                <tr>
+
+                                    <th>Particulars</th>
+                                    <th>Qty</th>
+                                    <th>@@</th>
+                                    <th>Ammount</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var x in ViewBag.particulars)
+                                {
+                                    <tr>
+                                        <td>@x.Item_name</td>
+
+                                        <td>@x.Quantity</td>
+                                        <td>@x.price</td>
+                                        <td>@x.total.ToString("#,00.00")</td>
+
+
+                                    </tr>
+                                }
+
+                                <tr>
+
+                                    <th></th>
+                                    <th><strong>Total:</strong></th>
+                                    <th> @ViewBag.sum.ToString("#,00.00")</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" class="text-center">
+                                        <h3><i class="text-danger font-weight-bolder">No:@ViewBag.id</i></h3>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="inv-footer text-center">
+                        <i>All accounts are due on demand</i>
+                    </div>
+                    <div class="w-100 text-center">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="history.back()">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " w3-red";
+    }
+
+
+</script>

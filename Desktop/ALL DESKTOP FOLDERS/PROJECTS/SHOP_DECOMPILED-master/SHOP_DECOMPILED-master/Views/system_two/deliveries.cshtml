@@ -1,0 +1,410 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+    @model SAINA.Models.Deliveries;
+}
+<link href="~/css/w3school.css" asp-append-version="true" rel="stylesheet" />
+<div class="row">
+    <div class=" col-12">
+
+        <div class="card_" style="height:unset">
+
+            <div class="row h-100">
+                <div class="col-lg-2 col-4 text-center align-content-lg-center" style="border-right:1px solid grey">
+                    <img src="~/Images/invoice.png" class="card_image" />
+                    <br />
+            
+                </div>
+                <div class="col-lg-10 col-8">
+                    <table>
+                        <tr>
+                            <td><strong>L.P.O.:</strong>  @Model.LPO_Number</td>
+
+                        </tr>
+                        <tr>
+                            <td class="text-danger"><strong>Invoice Number:</strong>@Model.id </td>
+
+                        </tr>
+
+                        <tr>
+                            <td><strong>Total:.</strong>@ViewBag.sum.ToString("#,00.00")</td>
+
+                        </tr>
+                        <tr>
+                            <td><strong>Date:.</strong> @Model.date</td>
+
+                        </tr>
+                        <tr>
+                            <td><strong>Received $ Checked by:.</strong> @Model.Received_by</td>
+
+                        </tr>
+                        <tr>
+                            <td><strong>Delivered by:</strong> @Model.Delivered_by</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" onclick="history.back()"><i class="fa fa-angle-double-left"></i>&nbsp;Back</a>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" data-toggle="modal" data-target="#exampleModalCenter">Add particulars</a>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" data-toggle="modal" data-target="#invoice"> Print delivery</a>
+                                <a href="#" class="btn btn-danger btn-sm custome_bt m-2" data-toggle="modal" data-target="#warning"> Delete delivery</a>
+                            </td>
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        }
+
+    </div>
+</div>
+
+
+<div class="w3-container border-0">
+
+
+    <div id="London" class="w3-container  ">
+        <h2>Items</h2>
+        <p>List of orders  provided</p>
+
+
+        <div class="card_log_in text-center p-2">
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            Item
+                        </th>
+                        <th class="th-sm">
+                            Delivery no
+                        </th>
+                        <th class="th-sm">
+                            Quantity
+                        </th>
+                        <th class="th-sm">
+                            Cost
+                        </th>
+
+                        <th class="th-sm">
+                            Total
+                        </th>
+                        <th class="th-sm">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in ViewBag.particulars)
+                    {
+                        <tr>
+                            <td>@x.Item_name</td>
+                            <td>@x.delivery_no</td>
+                            <td>@x.Quantity</td>
+                            <td>@x.price</td>
+                            <td>@x.total.ToString("#,00.00")</td>
+
+                            <td>
+                                <a asp-action="delete_item" asp-route-id="@x.id"  asp-route-d_id="@Model.id" asp-route-c_id="@Model.client_id" class="btn btn-danger btn-sm custome_bt">Delete</a>
+
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+
+
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add particulars </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+               
+            </div>
+            <div class="modal-body">
+                <form asp-action="add_particulars">
+                    <label>Item name:</label>
+                    <input class="form-control" required placeholder="Enter item name here" name="name" type="text" />
+                    <input class="form-control" name="client_id" required hidden value="@Model.client_id" />
+                    <input class="form-control" name="id" required hidden value="@Model.id" />
+                    <label>Enter quantity:</label>
+                    <input class="form-control" required placeholder="Enter quantity here" name="qnty" type="number" />
+                    <label>Enter cost/Item:</label>
+                    <input class="form-control" name="price" required placeholder="Enter cost here" type="number" />
+                    <input class="form-control" name="delivery_no" required placeholder="Enter cost here" value="@Model.D_Number" hidden type="number" />
+
+                    <button type="submit" class="btn btn-success m-3">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div><div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete Delivery No: @Model.id? </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+               
+            </div>
+            <div class="modal-body">
+                <form asp-action="del_delivery">
+                   
+                    <input class="form-control"hidden value="@Model.id" name="id" type="text" />
+                    
+                    <button type="submit" class="btn btn-success m-3">Yes</button>
+                    <button  data-dismiss="modal" class="btn btn-success m-3">No</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal  fade" data-backdrop="static" id="invoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-6 col-lg-6">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Receipt</h5>
+                    </div>
+                    <div class="col-6 col-lg-6 text-right">
+                        <a href="#" class="btn btn-success btn-sm custome_bt" onclick="window.print();return false;" data-toggle="modal" data-target="#invoice"><i class="fa fa-print"></i></a>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-body">
+                <div class="container print" style="font-size:20px;">
+                    <div class="row">
+                        <div class="col-4 pt-4">
+                            <img class="qr_code" src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(@ViewBag.qr_code))" />
+                            <br />  <small>Scan to verify</small>
+                        </div>
+                        <img src="/Images/saina_logo.png" class="inv-logo" style="height:250px;width:250px" />
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="  text-center">
+                        <table class="w-100" border="0" style="border:none">
+                            <tr>
+                                <td class="text-left" style="border:none">
+                                    <ul>
+                                        <li>P.O. BOX. 65-30706</li>
+                                        <li>CHEBIEMIT</li>
+                                        
+
+                                    </ul>
+                                </td>
+                                <td class="text-center" style="border:none">
+                                    <u><h5 class="font-weight-bolder text-dark" style="font-size:30px;">DELIVERY NOTE</h5></u> <br />
+
+                                </td>
+                                <td class="text-right" style="border:none">
+
+                                    0724411559 | 0720100002<br />
+                                    pausaina932@@gmail.com
+                                    <br />
+                                    <b>A006284621M</b>
+                                    <h3><i class="text-danger font-weight-bolder">No:@ViewBag.id</i></h3>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h3>SUPREME SAI ENTERPRISES</h3>
+                            <i class="text-center">
+                                <strong>
+                                    Dealers in office Furnitures,House hold furnitures,Steel doors,Windows
+                                    ,Double decker beds & Interior Design
+                                </strong>
+                            </i>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-6 text-left">
+                            <p><u><strong>Location</strong></u></p>
+                            <p>Kapsowar -Iten Highway</p>
+                        </div><div class="col-lg-6 text-right">
+                            <strong>Date:</strong> @ViewBag.date
+
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-lg-12 text-left">
+                            <p><strong>M/s:</strong> @ViewBag.ms</p>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-6 text-left">
+                            <p><strong>L.P.O No:</strong>@ViewBag.lpo</p>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            
+                        </div>
+                    </div>
+
+
+                    <br />
+
+                    <i class="text-center">
+                        <strong>
+                            Please receive the following items in good order and condition.
+                        </strong>
+                    </i>
+
+                    <br />
+                    <br />
+                    <div class="inv-body">
+                        <table class="w-100" border="1">
+                            <thead>
+                                <tr>
+
+                                    <th>Qty</th>
+                                    <th>Description of items</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var x in ViewBag.particulars)
+                                {
+                                    <tr>
+                                        <td>@x.Quantity</td>
+                                        <td>@x.Item_name</td>
+
+
+
+
+
+
+                                    </tr>
+                                }
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="inv-footer text-center">
+                        <table class="table border-0">
+                            <tr>
+                                <td class="text-left  border-0">
+                                    @*  <img src="~/Images/sai_.png" style="height: 240px; position: absolute; top: 880px; right:40px; transform: rotate(-30deg);" />*@
+                                    <p>
+                                        Received & Checked By:<br /><br />
+                                        @ViewBag.received
+                                    </p>
+                                    <br />
+
+                                    <i>
+                                        <strong>
+                                            Sign:
+                                        </strong><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>Official stamp
+                                    </i>
+                                    <br />
+
+
+                                </td>
+                                <td class="text-right border-0">
+
+                                    <table class="" style="float:right">
+                                        <tr>
+                                            <td class="border-0">
+                                                <p>
+                                                    Delivered By:<br /><br />
+                                                    SAINA PAUL
+                                                </p>
+
+                                                <br />
+
+                                                <strong>
+                                                    Sign:
+                                                </strong><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+                                                <br />
+                                            </td>
+
+                                        </tr>
+
+                                    </table>
+                                  
+
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                    <div class="inv-footer text-center">
+                        <i>All accounts are due on demand</i>
+                    </div>
+                    <div class="w-100 text-center">
+
+                    </div>
+                </div>
+
+                </div>
+               
+          
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"onclick="history.back()">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " w3-red";
+    }
+
+</script>

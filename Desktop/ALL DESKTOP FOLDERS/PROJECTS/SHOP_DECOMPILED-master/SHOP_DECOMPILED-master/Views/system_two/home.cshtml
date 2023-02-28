@@ -1,0 +1,186 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+}
+
+<div class="row">
+    <div class=" col-12">
+        <div class="card_">
+
+            <div class="row h-100">
+                <div class="col-lg-2 col-4 text-center align-content-lg-center" style="border-right:1px solid grey">
+                    <img src="~/Images/user.png" class="card_image" />
+                </div>
+                <div class="col-lg-10 col-8">
+                    <table>
+                        <tr>
+                            <td>SAINA STORES &nbsp;&nbsp;|&nbsp;&nbsp;Clients</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Registered:@ViewBag.count</td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" data-target="#add_client" data-toggle="modal">Add new client</a>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+   
+    <div class="    card_tabs p-2 text-center">
+
+   
+                <p class="text">Please select client to procceed</p>
+              
+        <table class="w-100" id="clients" border="0">
+            <thead>
+                <tr>
+                    <th>
+                    </th>
+                    <th>
+                        <strong>Client Name </strong>
+                    </th>
+                    <th>
+                        <strong> Date Created</strong>
+                    </th>
+                    <th>
+                        <strong> Balance</strong>
+                    </th>
+                    <th>
+                        <img src="~/Images/add-user.png" class="top_logo" />
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in ViewBag.clients)
+                {
+                <tr>
+                    <td>
+
+                        <img src="~/Images/user.png" class="top_logo" />
+                    </td>
+                    <td class="text-left">
+                        @x.Client_name
+                    </td>
+                    <td class="text-left">
+                       @x.date
+                    </td>
+                    <td class="text-left">
+                       @x.account_balance.ToString("#,0.00")
+                    </td>
+
+                    <td>
+
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light btn-sm custome_bt">More</button>
+                            <button type="button" class="btn btn-light dropdown-toggle btn-sm custome_bt" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu container-fluid" role="menu">
+                                <li><a asp-action="home_details" asp-controller="system_two" asp-route-id="@x.id" class="link_1">Open</a></li>
+                                <li><a  class="link_2" onclick="modify('@x.Client_name', '@x.Phone_number','@x.id','@x.account_balance');">Modify</a></li>
+                                <li><a asp-action="delete_client" asp-controller="system_two" asp-route-id="@x.id" class="link_3">Delete</a></li>
+
+
+                            </ul>
+
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+             
+        </table>
+                   
+                </div>
+ 
+
+
+
+    <div class="modal fade" id="modify_client" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modify clients details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="modify_client" asp-controller="system_two">
+                        <label>Enter client name:</label>
+                        <input class="form-control" required placeholder="Enter client name" name="name" id="name_" type="text" />
+                        <input class="form-control" required placeholder="Enter client name" name="id" id="id_" type="number" hidden />
+
+                     
+                        <input class="form-control" hidden name="date" value="@DateTime.Now.ToString()" required placeholder="Enter date here" />
+
+
+                     
+                        <label>Tel:</label>
+                        <input class="form-control" name="phone" required placeholder="Enter contacts here" id="phone_" type="text" />
+                       
+                       <label>Balance:</label>
+                        <input class="form-control" name="balance_" required placeholder="Enter contacts here"  id="balance_" type="text" />
+                       
+                        <button type="submit" class="btn btn-success m-3">Submit</button>
+
+                        
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="add_client" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">New client registration form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="submit_client" asp-controller="system_two">
+                        <label>Enter client name:</label>
+                        <input class="form-control" required placeholder="Enter client name" name="name" type="text" />
+
+                     
+                        <input class="form-control" hidden name="date" value="@DateTime.Now.ToString()" required placeholder="Enter date here" />
+
+
+                     
+                        <label>Tel:</label>
+                        <input class="form-control" name="phone" required placeholder="Enter contacts here" type="text" />
+                       
+                        <button type="submit" class="btn btn-success m-3">Submit</button>
+
+                        
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>

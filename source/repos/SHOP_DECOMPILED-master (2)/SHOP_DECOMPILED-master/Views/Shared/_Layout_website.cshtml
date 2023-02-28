@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--===============================================================>
+
+    Theme Name: Trax
+    Theme URI:
+    Author: Themes Industry
+    Author URI:
+    Description: One Page , Multi Parallax Template
+    Tags: one page, multi page, multipurpose, parallax, creative, html5
+
+    <=================================================================-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dons</title>
+    <link href="images/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="~/css_web/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css_web/all.min.css">
+    <link rel="stylesheet" href="~/css_web/animate.min.css">
+    <link rel="stylesheet" href="~/css_web/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css_web/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css_web/tooltipster.min.css">
+    <link rel="stylesheet" href="~/css_web/cubeportfolio.min.css">
+    <link rel="stylesheet" href="~/css_web/revolution/navigation.css">
+    <link rel="stylesheet" href="~/css_web/revolution/settings.css">
+    <link rel="stylesheet" href="~/css_web/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+    <header class="site-header" id="header">
+            <nav class="navbar navbar-expand-lg transparent-bg static-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="~/images/logo.jpg"style="max-height:70px" alt="logo" class="logo-default">
+                        <img src="~/images/logo.jpg" style="max-height:70px"alt="logo" class="logo-scrolled">
+                    </a>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                          
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="index" asp-controller="Web">Home</a>
+                            </li><li class="nav-item">
+                                <a class="nav-link" asp-action="about" asp-controller="Web">About</a>
+                            </li><li class="nav-item">
+    <a class="nav-link" asp-action="pricing" asp-controller="Web">Fuel pricing</a>
+
+</li>
+                            
+                            
+                            
+                            <li class="nav-item">
+    <a class="nav-link" asp-action="services" asp-controller="Web">Services</a>
+
+</li>
+                     
+
+                            <li class="nav-item">
+                                <a class="nav-link"  asp-action="gallery" asp-controller="Web">Gallery</a>
+                            </li> <li class="nav-item">
+                                <a class="nav-link" asp-action="landing_page" asp-controller="System_users">Staff log in</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="contact" asp-controller="Web">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--side menu open button-->
+                <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
+                    <span></span> <span></span> <span></span>
+                </a>
+            </nav>
+            <!-- side menu -->
+            <!--<div class="side-menu opacity-0 gradient-bg">
+                <div class="overlay"></div>
+                <div class="inner-wrapper">
+                    <span class="btn-close btn-close-no-padding" id="btn_sideNavClose"><i></i><i></i></span>
+                    <nav class="side-nav w-100">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link collapsePagesSideMenu" asp-action="Index" asp-controller="Web">
+                                    Home 
+                                </a>
+                              
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#sideNavPages">
+                                    Pages <i class="fas fa-chevron-down"></i>
+                                </a>
+                                <div id="sideNavPages" class="collapse sideNavPages">
+                                    <ul class="navbar-nav mt-2">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="team.html">Our Team</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="services.html">Service</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="services-detail.html">Service Detail</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="testimonial.html">Testimonials</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gallery.html">Gallery</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="gallery-detail.html">Gallery Detail</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pricing.html">Pricing</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="faq.html">FAQ's</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="404.html">Error 404</a>
+                                        </li>-->
+                                        @*<li class="nav-item">
+                                            <a class="nav-link" href="coming-soon.html">Coming Soon</a>
+                                        </li>*@
+                                        <!--<li class="nav-item">
+                                            <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#inner-2">
+                                                Account <i class="fas fa-chevron-down"></i>
+                                            </a>
+                                            <div id="inner-2" class="collapse sideNavPages sideNavPagesInner">
+                                                <ul class="navbar-nav mt-2">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="login.html">Login</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="register.html">Register</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="forget-password.html">Forget Password</a>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#inner-1">
+                                                Shops <i class="fas fa-chevron-down"></i>
+                                            </a>
+                                            <div id="inner-1" class="collapse sideNavPages sideNavPagesInner">
+                                                <ul class="navbar-nav mt-2">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="shop.html">Shop Products</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="shop-detail.html">Shop Detail</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="shop-cart.html">Shop Cart</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#sideNavPages2">
+                                    Blogs <i class="fas fa-chevron-down"></i>
+                                </a>
+                                <div id="sideNavPages2" class="collapse sideNavPages">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="blog-1.html">Blog 1</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="blog-2.html">Blog 2</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="blog-detail.html">Blog Details</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="side-footer w-100">
+                        <ul class="social-icons-simple white top40">
+                            <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i> </a> </li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i> </a> </li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i> </a> </li>
+                        </ul>
+                        <p class="whitecolor">&copy; <span id="year"></span> Trax. Made With Love by ThemesIndustry</p>
+                    </div>
+                </div>
+            </div>-->
+            <div id="close_side_menu" class="tooltip"></div>
+            <!-- End side menu -->
+        </header>
+
+
+    <div class="">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+            <section id="stayconnect" class="bglight position-relative">
+                <div class="container">
+                    <div class="contactus-wrapp">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="heading-title wow fadeInUp text-center text-md-left" data-wow-delay="300ms">
+                                    <h3 class="darkcolor bottom20">Connect with us</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <form class="getin_form wow fadeInUp" data-wow-delay="400ms" onsubmit="return false;">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12" id="result"></div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="userName" class="d-none"></label>
+                                                <input class="form-control" type="text" placeholder="Name" required id="userName" name="userName">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="companyName" class="d-none"></label>
+                                                <input class="form-control" type="text" placeholder="Message" id="companyName" name="companyName">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="email" class="d-none"></label>
+                                                <input class="form-control" type="email" placeholder="Email" required id="email" name="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <button type="submit" class="button gradient-btn w-100" id="submit_btn">Send</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Contact US ends -->
+            <!--Site Footer Here-->
+            <footer id="site-footer" class=" bgdark padding_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="footer_panel padding_bottom_half bottom20">
+                                <a href="index.html" class="footer_logo bottom25"><img src="~/images/logo.jpg" alt="MegaOne"></a>
+                                <p class="whitecolor bottom25">Dons place is located in kericho county,Chepnyoga ward.Just few meters away from chepnyoga market</p>
+                                <div class="d-table w-100 address-item whitecolor bottom25">
+                                    <span class="d-table-cell align-middle"><i class="fas fa-mobile-alt"></i></span>
+                                    <p class="d-table-cell align-middle bottom0">
+                                        +25472284744 <a class="d-block" href="mailto:web@support.com">infor@donsplace.co.ke</a>
+                                    </p>
+                                </div>
+                                <ul class="social-icons white wow fadeInUp" data-wow-delay="300ms">
+                                    <li><a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i> </a> </li>
+                                    <li><a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i> </a> </li>
+                                    <li><a href="javascript:void(0)" class="linkedin"><i class="fab fa-linkedin-in"></i> </a> </li>
+                                    <li><a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i> </a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="footer_panel padding_bottom_half bottom20 pl-0 pl-lg-5">
+                                <h3 class="whitecolor bottom25">Our Services</h3>
+                                <ul class="links">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Latest News</a></li>
+                                    <li><a href="#">Business Planning</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Faq's</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="footer_panel padding_bottom_half bottom20">
+                                <h3 class="whitecolor bottom25">Business hours</h3>
+                                <p class="whitecolor bottom25">Our support available to help you 24 hours a day, seven days week</p>
+                                <ul class="hours_links whitecolor">
+                                    <li><span>Monday-Saturday:</span> <span>8.00-18.00</span></li>
+                                    <li><span>Friday:</span> <span>09:00-21:00</span></li>
+                                    <li><span>Sunday:</span> <span>09:00-20:00</span></li>
+                                    <li><span>Calendar Events:</span> <span>24-Hour Shift</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site_web.js" asp-append-version="true"></script>
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <!--Bootstrap Core-->
+    <script src="~/js/propper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <!--to view items on reach-->
+    <script src="~/js/jquery.appear.js"></script>
+    <!--Owl Slider-->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!--number counters-->
+    <script src="~/js/jquery-countTo.js"></script>
+    <!--Parallax Background-->
+    <script src="~/js/parallaxie.js"></script>
+    <!--Cubefolio Gallery-->
+    <script src="~/js/jquery.cubeportfolio.min.js"></script>
+    <!--Fancybox js-->
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <!--tooltip js-->
+    <script src="~/js/tooltipster.min.js"></script>
+    <!--wow js-->
+    <script src="~/js/wow.js"></script>
+    <!--Revolution SLider-->
+    <script src="~/js/revolution/jquery.themepunch.tools.min.js"></script>
+    <script src="~/js/revolution/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
+    <script src="~/js/revolution/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.video.min.js"></script>
+    <!--custom functions and script-->
+    <script src="~/js/functions.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

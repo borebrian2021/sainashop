@@ -1,0 +1,50 @@
+﻿@model SHOP_DECOMPILED.Models.Fuel_station_reg
+
+@{
+    ViewData["Title"] = "Station details";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+
+<div class="container-fluid w3-card p-3 bg-white">
+    <table>
+        <tr>
+            <td class="pr-3"><img src="~/fuel_icons/fuel_station.png" class="logo_card" /></td>
+            <td class="pl-3 border_left" >
+                <h5>Manage fuel | @Html.DisplayFor(model => model.Station_Name)</h5>
+
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<p>
+    <a class="btn btn-sm bg-white w3-card mt-2" asp-action="index">
+        <i class="fa fa-home"></i>&nbsp;Home
+    </a>
+</p>
+
+<div class="w3-card p-3 bg-white p2">
+    <dl class="dl-horizontal">
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.Station_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Station_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model.id" class="btn btn-sm btn-light bg-white w3-card">Edit</a> |
+    <a asp-action="Index" class="btn btn-light bg-white btn-sm w3-card">Back to List</a> |
+    <a asp-action="delete" asp-route-id="@Model.id" class="btn btn-danger  btn-sm w3-card">Delete</a>
+</div>
+<div>
+   
+</div>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SHOP_DECOMPILED.Models.Meter_readings>
+
+@{
+    ViewData["Title"] = "Meter readings";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+<div class="container-fluid w3-card p-3 bg-white">
+    <h5>Meter readings</h5>
+</div>
+<p>
+    <a asp-action="Create" asp-route-station_id="@ViewBag.station_id" class="btn btn-sm bg-white w3-card mt-2">
+        <i class="fa fa-plus-circle"></i>&nbsp;Add meter readings
+    </a><br />
+@*<small>Navigation</small>*@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item active">@ViewBag.station_name</li>
+    <li class="breadcrumb-item"><a href="~/Fuel_station_reg/index">List of fuel stations</a></li>
+    <li class="breadcrumb-item active">Meter readings</li>
+</ul>
+@*<a asp-action="Create" asp-route-station_id="@ViewBag.station_id">Create New</a>*@
+    </p>
+
+<div class="container-fluid w3-card bg-white">
+    <table class="table font_flex" id="allbrands">
+        <tr>
+
+            <th class="border_none" style="border:none">Fuel lebel</th>
+            <th class="border_none" style="border:none">Current readings</th>
+            <th class="border_none" style="border:none">Previous readings</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+
+        <td>@item.Label</td>
+        <td>@item.Current_readings</td>
+        <td>@item.Previous_readings/=</td>
+        @*  <td><button class="btn btn-light" onclick="find_details('@item.id','@item.Item_name','@item.Item_price','@item.Quantity','@item.DateTime','@item.Cost_price')"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button></td>*@
+    
+        <td >
+           @* <button data-toggle="modal" data-target="#notify" class="btn btn-light text-dark w3-card  font_custome btn-sm"><i class="fa fa-cog"></i>&nbsp;Settings</button>*@
+     
+            <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-light text-dark w3-card  font_custome btn-sm"><i class="fa fa-pencil"></i>&nbsp;Modify details</a>
+
+       
+            <a class="btn btn-sm bg-danger w3-card font_custome text-white" asp-action="delete" asp-route-id="@item.id">Delete &nbsp;<i class="fa fa-check"></i></a>
+            <a class="btn btn-sm w3-card font_custome text-dark" asp-controller="System_users" asp-action="Attendant" asp-route-station_id="@item.Station_id">Proceed &nbsp;<i class="fa fa-angle-float-right"></i></a>
+       </td>
+    </tr>
+        } 
+      
+
+    </table>
+</div>
+
+

@@ -1,0 +1,90 @@
+﻿@model SHOP_DECOMPILED.Models.Meter_readings
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+<ul class="breadcrumb">
+    <li class="breadcrumb-item active">@ViewBag.station_name</li>
+    <li class="breadcrumb-item"><a href="~/Meter_readings/index?station_id=@ViewBag.station_id">Meter readings</a></li>
+    <li class="breadcrumb-item active">Modify meter readings</li>
+    <li class="breadcrumb-item active">@ViewBag.label </li>
+</ul>
+<div class="row pt-3">
+    <div class="col-lg-6 text-center mb-3">
+        <img src="/fuel_icons/meter.png" class="logoClassic_w" />
+        <h5>Fuel station REGISTRATION</h5>
+        <h6>Add multiple fuel station to the system</h6>
+
+        <p>
+            <a class="btn btn-sm bg-white w3-card mt-2" href="~/Meter_readings/index?station_id=@ViewBag.station_id">
+                <i class="fa fa-th-list"></i>&nbsp;Back to list
+            </a>
+        </p>
+
+    </div>
+    <div class="col-lg-6 ">
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Station_id" value="@ViewBag.station_id" hidden class="form-control" />
+
+                    <div class="group">
+
+                        @*ViewBag.CityList is holding all the cities values*@
+
+                        <select class="form-control" asp-for="Fuel_id" asp-items="@(new SelectList(@ViewBag.Drop_sulier,"id","Fuel_names"))"></select>
+
+                        <span class="highlight"></span>
+                        <span asp-validation-for="Fuel_id" class="bar"></span>
+
+
+                    </div>
+                    <div class="group">
+
+                        <input asp-for="Label" class="form-control" />
+                        <span class="highlight"></span>
+                        <span asp-validation-for="Label" class="bar"></span>
+                        <label asp-for="Label" class="control-label"></label>
+
+                    </div>  <div class="group">
+
+                        <input asp-for="Current_readings" class="form-control" />
+                        <span class="highlight"></span>
+                        <span asp-validation-for="Current_readings" class="bar"></span>
+                        <label asp-for="Current_readings" class="control-label"></label>
+
+                    </div>
+                    <div class="group">
+
+                        <input asp-for="Previous_readings" class="form-control" />
+                        <span class="highlight"></span>
+                        <span asp-validation-for="Previous_readings" class="bar"></span>
+                        <label asp-for="Previous_readings" class="control-label"></label>
+
+                    </div>
+                    <div class="group">
+
+                        <input asp-for="Date" class="form-control" />
+                        <span class="highlight"></span>
+                        <span asp-validation-for="Date" class="bar"></span>
+                        <label asp-for="Date" class="control-label"></label>
+
+                    </div>
+                   
+                    <div class="group">
+                        <button type="submit" class="btn btn-default bg-white btn-sm w3-card"><i class="fa fa-cloud-upload"></i>&nbsp;Update</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+      </div>
+    </div>
+       
+        
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

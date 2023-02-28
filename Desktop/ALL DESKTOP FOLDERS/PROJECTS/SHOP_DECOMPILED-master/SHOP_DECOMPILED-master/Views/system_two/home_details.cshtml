@@ -1,0 +1,904 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+
+
+}
+<link href="~/css/w3school.css" asp-append-version="true" rel="stylesheet" />
+<div class="row">
+    <div class=" col-12">
+        <div class="card_">
+
+            <div class="row h-100">
+                <div class="col-lg-2 col-4 text-center align-content-lg-center" style="border-right:1px solid grey">
+                    <img src="~/Images/user.png" class="card_image" />
+                </div>
+                <div class="col-lg-10 col-8">
+                    <table>
+                        <tr>
+                            <td>@ViewBag.client_name</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>BALANCE:@ViewBag.client_balance /=</td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" data-target="#balance" data-toggle="modal">
+                                    <i class="fa fa-pencil"></i>&nbsp;Modify balance
+                                </a>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-3 ">
+        <div class="card_">
+
+            <div class="row h-100">
+                <div class="col-lg-4 col-4 text-center align-content-lg-center" style="border-right:1px solid grey">
+                    <img src="~/Images/resume.png" class="card_image" />
+                </div>
+                <div class="col-lg-8 col-8">
+                    <table>
+                        <tr>
+                            <td>Deliveries</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>@ViewBag.deliveries</td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" onclick="openCity(event,'del_1')">Open &nbsp;<i class="fa fa-angle-double-right"></i></a>
+
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt" data-toggle="modal" data-target="#add_delivery">
+                                    <i class="fa fa-plus-circle"></i>&nbsp;Add
+                                </a>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="col-lg-3 col-12">
+        <div class="card_">
+
+            <div class="row h-100">
+                <div class="col-lg-4 col-4 text-center align-content-lg-center" style="border-right:1px solid grey">
+                    <img src="~/Images/invoice.png" class="card_image" />
+                </div>
+                <div class="col-lg-8 col-8">
+                    <table>
+                        <tr>
+                            <td>Invoices</td>
+
+                        </tr>
+                        <tr>
+                            
+                            <td>@ViewBag.invoices</td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" onclick="openCity(event,'inv_1')">Open&nbsp;<i class="fa fa-angle-double-right"></i></a>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div> 
+    <div class="col-lg-3">
+        <div class="card_">
+
+            <div class="row h-100">
+                <div class="col-lg-4 col-4 text-center align-content-lg-center" style="border-right:1px solid grey">
+                    <img src="~/Images/receipt.png" class="card_image" />
+                </div>
+                <div class="col-lg-8 col-8">
+                    <table>
+                        <tr>
+                            <td>Receipts</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>@ViewBag._receipts</td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" data-toggle="modal" data-target="#submit_receipt"><i class="fa fa-pencil"></i>&nbsp;Update balance</a>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" onclick="openCity(event,'rec_1')">Open &nbsp;<i class="fa fa-angle-double-right"></i></a>
+
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div> <div class="col-lg-3">
+        <div class="card_">
+
+            <div class="row h-100">
+                <div class="col-lg-4 col-4 text-center align-content-lg-center" style="border-right:1px solid grey">
+                    <img src="~/Images/receipt.png" class="card_image" />
+                </div>
+                <div class="col-lg-8 col-8">
+                    <table>
+                        <tr>
+                            <td>Statements</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>@ViewBag._receipts</td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm custome_bt m-2" onclick="openCity(event,'sta_1')">Open&nbsp;<i class="fa fa-angle-double-right"></i></a>
+
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<div class="w3-container border-0">
+
+    <div class="w3-bar ">
+        <button class="w3-bar-item w3-button tablink  w3-red" onclick="openCity(event,'del_1')"><i class="fa fa-file-o"></i>&nbsp;Deliveries</button>
+
+        <button class="w3-bar-item w3-button tablink " onclick="openCity(event,'inv_1')">
+            <i class="fa fa-file-o"></i>&nbsp;Invoices
+        </button>
+        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'rec_1')"><i class="fa fa-file-o"></i>&nbsp;Receipts</button>
+        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'sta_1')"><i class="fa fa-file-o"></i>&nbsp;Statements</button>
+    </div>
+
+    <div id="sta_1" class="w3-container city" style="display:none">
+        <h2>Statements</h2>
+        <p>Payment statements</p>
+        <a class="btn btn-success m-2 text-light" onclick="d();"><i class="fa fa-download"></i>&nbsp;Download pdf</a>
+        <div class="card_tabs text-center p-2">
+            <div class=" text-center p-2">
+                <table id="s_list" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+             
+                      
+                        <tr>
+                            <td colspan="8" class="text-center"  style="border:none">
+
+                                <h3>SUPREME SAI ENTERPRISES</h3><br />
+                                
+                            </td> 
+                        </tr>
+                    
+                    <tr>
+                              <td colspan="8" class="text-center" style="border:none">
+
+    <ul>
+        P.O. BOX. 65-30706<br />
+       CHEBIEMIT
+
+    </ul>
+
+
+</td>   
+                        </tr>
+                        <tr>
+                           
+                                     
+                                        <td colspan="8" class="text-center" style="border:none">
+                                            <u><h1 class="font-weight-bolder text-dark" style="font-size:30px;">PAYMENT STATEMENT</h1></u> <br />
+
+                                        </td>
+                                       
+                                
+                        </tr>
+                       
+                          
+
+
+
+
+
+
+                       
+                        <tr>
+                            <th class="th-sm">
+                                No.
+                            </th>
+
+                            <th class="th-sm">
+                                Date
+                            </th>
+                            <th class="th-sm">
+                                M/s:
+                            </th>
+                            <th class="th-sm">
+                                Particulars
+                            </th>
+                            <th class="th-sm">
+                                Payment mode
+                            </th>
+                            <th class="th-sm">
+                                Cheque no.
+                            </th>
+                            <th class="th-sm">
+                                Paid
+                            </th>
+                            <th class="th-sm">
+                                Balance
+                            </th>
+                        </tr>
+               
+                    <tbody>
+                        @foreach (var x in ViewBag.s_list)
+                        {
+                            <tr>
+                                <td>@x.id</td>
+                                <td>@x.Date</td>
+                                <td>@x.Received_from</td>
+                                <td>@x.Particulars</td>
+
+
+                                <td>
+                                    @if (x.Payment_mode)
+                                    {
+                                        <p>Cheque</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Cash</p>
+                                    }
+                                </td>
+
+                                <td>
+                                    @if (!x.Payment_mode)
+                                    {
+                                        <p>N/A</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@x.check_number</p>
+                                    }
+                                </td>
+                                <td>Ksh @x.Total.ToString("#,0.00")</td>
+                                <td>Ksh @x.Balance.ToString("#,0.00")</td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="del_1" class="w3-container city">
+        <h2>Deliveries</h2>
+        <p>List of recent deliveries</p>
+        <div class="card_tabs text-center p-2">
+            <div class=" text-center p-2">
+                <table id="deliveries" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">
+                                No.
+                            </th>
+
+                            <th class="th-sm">
+                                Date
+                            </th>
+                            <th class="th-sm">
+                                M/s:
+                            </th>
+                            <th class="th-sm">
+                                L.P.O.
+                            </th>
+                            <th class="th-sm">
+                                Delivery No.
+                            </th>
+                            <th class="th-sm">
+                                Total
+                            </th>
+                            <th class="th-sm">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in ViewBag.d_list)
+                        {
+                            <tr>
+                                <td>@x.id</td>
+                                <td>@x.date</td>
+                                <td>@x.M_s</td>
+                                <td>@x.LPO_Number</td>
+                                <td>@x.id</td>
+                                <td>@x.Total.ToString("###,00.00")</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm custome_bt" asp-action="deliveries" asp-controller="system_two" asp-route-id="@x.id">Open</a>
+                                    @*<a class="btn btn-success btn-sm custome_bt text-white" onclick="generate('@x.LPO_Number','@x.id','@x.M_s')">Generate invoice</a>*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="th-sm">
+                                No.
+                            </th>
+
+                            <th class="th-sm">
+                                Date
+                            </th>
+                            <th class="th-sm">
+                                M/s:
+                            </th>
+                            <th class="th-sm">
+                                L.P.O.
+                            </th>
+                            <th class="th-sm">
+                                Delivery No.
+                            </th>
+                            <th class="th-sm">
+                                Total
+                            </th>
+                            <th class="th-sm">
+                                Actions
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="inv_1" class="w3-container  city" style="display:none">
+        <h2>Invoice</h2>
+        <p>List of Invoices generated recently</p>
+        <div class="card_tabs text-center p-2">
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            No.
+                        </th>
+
+                        <th class="th-sm">
+                            Date
+                        </th>
+                        <th class="th-sm">
+                            M/s:
+                        </th>
+                        <th class="th-sm">
+                            L.P.O.
+                        </th>
+                        <th class="th-sm">
+                            Delivery No.
+                        </th>
+                        <th class="th-sm">
+                            Total
+                        </th>
+                        <th class="th-sm">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in ViewBag.d_list)
+                    {
+                        <tr>
+                            <td>@x.id</td>
+
+                            <td>@x.date</td>
+                            <td>@x.M_s</td>
+                            <td>@x.LPO_Number</td>
+                            <td>@x.id</td>
+                            <td>@x.Total.ToString("##,00.00")</td>
+                            <td>
+                                <a class="btn btn-success btn-sm custome_bt" asp-action="invoices" asp-route-id="@x.id"><i class="fa fa-print"></i>&nbsp;Print invoice</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="th-sm">
+                            No.
+                        </th>
+
+                        <th class="th-sm">
+                            Date
+                        </th>
+                        <th class="th-sm">
+                            M/s:
+                        </th>
+                        <th class="th-sm">
+                            L.P.O.
+                        </th>
+                        <th class="th-sm">
+                            Delivery No.
+                        </th>
+                        <th class="th-sm">
+                            Total
+                        </th>
+                        <th class="th-sm">
+                            Actions
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+    </div>
+
+    <div id="rec_1" class="w3-container  city" style="display:none">
+        <h2>Receipts</h2>
+        <p>List of receipts  generated recently.</p>
+        <div class="card_tabs text-center p-2">
+
+            <table id="dtBasicExample1" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            Receipt No.
+                        </th>
+                        <th class="th-sm">
+                            Date
+                        </th>
+                        <th class="th-sm">
+                            From
+                        </th>
+                        <th class="th-sm">
+                            Cash received
+                        </th>
+
+                        <th class="th-sm">
+                            Items
+                        </th>
+                        <th class="th-sm">
+                            P/ Mode
+                        </th>
+
+                        <th class="th-sm">
+                            Cheque No.
+                        </th>
+
+                        <th class="th-sm">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in ViewBag.receipts_)
+                    {
+                        <tr>
+                            <td>@x.id</td>
+                            <td>@x.Date</td>
+                            <td>@x.Received_from</td>
+                            <td>Ksh @x.Total.ToString("#,0.00")</td>
+
+                            <td>@x.Particulars</td>
+                            <td>
+                                @if (x.Payment_mode)
+                                {
+                                    <p>Cheque</p>
+                                }
+                                else
+                                {
+                                    <p>Cash</p>
+                                }
+                            </td>
+
+                            <td>
+                                @if (!x.Payment_mode)
+                                {
+                                    <p>N/A</p>
+                                }
+                                else
+                                {
+                                    <p>@x.check_number</p>
+                                }
+                            </td>
+                            <td>
+                                <a class="btn btn-success btn-sm custome_bt mb-2" asp-action="receipts" asp-route-id="@x.id"><i class="fa fa-print"></i>&nbsp;Print receipt</a>
+
+                                <a class="btn btn-danger btn-sm custome_bt" asp-action="delete_receipt" asp-route-id="@x.id"><i class="fa fa-trash-o"></i>&nbsp;Delete receipt</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="th-sm">
+                            Receipt No.
+                        </th>
+                        <th class="th-sm">
+                            Date
+                        </th>
+                        <th class="th-sm">
+                            From
+                        </th>
+                        <th class="th-sm">
+                            Cash received
+                        </th>
+
+                        <th class="th-sm">
+                            Items
+                        </th>
+                        <th class="th-sm">
+                            Mode
+                        </th>
+
+                        <th class="th-sm">
+                            Actions
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="modal fade" id="submit_receipt" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Update Payment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="receipt">
+                    <label>Enter sum received:</label>
+                    <input class="form-control" name="cash_received" required placeholder="Enter Cash Received" type="text" />
+                    <input class="form-control" name="client" value="@ViewBag.id" hidden type="text" />
+                    <label>Enter Date:</label>
+                    <input class="form-control" name="date" required placeholder="Enter date here" type="date" />
+                    <input required placeholder="Enter delivery number here" onclick="check_();" vlaue="0" name="cash" type="radio" />
+                    <label>Cash</label>
+                    <input required placeholder="Enter delivery number here" onclick="check_1();" value="1" name="cash" type="radio" />
+                    <label>Cheque</label>
+                    <div style="display:none" id="cheque">
+                        <label>Enter cheque number:</label>
+                        <input class="form-control" placeholder="Enter cheque number" id="check__" name="check" type="text" />
+                    </div><br />
+
+                    <label>Enter M/s:</label>
+                    <input class="form-control" required placeholder="Enter M/s here" name="ms" type="text" />
+                    <label>Enter Item Suplied</label>
+                    <input class="form-control" required placeholder="Enter item suplied" name="item" type="text" />
+                    <button type="submit" class="btn btn-success m-3">Submit</button>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="balance" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Update Payment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="modify_bal">
+                    <label>Enter New Balance</label>
+                    <input class="form-control" required placeholder="Enter balance here" value="@ViewBag.client_balance" name="balance_" type="number" />
+                    <input class="form-control" required placeholder="Enter balance here" value="@ViewBag.id" name="id" type="number" hidden />
+
+                    <button type="submit" class="btn btn-success m-3">Submit</button>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create Invoice</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="add_invoice">
+                    <label>Enter L.P.O:</label>
+                    <input class="form-control" id="lpo_i" name="lpo" required placeholder="Enter L.P.O number here" type="number" />
+                    <input class="form-control" name="id" required value="@ViewBag.id" hidden type="number" />
+                    <label>Delivery No:</label>
+
+                    <input class="form-control" name="d_no" required id="d_no" type="number" />
+                    <label>Enter Date:</label>
+                    <input class="form-control" name="date" required placeholder="Enter date here" type="date" />
+                    <label>Enter M/s:</label>
+                    <input class="form-control" required placeholder="Enter M/s here" name="ms" id="ms_" type="text" />
+                    <button type="submit" class="btn btn-success m-3">Submit</button>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="add_delivery" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create Delivery</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="add_delivery">
+                    <label>Enter L.P.O:</label>
+                    <input class="form-control" name="id" value="@ViewBag.id" required hidden />
+                    <input class="form-control" name="lpo" required placeholder="Enter L.P.O number here" type="number" />
+                    <label>Select Date:</label>
+                    <input class="form-control" name="date" required placeholder="Enter date here" type="date" />
+                    <input class="form-control" name="d_number" required placeholder="Enter delivery number here" value="6347" hidden type="number" /> <label>Enter M/s:</label>
+                    <input class="form-control" name="ms" required placeholder="Enter M/s here" type="text" /> <label>Received and Checked by:</label>
+                    <input class="form-control" name="received_by" required placeholder="Enter name of receiver " type="text" />
+                    <label>Delivered by:</label>
+                    <input class="form-control" name="delivered_by" required placeholder="Delivered to" type="text" />
+                    <button type="submit" class="btn btn-success m-3">Submit</button>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal  fade" id="receipt_" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-6 col-lg-6">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Receipt</h5>
+                    </div>
+                    <div class="col-6 col-lg-6 text-right">
+                        <a href="#" class="btn btn-success btn-sm custome_bt" onclick="window.print();return false;" data-toggle="modal" data-target="#invoice"><i class="fa fa-print"></i></a>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-body">
+                <div class="container print" style="font-size:30px;">
+
+                    <img src="/Images/saina_logo.png" class="inv-logo" style="height:150px;width:150px;" />
+                    <div class="  text-center">
+                        <div class="row">
+                            <div class="col-lg-12 text-center color_">
+                                <h3>SUPREME SAI ENTERPRISES </h3>
+                                <i class="text-center">
+                                    <strong>
+                                        Dealers in office Furnitures,House hold furnitures,Steel doors,Windows ,Double decker beds & Interior Design
+                                    </strong>
+                                </i>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-6 text-left color_">
+                                <ul>
+                                    <li>P.O. BOX. 65-30706</li>
+                                    <li>CHEBIEMIT</li>
+                                    <li>0724411559 | 0720100002</li>
+                                    <li>paulsai@@gmail.com</li>
+                                    <li>A006284621M</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-6 text-right">
+                                <ul>
+                                    <li> <h2 class="text-danger">No:100</h2></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+
+
+                        <div class="row">
+                            <div class="col-lg-12 color_">
+
+                                <h1 class="font-weight-bolder "><u>OFFICIAL RECEIPT</u></h1>
+
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-12 text-left color_">
+                                <p><i><strong>Received from:</strong></i><u>&nbsp;&nbsp;CHEBIEMIT SECONDARY SCHOOL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><i><strong>the sum of shillings:</strong></i>&nbsp;<u>8000/=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></i><i><strong>being payment of:</strong></i>&nbsp;<u>&nbsp;&nbsp;Tables and chairs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p>
+
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+
+                        <table class="table" class="border-0">
+                            <tr>
+                                <td class="text-left color_ border-0">
+
+                                    <p><strong>Ksh.:</strong><u>8000/=</u></p>
+                                    <br />
+                                    <p>Cash/Cheque</p>
+
+                                </td>
+                                <td class="text-right border-0">
+
+                                    <table class="color_" style="float:right">
+                                        <tr>
+                                            <td class="border-0">
+                                                <p><strong>WITH THANKS</strong></p>
+
+                                                <br />
+                                                <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+                                                <br /> <small>For Supreme Welding &Aacute; Furniture Workshop</small>
+
+                                            </td>
+                                            <td class="border-0">
+                                                <div class="box">
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+
+                                </td>
+                            </tr>
+
+
+                        </table>
+                        <br />
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " w3-red";
+    }
+
+    function check_() {
+
+        //document.getElementById("#check__").required = true;
+
+        $("#cheque").hide("slow");
+
+    }
+    function check_1() {
+
+        $("#cheque").show("slow");
+        //document.getElementById("#check__").required = false;
+
+    }
+
+</script>

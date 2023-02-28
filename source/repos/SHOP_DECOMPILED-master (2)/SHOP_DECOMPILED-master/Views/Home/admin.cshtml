@@ -1,0 +1,1528 @@
+﻿@model SHOP.Models.Suplier_dropdown
+
+
+
+<div class="row">
+
+    <div class="col-lg-6">
+
+
+        <div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="bg-white p-2 w3-card">
+                        <div class="card-body text-left">
+                            <div class="row">
+                                @*<div class="col-lg-4 col-4 border-right-account">
+                                        <p><img class="icons" src="~/icons/account.png" alt="card image"></p>
+                                    </div>*@
+
+                                <div class="col-lg-12 col-12 ">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                @ViewBag.shop_name
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @*<span class="badge badge-secondary">*@
+                                                <b>
+
+                                                    @ViewBag.name
+                                                </b>
+                                                @*</span>*@
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @*<span class="badge badge-secondary">*@
+                                                Administrator
+                                                @*</span>*@
+                                            </td>
+                                        </tr>
+
+
+                                    </table>
+
+                                    @*<a href="" class="btn btn-light btn-sm">More details &nbsp;<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></a>*@
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+                        </div>
+                        @*<div class="card-body text-left">
+                            <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                            <h4 class="card-title">Messages</h4>
+                            <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-6">
+
+
+        <div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside ">
+                    <div class="bg-white p-2 w3-card">
+                        <div class="card-body text-left">
+                            <div class="row">
+                                @*<div class="col-lg-4 col-4 border-right-account">
+                                        <p><img class="icons" src="~/icons/account.png" alt="card image"></p>
+                                    </div>*@
+
+                                <div class="col-lg-12 col-12 ">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <h3>Shop Net Worth</h3>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @*<span class="badge badge-secondary">*@
+                                                <b>
+
+                                                    Ksh.  @ViewBag.Net_worth
+                                                </b>
+                                                @*</span>*@
+                                            </td>
+                                        </tr>
+
+
+
+                                    </table>
+
+                                    @*<a href="" class="btn btn-light btn-sm">More details &nbsp;<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></a>*@
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+                        </div>
+                        @*<div class="card-body text-left">
+                            <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                            <h4 class="card-title">Messages</h4>
+                            <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    @if (@ViewBag.expired_list != null)
+    { 
+        <div class="col-lg-6">
+            <div class="image-flip">
+                <div class="mainflip flip-0">
+                    <div class="frontside">
+                        <div class="card w3-card side_custome_expired">
+                            <div class="card-body text-left">
+                                <div class="row">
+                                    <div class="col-lg-12 col-12">
+                                        <h1 class="card-title">@ViewBag.expired_list </h1>
+                                    </div>
+                                </div>
+                                <p class="card-text">Expired items </p>
+                                <a class="btn btn-white w3-card" href="/home/expiries">View details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <div class="col-lg-6">
+        <div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="card w3-card side_custome">
+                        <div class="card-body text-left">
+                            <div class="row">
+                                <div class="col-lg-12 col-12">
+                                    <h1 class="card-title">@ViewBag.supliers_count </h1>
+                                </div>
+                            </div>
+                            <p class="card-text">Suppliers </p>
+                            <p class="card-text">
+                                <a class="btn  bg-white  w3-card" asp-action="supliers"  >All items</a>
+                            </p>
+
+                        </div>
+                        @*<div class="card-body text-left">
+                    <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                    <h4 class="card-title">Messages</h4>
+                    <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+
+
+        <div class="image-flip ">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="card w3-card p-0 ">
+                        <div class="card-body text-left">
+                            <div class="row">
+                                <div class="col-lg-6 col-6">
+                                    <p><img class="icons" src="~/icons/item.png" alt="card image"></p>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <h1 class="card-title"> @ViewBag.count_all</h1>
+
+                                </div>
+                            </div>
+
+
+
+
+                            <p class="card-text">
+                                @ViewBag.faqs&nbsp;
+                                <button class="btn  bg-white  w3-card" data-toggle="modal" data-target="#all_brands_mod">All items</button>
+
+
+                            </p>
+
+                        </div>
+                        @*<div class="card-body text-left">
+                            <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                            <h4 class="card-title">Messages</h4>
+                            <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4"><div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="card w3-card">
+                        <div class="card-body text-left">
+                            <div class="row">
+                                <div class="col-lg-6 col-6">
+                                    <p><img class="icons" src="~/icons/sold.png" alt="card image"></p>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <h1 class="card-title">@ViewBag.count_below</h1>
+                                    @*<a href="" class="btn btn-light btn-sm">More details &nbsp;<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i></a>*@
+
+                                </div>
+                            </div>
+
+
+
+
+                            <button data-toggle="modal" data-target="#to_restock_modal" class="btn  bg-white w3-card ">To restock </button>
+
+
+                        </div>
+                        @*<div class="card-body text-left">
+                            <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                            <h4 class="card-title">Messages</h4>
+                            <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4">
+
+
+        <div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="card w3-card">
+                        <div class="card-body text-left">
+                            <div class="row">
+                                <div class="col-lg-6 col-6">
+                                    <p><img class="icons" src="~/icons/sold_today.png" alt="card image"></p>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <h1 class="card-title">@ViewBag.sold</h1>
+
+                                </div>
+                            </div>
+
+
+
+
+                            <button class="btn  bg-white  w3-card" data-toggle="modal" data-target="#sold_items_modal1">Sold today</button>
+
+                        </div>
+                        @*<div class="card-body text-left">
+                            <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                            <h4 class="card-title">Messages</h4>
+                            <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid  bg-white  background_bottom fixed-bottom custome_footer text-center p-bw3-card pt-2  w3-card sell_1">
+    <table class="table">
+        <tr>
+
+            <td class="border-0">
+
+                <button class="btn btn-light text-dark w3-card mb-3 font_custome" data-toggle="modal" data-target="#attendees"><img src="~/icons/users.png" class="sell" />&nbsp;&nbsp;&nbsp;Attendant</button>
+            </td>
+            <td class="border-0">
+                <button class="btn btn-light text-dark w3-card  mb-3 font_custome" data-toggle="modal" data-target="#attendats">Restock history&nbsp;&nbsp;&nbsp;<img src="~/icons/restock.png" class="sell" /></button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+<div class="modal fade custome_modal_radius" id="all_brands_mod">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>ALL ITEMS</b>
+
+            </div>
+
+
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="tab-pane  show active" id="all_items" role="tabpanel" aria-labelledby="home-tab-md">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+
+
+                                            <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                                                <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                                                <input id="search_allbrands" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search"
+                                                       aria-label="Search">
+                                                &nbsp;
+                                                <button class="btn btn-primary btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#add_new_item_to_system"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Add new item</button> &nbsp; <button class="btn btn-primary btn-sm" id="all_brands"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4 p-2">
+                                <table class="table font_flex" id="allbrands">
+                                    <tr>
+
+                                        <th class="border_none" style="border:none">Item name</th>
+                                        <th class="border_none" style="border:none">Cost P.</th>
+                                        <th class="border_none" style="border:none">Price</th>
+                                        <th class="border_none" style="border:none">Qunty</th>
+                                    </tr>
+                                    @if (@ViewBag.allBrands != null)
+                                    {
+                                        @foreach (var item in ViewBag.allBrands)
+                                        {
+                                            <tr>
+
+                                                <td >@item.Item_name</td>
+                                                <td>@item.Cost_price</td>
+                                                <td>@item.Item_price/=</td>
+                                                <td ><span class="badge badge-dark">@item.Quantity</span></td>
+                                                <td><button class="btn btn-light" onclick="find_details('@item.id','@item.Item_name','@item.Item_price','@item.Quantity','@item.DateTime','@item.Cost_price')"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button></td>
+
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="alert alert-danger">
+                                                    <p>No item has been added yet</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*//RESTOCK HISTORY*@
+<div class="modal fade custome_modal_radius" id="attendees">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>ATTENDENTS</b>
+
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @*<td class="border_table_right">
+                                <img src="~/images/all_items.png" class="tab_logo" />
+
+                            </td>*@
+
+                        <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                            <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                            <input id="search_attendant" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search"
+                                   aria-label="Search">
+                            &nbsp;
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#add_new_attendant"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Add new attendant</button>&nbsp; <button class="btn btn-primary btn-sm" id="attendants_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+                            <button class="btn btn-white btn-sm w3-card" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Exit</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <table class="table font_flex" id="attendants_table">
+                    <tr>
+                        <td ><b>Name </b></td>
+                        <td ><b>Phone</b></td>
+                        <td><b>Role</b></td>
+                        <td ><b>Action</b></td>
+                    </tr>
+                    @if (@ViewBag.all_attendants != null)
+                    {
+                        @foreach (var item in @ViewBag.all_attendants)
+                        {
+                            <tr>
+                                <td>@item.Full_name</td>
+                                <td>@item.Phone</td>
+                                <td>Attendant</td>
+                                <td><a href="tel:@item.Phone" class="btn btn-light shadow-lg"><i class="fa fa-phone" aria-hidden="true"></i></a><a asp-route-id="@item.id" asp-action="delete_attwndant" asp-controller="home" class="btn btn-danger shadow-lg"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-danger">
+
+                                    <strong>No attendant has been added tot the system</strong>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@*//RESTOCK HISTORY*@
+<div class="modal fade custome_modal_radius" id="attendats">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>ITEMS RESTOCK HISTORY</b>
+
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @*<td class="border_table_right">
+                                <img src="~/images/all_items.png" class="tab_logo" />
+
+                            </td>*@
+
+                        <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                            <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                            <input id="serach_restocked" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search by date"
+                                   aria-label="Search">
+                            &nbsp; <button class="btn btn-primary btn-sm" id="restock_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <table class="table font_flex" id="restock_item">
+                    <tr>
+                        <td style="border:none"><b> Date </b></td>
+                        <td style="border:none"><b>Product</b></td>
+                        <td style="border:none"><b>Supplier</b></td>
+
+                        <td style="border:none"><b>Init.Q</b></td>
+                        <td style="border:none"><b>Added</b></td>
+                        <td style="border:none"><b>New.Q</b></td>
+                    </tr>
+                    @if (@ViewBag.JoinList != null)
+                    {
+                        @foreach (var item in @ViewBag.JoinList)
+                        {
+                            <tr>
+                                <td>@item.Date_restock</td>
+                                <td>@item.Item_name</td>
+                                <td>@item.Supplier</td>
+                                <td>@item.Prev_quantity</td>
+                                <td>@item.quantity</td>
+                                <td>@item.new_quanity</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-danger">
+
+                                    <strong>No restock history found!</strong>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*//SOLD ITEMS*@
+<div class="modal fade custome_modal_radius" id="sold_items_modal1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2" style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>SOLD ITEMS TODAY</b>
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                                    <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                                    <input id="search_sold_items12" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search"
+                                           aria-label="Search">
+                                    &nbsp;
+                                    <button class="btn bg-white w3-card btn-sm" id="sold_items_pdf1"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</button> &nbsp; &nbsp;
+                                    @{
+
+
+                                        TimeZoneInfo E_Africa_standard_time = TimeZoneInfo.FindSystemTimeZoneById("E. Africa Standard Time");
+                                        DateTime today1 = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, E_Africa_standard_time);
+                                        string today = today1.ToString("dd/MM/yyyy");
+
+                                      
+
+                                    }
+                                    <a asp-action="filter"  class="btn bg-white w3-card btn-sm">Filter&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr />
+
+
+                    </div>
+
+                </div>
+                <div class="row mt-1 p-2">
+                    <table class="table font_flex" id="sold_items_12">
+                        <tr>
+                          
+                            <th class="border_none" style="border:none">Brand</th>
+                            <th class="border_none" style="border:none">Sold</th>
+                            <th class="border_none" style="border:none">Price</th>
+                            <th class="border_none" style="border:none">Total</th>
+                            <th class="border_none" style="border:none">Profit</th>
+                            <th class="border_none" style="border:none">Action</th>
+                        </tr>
+                        @if (@ViewBag.JoinList1 != null)
+                                            {
+                                                @foreach (var item in @ViewBag.JoinList1)
+                            { 
+                    <tr>
+                        <td>@item.Item_name</td>
+                        <td>@item.quantity_sold</td>
+                        <td>@item.Item_price</td>
+                        <td class="total_per_brand_sold_0">@item.Total_cash_made</td>
+                        @{
+                            float profit = item.Total_cash_made - item.Total_Cost_cash;
+                                        }
+                        <td class="sub_totals_cost_price"  ><span class="badge badge-success">@profit</span></td>
+                        <td ><a asp-action="dele_sold" asp-controller="home" asp-route-id="@item.id" class="btn btn-danger w3-card btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+                    </tr>
+
+                            }
+
+                        }
+                        <tr style="font-size:15px">
+                            <td colspan="3" class="text-left" ><b>TOTAL CASH MADE:</b></td>
+                            <td colspan="3" class="border_none text-left"><span class="badge badge-success">Ksh.<b id="total_admin_"></b></span></td>
+                        </tr>
+                        <tr style="font-size:15px">
+                            <td class="text-left" colspan="3" ><b>PROFIT:</b></td>
+                            <td colspan="3"  class="border_none text-left"><span class="badge badge-success">Ksh.<b id="total_profit"></b></span></td>
+
+                        </tr>
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="modal fade custome_modal_radius" id="add_new_item_to_system">
+    <div class="modal-dialog">
+        <div class="modal-content bg-transparent border-0">
+
+            <!-- Modal Header -->
+            @*<div class="modal-header  p-2  ">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;  ADD NEW ITEM
+
+                </div>*@
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-lg-12 text-light text-center">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp; Add new item
+                        </div>
+                    </div>
+                    <div class="w3-panel w3-card p-3 bg-white text-center">
+                        @if (TempData["message"] != null)
+                        {
+                            <div class="modal-header  p-2  " style="z-index:1020">
+                                <div class="alert alert-primary">
+                                    @TempData["message"]
+                                </div>
+                            </div>
+                        }
+                        <form asp-action="add_item" asp-controller="home">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="group">
+                                <input name="Item_name" autofocus autocomplete="off" id="item_name" class="custome_input" required="required" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Item name</label>
+                            </div>
+                            <div class="col-lg-12 col-12" id="already_holder" hidden>
+                                <div class="row">
+                                    <div class="col-lg-3 col-3">
+                                        <img src="/gif/found.gif" class="logoClassic" />
+
+                                    </div>
+                                    <div class="col-lg-9 col-9">
+                                        You have already added the following products:
+
+                                    </div>
+                                </div>
+
+                                <table class="table" id="already_added">
+
+                                    @if (@ViewBag.allBrands != null)
+                                    {
+                                        @foreach (var item in ViewBag.allBrands)
+                                        {
+                                            <tr>
+                                                <td colspan="2" style="border:none">
+                                                    @*<ul class="list-group mb-3 mt-2">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center bg-already-added " style="font-size:10px;">*@
+                                                    <span class="badge badge-pill badge-dark">
+                                                        @item.Item_name
+                                                    </span>
+                                                    @*</li>
+                                                        </ul>*@
+
+                                                </td>
+                                                <td colspan="2" style="border:none">
+                                                    @*<ul class="list-group mb-3 mt-2">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center bg-already-added " style="font-size:10px;">*@
+                                                    <span class="badge badge-pill badge-dark">
+                                                        @item.Quantity
+                                                    </span>
+                                                    @*</li>
+                                                        </ul>*@
+
+                                                </td>
+                                                <td colspan="2" style="border:none">
+                                                    @*<ul class="list-group mb-3 mt-2">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center bg-already-added " style="font-size:10px;">*@
+                                                    <span class="badge badge-pill badge-dark">
+                                                        Ksh.@item.Item_price
+                                                    </span>
+                                                    @*</li>
+                                                        </ul>*@
+
+                                                </td>
+                                            </tr>
+
+
+
+                                            @*<table class="table" id="check_existance">
+                                                    <tr class="table_existance_bg p-0 m-0">
+                                                        <td class="border_none" style="border-top: none"></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>*@
+                                        }
+                                    }
+                                </table>
+                            </div>
+                            <div class="group">
+                                <input name="Item_price" class="custome_input" step="0.01" value="0" type="number" required="required" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Selling price</label>
+                            </div>
+                            <div class="group">
+                                <input name="cost_price" class="custome_input" value="0" type="number" step="0.01" required="required" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Buying price</label>
+                            </div>
+
+                            <div class="group">
+                                <input name="Quantity" class="custome_input" step="0.01" type="number" required="required" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Current Quantity</label>
+                            </div>
+
+                            <div class="group" hidden>
+                                <input name="date" value="@DateTime.Now.ToString()" step="0.01" class="custome_input" required="required" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Current Quantity</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade custome_modal_radius" id="add_new_attendant">
+    <div class="modal-dialog">
+        <div class="modal-content bg-transparent border-0">
+
+            <!-- Modal Header -->
+            @*<div class="modal-header  p-2  ">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;  ADD NEW ITEM
+
+                </div>*@
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-lg-12 text-light text-center">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp; Add new attendant
+                        </div>
+                    </div>
+                    <div class="w3-panel w3-card p-3 bg-white text-center">
+                        <form asp-action="add_new_attendant">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="group">
+                                <input name="Full_name" class="custome_input" required="required" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Full names</label>
+                            </div>
+                            <div class="group">
+                                <input name="Phone" class="custome_input" type="number" maxlength="10" required="required" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Phone</label>
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade custome_modal_radius" id="edit_stock">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  ">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; <p id="name_infor2"></p>
+            </div>
+            <div class="modal-body  p-2  ">
+                <form asp-action="modify_stock">
+                    <div class="group">
+
+
+                        <input class="form-control" min="0" name="mod_name" id="mod_name" type="text">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Item name:</label>
+
+                    </div>
+                    <div class="group">
+
+
+                        <input class="form-control" min="0" name="mod_stock_price" id="mod_stock_price" step="0.00" type="number">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Cost price:</label>
+                    </div>  <div class="group">
+
+
+                        <input class="form-control" min="0" name="mod_item_price" id="mod_item_price" step="0.00" type="number">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Selling price:</label>
+
+                    </div>
+
+                    <div class="group">
+
+                        <input class="form-control" min="0" name="mod_stock" id="mod_stock" type="number">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+
+                        <label>Enter new stock count</label>
+                        <input hidden class="form-control" min="0" name="mod_id" id="mod_id" type="number">
+
+
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td class="text-center">
+                                <button type="submit" class="btn btn-primary">Modify</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custome_modal_radius" id="product_infor">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  ">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; <p id="name_infor"></p>
+
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+                <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#general_infor" role="tab" aria-controls="general_infor" aria-selected="true">infor</a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#restock" role="tab" aria-controls="restock" aria-selected="false">Restock</a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link" id="contact-tab-md" data-toggle="tab" href="#change_price" role="tab" aria-controls="change_price" aria-selected="false">Change price</a>
+                    </li>
+                </ul>
+                <div class="tab-content  pt-5 w3-card" id="myTabContentMD">
+                    <div class="tab-pane  active" id="general_infor" role="tabpanel" aria-labelledby="profile-tab-md">
+                        <form asp-action="delete_item">
+                            <table class="table">
+                                <tr>
+
+                                    <td style="border:none" colspan="2">
+
+                                        <img class="table_image_dynamic2" />
+
+                                    </td>
+
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td class="text-right" style="border:none;">Ksh.</td>
+                                    <td style="        border: none;
+
+">
+                                        <input name="id" id="delete_id" hidden />
+                                        <p id="price_infor" class="price"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="        border: none;
+
+">
+                                        Current  Stock:
+                                    </td>
+
+                                    <td style="        border: none;
+
+">
+                                        <p id="quantity_infor" class="price"></p>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="        border: none;
+
+">
+                                        Date Created:
+                                    </td>
+
+                                    <td style="        border: none;
+
+">
+                                        <small id="date_infor"></small>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:none">
+                                        <a class="btn btn-light w3-card w-100" data-dismiss="modal" data-target="#edit_stock" data-toggle="modal"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Modify Stock</a>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:none">
+
+                                        <button type="submit" class="btn btn-danger btn-sm  w-100"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Delete</button>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+
+                            <div><h6 class="quantit" id="quantity_infor"></h6> <small>&nbsp;</small>  </div>
+                            <p hidden id="id"></p>
+                            <div></div>
+                            <div class="form-inline d-flex justify-content-center ">
+
+
+                            </div>
+                            </td>
+
+                            </tr>
+                            <tr>
+                                <td style="border:none;">
+                                </td>
+                            </tr>
+
+
+                            </table>
+                        </form>
+                    </div>
+                    <div class="tab-pane " id="restock" role="tabpanel" aria-labelledby="profile-tab-md">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table">
+                                    <tr>
+                                        <td>Current stock:</td>
+                                        <td><p id="current_stock"></p></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td colspan="2"> Please enter the quantity to restock</td>
+
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <form asp-action="restock">
+                            <div class="input-group mb-3">
+
+                                <div class="input-group-prepend">
+                                    <a class="btn btn-primary" style="
+" onclick="dincrementInput('vall')">
+                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <input hidden min="0" name="id" id="id_for_restock" type="number">
+                                <input class="form-control" min="0" name="ammount" id="vall" value="1" type="number">
+                                <div class="input-group-append">
+                                    <a style="
+" class="btn btn-primary" onclick="incrementInput('vall')">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p>Buying price</p>
+
+                            <div class="input-group mb-3">
+
+                                <input class="form-control" min="0" placeholder="Enter new cost price" value="0" name="cost_price_restock" id="cost_price" type="number">
+
+                            </div>
+                            <p>Select suplier (Optional)</p>
+
+                            <div class="input-group mb-3">
+
+                                    <select class="form-control" name="supplier" asp-items="@(new SelectList(@ViewBag.Drop_sulier,"Company_name","Company_name"))"></select>
+                                    
+
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td class="text-center">
+                                        <button type="submit" class="btn btn-primary">Restock</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+
+                    </div>
+                    <div class="tab-pane " id="change_price" role="tabpanel" aria-labelledby="profile-tab-md">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table">
+                                    <tr>
+                                        <td>Current price:</td>
+                                        <td>Ksh.<p id="current_price"></p></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td colspan="2"> Please enter new price</td>
+
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                        <form asp-action="change_price">
+                            <input class="form-control" name="change_price_id" id="change_price_id" hidden>
+
+                            <div class="input-group mb-3">
+
+
+                                <input class="form-control" min="0" name="new_price" id="new_price" type="number">
+
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td class="text-center">
+                                        <button type="submit" class="btn btn-primary">Change price</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <button class="btn btn-light text-dark btn-sm mt-3" data-dismiss="modal" data-target="#all_brands_mod" data-toggle="modal"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp;Close</button>
+
+
+                <!-- Modal footer -->
+                @*<div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                    </div>*@
+
+            </div>
+        </div>
+    </div>
+</div>
+@section increment{
+    <script type="text/javascript">
+       //<script type="text/javascript">
+
+$("#to_pdf").click(function () {
+	//$("#to_pf_table").tableHTMLExport({
+	//    type: 'pdf',
+	//    orientation: 'p'
+	//});
+	var date = $("#serach_sales").val();
+	$("#sales_made_on").text(date);
+	//var img = new Image()
+	var doc = new jsPDF();
+	//img.src = 'wwwroot/images/logo2.png'
+	//doc.addImage(img, 'png', 10, 78, 12, 15)
+	var htmlstring = '';
+	var tempVarToCheckPageHeight = 0;
+	var pageHeight = 0;
+	//pageHeight = doc.internal.pageSize.height;
+	//specialElementHandlers = {
+	//        // element with id of "bypass" - jQuery style selector
+	//        '#bypassme': function(element, renderer) {
+	//        // true = "handled elsewhere, bypass text extraction"
+	//        return true
+	//    }
+	//};
+	//margins = {
+	//        top: 10,
+	//    bottom: 10,
+	//    left: 10,
+	//    right: 10,
+	//    width: 100
+	//};
+	var y = 20;
+	doc.setLineWidth(2);
+	//doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");
+	doc.autoTable({
+		html: '#to_pf_table',
+
+	});
+	doc.save('SALES_MADE');
+
+});
+$("#all_brands").click(function () {
+	//$("#to_pf_table").tableHTMLExport({
+	//    type: 'pdf',
+	//    orientation: 'p'
+	//});
+	var date = $("#serach_sales").val();
+	$("#sales_made_on").text(date);
+	//var img = new Image()
+	var doc = new jsPDF();
+	//img.src = 'wwwroot/images/logo2.png'
+	//doc.addImage(img, 'png', 10, 78, 12, 15)
+	var htmlstring = '';
+	var tempVarToCheckPageHeight = 0;
+	var pageHeight = 0;
+	//pageHeight = doc.internal.pageSize.height;
+	//specialElementHandlers = {
+	//        // element with id of "bypass" - jQuery style selector
+	//        '#bypassme': function(element, renderer) {
+	//        // true = "handled elsewhere, bypass text extraction"
+	//        return true
+	//    }
+	//};
+	//margins = {
+	//        top: 10,
+	//    bottom: 10,
+	//    left: 10,
+	//    right: 10,
+	//    width: 100
+	//};
+	var y = 20;
+	doc.setLineWidth(2);
+	//doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");
+	doc.autoTable({
+		html: '#allbrands',
+
+	});
+	doc.save('LIST_OF_ALL_ITEMS');
+
+});
+
+
+$("#sold_items_pdf1").click(function () {
+	//$("#to_pf_table").tableHTMLExport({
+	//    type: 'pdf',
+	//    orientation: 'p'
+	//});
+	var date = $("#serach_sales").val();
+	$("#sales_made_on").text(date);
+	//var img = new Image()
+	var doc = new jsPDF();
+	//img.src = 'wwwroot/images/logo2.png'
+	//doc.addImage(img, 'png', 10, 78, 12, 15)
+	var htmlstring = '';
+	var tempVarToCheckPageHeight = 0;
+	var pageHeight = 0;
+	//pageHeight = doc.internal.pageSize.height;
+	//specialElementHandlers = {
+	//        // element with id of "bypass" - jQuery style selector
+	//        '#bypassme': function(element, renderer) {
+	//        // true = "handled elsewhere, bypass text extraction"
+	//        return true
+	//    }
+	//};
+	//margins = {
+	//        top: 10,
+	//    bottom: 10,
+	//    left: 10,
+	//    right: 10,
+	//    width: 100
+	//};
+	var y = 20;
+	doc.setLineWidth(2);
+	//doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");
+	doc.autoTable({
+        html: '#sold_items_12',
+
+	});
+	doc.save('SOLD_ITEMS');
+
+});
+
+$("#restock_pdf").click(function () {
+	//$("#to_pf_table").tableHTMLExport({
+	//    type: 'pdf',
+	//    orientation: 'p'
+	//});
+	var date = $("#serach_sales").val();
+	$("#sales_made_on").text(date);
+	//var img = new Image()
+	var doc = new jsPDF();
+	//img.src = 'wwwroot/images/logo2.png'
+	//doc.addImage(img, 'png', 10, 78, 12, 15)
+	var htmlstring = '';
+	var tempVarToCheckPageHeight = 0;
+	var pageHeight = 0;
+	//pageHeight = doc.internal.pageSize.height;
+	//specialElementHandlers = {
+	//        // element with id of "bypass" - jQuery style selector
+	//        '#bypassme': function(element, renderer) {
+	//        // true = "handled elsewhere, bypass text extraction"
+	//        return true
+	//    }
+	//};
+	//margins = {
+	//        top: 10,
+	//    bottom: 10,
+	//    left: 10,
+	//    right: 10,
+	//    width: 100
+	//};
+	var y = 20;
+	doc.setLineWidth(2);
+	//doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");
+	doc.autoTable({
+		html: '#restock_item',
+	});
+	doc.save('ITEM_RESTOCK_HISTORY');
+
+});
+$("#attendants_pdf").click(function () {
+	//$("#to_pf_table").tableHTMLExport({
+	//    type: 'pdf',
+	//    orientation: 'p'
+	//});
+	var date = $("#serach_sales").val();
+	$("#sales_made_on").text(date);
+	//var img = new Image()
+	var doc = new jsPDF();
+	//img.src = 'wwwroot/images/logo2.png'
+	//doc.addImage(img, 'png', 10, 78, 12, 15)
+	var htmlstring = '';
+	var tempVarToCheckPageHeight = 0;
+	var pageHeight = 0;
+	//pageHeight = doc.internal.pageSize.height;
+	//specialElementHandlers = {
+	//        // element with id of "bypass" - jQuery style selector
+	//        '#bypassme': function(element, renderer) {
+	//        // true = "handled elsewhere, bypass text extraction"
+	//        return true
+	//    }
+	//};
+	//margins = {
+	//        top: 10,
+	//    bottom: 10,
+	//    left: 10,
+	//    right: 10,
+	//    width: 100
+	//};
+	var y = 20;
+	doc.setLineWidth(2);
+	//doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");
+	doc.autoTable({
+		html: '#attendants_table',
+	});
+	doc.save('LIST_OF_ATTENDANTS');
+
+});
+        $(document).ready(function () {
+            calc_total_admin();
+	$('#collapse').hide();
+	var msg = '@TempData["popup"]'
+	
+
+    if (msg == "1") {
+        $("danger").show();
+        $("success").hide();
+        //$('#btnSubmit').before('<div>Success!</div>').delay(3000).fadeOut();
+        $('#positive_results').modal('show');
+        setTimeout(function () {
+            $('#positive_results').modal('hide');
+        }, 3000);
+
+    }
+    else if (msg == "2") {
+        $("danger").show();
+        $("success").hide();
+
+        //$('#positive_results').modal('show');
+
+        $('#negative_results').modal('show');
+        setTimeout(function () {
+            $('#negative_results').modal('hide');
+        }, 3000);
+    }
+    else if (msg == "5") {
+
+        $("#add_new_item_to_system").modal('show');
+    }
+    else if (msg == "4") {
+
+        $("#filtered_sold").modal('show');
+    }
+    else if(msg == "8") {
+
+        $("#all_brands_mod").modal('show');
+
+    }//alert("hdhhdh");
+});
+
+        calc_total();
+        calc_total_cost_price();
+        calc_total_cost_price_f();
+
+
+	$("#calculate_total").click(function () {
+		var date = $("#serach_sales").val();
+
+		$.ajax({
+			type: "POST",
+			url: "/Home/AjaxMethod",
+			data: {
+				"name": date
+			},
+			success: function (response) {
+				$("#sub_totals").text(response.total);
+				//$("#left").text(response.Balance);
+				var tok = response.total;
+				alert(response.total);
+				//if (tok < 15) {
+				//    $('#tok').css('background-color', '#7B241C');
+				//    $('#back').css('background-color', '#7B241C');
+				//    if (
+				//        tok < 0.05) {
+
+				//        //if (tok == 0) {
+				//        //if (tok < 0.1) {
+
+
+				//        $('#mymodalWarning').modal('show');
+
+				//    }
+				//    //}
+				//    //else {
+				//    //0724038362
+				//    //}
+
+
+				//    //if (tol < 0.02) {
+				//    //}
+
+				//    //$('#tok').effect('shake', { times: 3 }, 100);
+				//}
+
+				//else {
+				//    $('#tok').css('background-color', '#148F77');
+				//    $('#back').css('background-color', '#148F77');
+				//    //$('#tok').effect('shake', { times: 3 }, 100);
+				//    //$("#tok").effect("shake", { times: 4 }, 1000);
+
+
+				//}
+				//alert("Tus tus");
+
+			},
+			failure: function (response) {
+				$("#total_2").text("Error happened while calculating total cash");
+
+
+			},
+			error: function (response) {
+				$("#token").text(response.responseText);
+				//$('#mymodalWarning').modal('show');
+
+			}
+		});
+
+	});
+
+
+
+
+	function find_details(id, name, price, quantity, date,cost_price) {
+		$("#name_infor").text(name);
+		$("#name_infor2").text(name);
+        $("#mod_id").val(id);
+        $("#mod_stock").val(quantity);
+        $("#mod_name").val(name);
+        $("#mod_stock_price").val(cost_price);
+        $("#mod_item_price").val(price);
+
+
+
+
+
+
+
+		$("#price_infor").text(price);
+		$("#current_price").text(price);
+		$("#quantity_infor").text(quantity);
+		$("#date_infor").text(date);
+		$("#id_for_restock").val(id);
+        $("#cost_price_restock").val(cost_price);
+		$("#change_price_id").val(id);
+		$("#delete_id").val(id);
+		$("#current_stock").text(quantity);
+		$("#new_price").val(price);
+		$("#id").text(date);
+        $('#all_brands_mod').modal('hide');
+		$('#product_infor').modal('show');
+	}
+	function OnSuccess(header, Message) {
+		$("#Message_Header").text(header);
+		$("#Message_Text").text(Message);
+		$('#MessageDialog').modal('show');
+	}
+
+	function OnFailure(header, error) {
+		$("#Message_Header").text(header);
+		$("#Message_Text").text(error);
+		$('#MessageDialog').modal('show');
+	}
+
+	//$("#shop_name").keyup(function () {
+	//    var value = this.value.toLowerCase().trim();
+
+	//    $("table tr").each(function (index) {
+	//        if (!index) return;
+	//        $(this).find("td").each(function () {
+	//            var id = $(this).text().toLowerCase().trim();
+	//            var not_found = (id.indexOf(value) == -1);
+	//            $(this).closest('tr').toggle(!not_found);
+	//            return not_found;
+	//        });
+	//    });
+	//});
+	//function btn_click(id, imageurl, itemname, itemprice, itemquantity) {
+	//    $("#table1").hide("slow");
+	//    //$("#confirm").attr("src", "/" + imageurl);
+	//    var str1 = "/";
+	//    var str2 = imageurl;
+	//    var imageUrl = str1.concat(str2);
+	//    //$(".box").css("background-image", "url(" + imageUrl + ")");
+	//    //$("#headings").css("background-image", "url(" + imageUrl + ")");
+	//    $("#headings").css('background-image', "url(" + imageUrl + ")");
+	//    $("#headings").animate({
+
+	//        height: "150px",
+	//    }, 1000);
+	//    $("#searchbox").fadeOut(1000);
+	//    $("#itemname").text(itemname);
+	//    $("#item").text(itemname);
+	//    $("#Price").text(itemprice);
+	//    $("#availlable").text(itemquantity);
+	//    //$("#table1").hide();
+	//    //alert(imageUrl);
+	//}
+	function incrementInput(id) {
+		document.getElementById(id).value++;
+	}
+
+	function dincrementInput(id) {
+		var temp = document.getElementById(id).value;
+		if (temp == 0) { } else {
+			document.getElementById(id).value--;
+		}
+	}
+	$('#expand').click(function () {
+		$('#expand').hide();
+		$('#collapse').show();
+		//if ($('button span').hasClass('glyphicon-chevron-down')) {
+		//    $('#more').html('<span class="glyphicon glyphicon-chevron-up"></span> Less Info');
+		//}
+		//else {
+		//    $('#more').html('<span class="glyphicon glyphicon-chevron-down"></span> More Info');
+		//}
+	});
+	$('#collapse').click(function () {
+		$('#collapse').hide();
+		$('#expand').show();
+		//if ($('button span').hasClass('glyphicon-chevron-down')) {
+		//    $('#more').html('<span class="glyphicon glyphicon-chevron-up"></span> Less Info');
+		//}
+		//else {
+		//    $('#more').html('<span class="glyphicon glyphicon-chevron-down"></span> More Info');
+		//}
+	});
+
+
+//</script>
+
+
+}

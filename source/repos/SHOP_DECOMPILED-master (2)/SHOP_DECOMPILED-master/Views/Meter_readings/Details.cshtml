@@ -1,0 +1,49 @@
+﻿@model SHOP_DECOMPILED.Models.Meter_readings
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Meter_readings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fuel_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fuel_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Current_readings)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Current_readings)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Previous_readings)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Previous_readings)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Agent_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Agent_id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

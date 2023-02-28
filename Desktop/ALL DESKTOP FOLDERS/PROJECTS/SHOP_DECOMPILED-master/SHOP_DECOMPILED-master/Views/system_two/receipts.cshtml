@@ -1,0 +1,180 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+    @model SAINA.Models.Receipts2;
+}
+
+<link href="~/css/w3school.css" asp-append-version="true" rel="stylesheet" />
+<a data-toggle="modal" data-target="#rec">Open</a>
+
+
+
+<div class="modal  fade" data-backdrop="static" id="rec" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-6 col-lg-6">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Receipt</h5>
+                    </div>
+                    <div class="col-6 col-lg-6 text-right">
+                        <a href="#" class="btn btn-success btn-sm custome_bt" onclick="window.print();return false;" data-toggle="modal" data-target="#invoice"><i class="fa fa-print"></i></a>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="modal-body" style="color:black!important">
+                <div class="container print" style="font-size:25px;">
+                    @*style="border:3px dashed #1a6ea4;"*@
+                    <div class="container-fluid p-0 pl-2 pr-2">
+
+                        <img src="/Images/saina_logo.png" class="inv-logo" style="height:250px;width:250px" />
+
+                        <div class="text-center" style="color:black!important">
+                            <div class="row">
+                                <div class="col-lg-12 text-center color_">
+                                    <h3>SUPREME SAI ENTERPRISES </h3>
+                                    <br />
+
+                                    <i class="text-center">
+                                        <strong>
+                                            Dealers in office Furnitures,House hold furnitures,Steel doors,Windows ,Double decker beds & Interior Design
+                                        </strong>
+                                    </i>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="row">
+
+                            
+                                <div class="col-lg-5 text-left color_">
+                                    <ul>
+                                        <li>P.O. BOX. 65-30706</li>
+                                        <li>CHEBIEMIT</li>
+                                        <li>0724411559 | 0720100002</li>
+                                        <li>pausaina932@@gmail.com</li>
+                                        <li>@ViewBag.date</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-5 text-right">
+                                    <ul>
+                                        <li> <h2 class="text-danger">No:@Model.id</h2></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="row">
+                                <div class="col-lg-12 color_">
+
+                                    <h1 class="font-weight-bolder "><u>OFFICIAL RECEIPT</u></h1>
+
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="col-lg-12 text-left color_">
+                                    <p>Received from:<strong>@Model.Received_from</strong> the sum of shillings:<strong>@Model.Total.ToString("#,0.00")</strong> being payment of: <strong>@Model.Particulars</strong></p>
+
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+                            <br />
+                            <table class="table" class="border-0">
+                                <tr>
+                                    <td class="text-left color_ border-0">
+                                        @if (Model.Payment_mode)
+                                        {
+                                    <p><strong>Cheque:</strong>Ksh. @Model.Total.ToString("#,0.00")</p>
+                                                    <p><strong>Cheque No:</strong> @Model.check_number</p> }
+                                                else
+                                                {
+                                    <p><strong>Ksh.:</strong> @Model.Total.ToString("#,0.00")</p>
+                                                    <br />
+                                                                    <p>Cash</p>}
+                                        
+
+                                           
+                                       
+                                    </td>
+                                    <td class="text-right border-0">
+
+                                        <table class="color_" style="float:right">
+                                            <tr>
+                                                <td class="border-0">
+                                                    @*   <img src="~/Images/sai_.png" style="height: 240px; position: absolute; top: 800px;right:160px; transform: rotate(-30deg);" />*@
+
+                                                    <p><strong>WITH THANKS</strong></p>
+
+                                                    <br />
+                                                    <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+                                                    <br /> <small>For Supreme Sai Enterprise</small>
+
+                                                </td>
+                                                <td class="border-0">
+                                                    <div class="box">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-secondary" asp-action="home_details" asp-route-id="@Model.id">Close</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " w3-red";
+    }
+
+</script>

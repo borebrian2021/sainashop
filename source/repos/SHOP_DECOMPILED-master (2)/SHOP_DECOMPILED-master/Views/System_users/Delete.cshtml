@@ -1,0 +1,72 @@
+﻿@model SHOP_DECOMPILED.Models.System_users
+
+@{
+
+    ViewData["Title"] = "List of users";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+
+}
+
+<div class="container-fluid w3-card p-3 bg-white">
+    <h5>DELETE USERS</h5>
+
+</div>
+
+<p>
+    <a asp-action="Create" class="btn w3-card bg-white mt-3">Back to users</a>
+</p>
+<div class="container-fluid bg-white w3-card p-2" >
+    <div>
+        <h4>Delete this user?</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Full_name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Full_name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.National_id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.National_id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Roles)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Roles)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="id" />
+            <table>
+                <tr>
+                    <td>
+                        <input type="submit" value="Delete" class="btn btn-sm w3-card bg-danger text-white" /> 
+
+                    </td>
+                    <td>
+                        <a asp-action="Index" class="btn btn-sm w3-card bg-success text-white">Back to List</a>
+
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+    </div>

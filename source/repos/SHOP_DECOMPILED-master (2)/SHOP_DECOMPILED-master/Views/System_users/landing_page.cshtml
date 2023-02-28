@@ -1,0 +1,68 @@
+﻿@model SHOP_DECOMPILED.Models.System_users
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Log in";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+@*<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">*@
+<link href="~/css/cards.css" rel="stylesheet" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link href="~/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+<link href="~/css/side_nav.css" rel="stylesheet" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="~/css/tank.css" asp-append-version="true" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/41cd8e780b.js" crossorigin="anonymous"></script>
+<div class="row">s
+    <div class="col-lg-12 text-center mb-3" style="border-right:2px solid grey;">
+        @*<img src="/images/logo.png" class="logoClassic_w" />*@
+        <h3 style="color: #15badf
+">
+           Agusto filing station
+
+        </h3>
+
+        <h6>One Stop Shop</h6>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 text-center mb-3" style="border-right:2px solid grey;">
+        <img src="/images/sell.png" class="logo" style="border:none;border-radius:unset" />
+        <h4 style="color: #15badf
+">
+            Sale Management Module 
+        </h4>
+        <h6>Log in to access realtime lubricantS sales records.</h6>
+        <a asp-action="log_in" asp-controller="log_in" class="btn btn-white bg-white btn-sm w3-card">
+            <i class="fa fa-angle-float-left"></i>&nbsp;|&nbsp;Go to sales module
+        </a><br />
+    </div>
+    <div class="col-lg-6 text-center mb-3">
+       <img src="/images/fuel_logo.png" class="logo" style="border:none;border-radius:unset" />
+        <h4 style="color: #15badf
+">
+            Petrol Station Management Module
+
+        </h4>
+        <h6>Log in to access real time fuel sales records</h6>
+        <a asp-action="log_in" asp-controller="System_users"  class="btn btn-white bg-white btn-sm w3-card">
+            Go to sales module&nbsp;|&nbsp;
+            <i class="fa fa-angle-float-right"></i>
+        </a><br />
+    </div>
+</div>
+<div class="row">
+    
+    <div class="col-lg-12 text-center mb-3" style="border-right:2px solid grey;">
+        © . Dons Place Investments @DateTime.Now.Year
+    </div>
+        </div>
+        <div>
+            @*<a asp-action="Index">Back to List</a>*@
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

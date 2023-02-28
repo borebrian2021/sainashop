@@ -1,0 +1,173 @@
+﻿@using SAINA.Models
+@{ ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+    @model ViewModels
+}
+<link href="~/css/w3school.css" asp-append-version="true" rel="stylesheet" />
+
+<div class="card_ text-center">
+
+       
+            <img src="/Images/welcome.svg" style="height:100px;width:100px" />
+
+
+            <marquee style="color: #581845" behavior="alternate">
+                <h2>WELCOME TO SUPREME SAI ENTERPRISES</h2>
+
+
+                <p class="m-1">
+                    Dealers in office Furnitures,House hold furnitures,Steel doors,Windows
+                    ,Double decker beds & Interior Design
+                </p>
+            </marquee>
+    
+
+</div>
+<div class="card_ text-center">
+    <img src="/Images/saina_logo.png" style="height:70px;width:70px" />
+
+    <h2 class="m-1">DELIVERY NOTE</h2>
+    <table class="text-left ml-3">
+        <tr>
+            <td><strong>L.P.O.:</strong> @Model.Deliveries.LPO_Number</td>
+
+        </tr>
+        <tr>
+            <td class="text-danger"><strong>Delivery Number:</strong>@Model.Deliveries.id </td>
+
+        </tr>
+
+        <tr>
+            <td><strong>Items:.</strong><label class="badge badge-primary">  @Model.Particulars.Count()</label></td>
+
+        </tr>
+        <tr>
+            <td><strong>Date:.</strong> @Model.Deliveries.date</td>
+
+        </tr>
+        <tr>
+            <td><strong>Received $ Checked by:.</strong> @Model.Deliveries.Received_by</td>
+
+        </tr>
+        <tr>
+            <td><strong>Delivered by:</strong> @Model.Deliveries.Delivered_by</td>
+
+        </tr>
+
+
+
+    </table>
+    <table class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+
+        <thead>
+            <tr>
+
+                <th>Qty</th>
+                <th>Description of items</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Particulars)
+            {
+<tr>
+    <td>@x.Quantity</td>
+    <td>@x.Item_name</td>
+
+
+
+
+
+
+</tr>
+}
+
+
+
+        </tbody>
+    </table>
+
+
+</div>
+<div class="card_ text-center">
+    <img src="/Images/saina_logo.png" style="height:70px;width:70px" />
+
+    <p class="m-1">Welcome to Supreme Sai enterprises</p>
+    <h2 class="m-1" >INVOICE</h2>
+    <table class="text-left ml-3">
+        <tr>
+            <td><strong>L.P.O.:</strong> @Model.Deliveries.LPO_Number</td>
+
+        </tr>
+        <tr>
+            <td class="text-danger"><strong>Invoice Number:</strong>@Model.Deliveries.id </td>
+
+        </tr>
+
+        <tr>
+            <td><strong>Total:.</strong>@ViewBag.sum.ToString("#,00.00")</td>
+
+        </tr>
+        <tr>
+            <td><strong>Date:.</strong> @Model.Deliveries.date</td>
+
+        </tr>
+        <tr>
+            <td><strong>Received $ Checked by:.</strong> @Model.Deliveries.Received_by</td>
+
+        </tr>
+        <tr>
+            <td><strong>Delivered by:</strong> @Model.Deliveries.Delivered_by</td>
+
+        </tr>
+       
+
+
+    </table>
+
+    <table class="w-100 table table-striped table-bordered table-sm " style="border-bottom-right-radius:20px;" border="1">
+        <thead>
+            <tr>
+
+                <th>Particulars</th>
+                <th>Qty</th>
+                <th>@@</th>
+                <th>Ammount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Particulars)
+            {
+<tr>
+    <td>@x.Item_name</td>
+
+    <td>@x.Quantity</td>
+    <td>@x.price</td>
+    <td>@x.total.ToString("#,00.00")</td>
+
+
+</tr>
+}
+
+            <tr>
+
+                <th colspan="3">
+
+                    <strong>Total:</strong>
+                </th>
+                <th> @ViewBag.sum.ToString("#,00.00")</th>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+<a href="tel:0724411559" class="call"><i class="fa fa-phone"></i></a>
+
+

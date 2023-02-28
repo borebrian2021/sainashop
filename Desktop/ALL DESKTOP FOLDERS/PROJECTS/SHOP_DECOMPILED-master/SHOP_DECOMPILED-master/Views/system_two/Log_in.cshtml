@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout_other.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <div class="card_log_in text-center">
+            <div class="container-fluid text-center">
+                <p class="text">Please log in first</p>
+
+                <hr />
+
+                <form asp-action="Log_in_user" asp-controller="system_two">
+                    <img src="~/Images/saina_logo.png" style="height:200px;" />
+                    <br />
+                    <input class="custome_input " name="id" type="number" placeholder="Enter User ID" />
+                    <input class="custome_input " name="password" type="password" placeholder="Enter User ID" />
+                    <br />
+                    <label class="text-danger">@TempData["message"]</label><br />
+
+                    <button type="submit" class="btn btn-default button-general m-2">Log in</button>
+                    <button class="btn btn-default button-general m-2">Forgot Password?</button>
+                    @if (TempData["message"] != null)
+                    {
+                        
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+
+@*<button onclick="googleSignin()">Google Signin</button>
+<button onclick="googleSignout()">Google Signout</button>*@

@@ -1,0 +1,1014 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<div class="row">
+    <div class="col-lg-12">
+
+
+        <div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="card w3-card side_custome">
+                        <div class="card-body text-left">
+                            <div class="row">
+
+                                <div class="col-lg-12 col-12">
+                                    <table class="table" style="border:none">
+                                        <tr>
+                                            <td style="border:none">
+                                                @ViewBag.debtors_name
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none">
+                                                <h2>Ksh. @ViewBag.credit</h2>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+
+                            <p class="card-text">&nbsp; <button class="btn w3-card bg-white card-title-custome  btn-sm" data-toggle="modal" data-target="#pay"><i class="fa fa-usd" aria-hidden="true"></i> &nbsp;Pay</button></p>
+                            <p class="card-text">&nbsp; <button class="btn w3-card bg-white card-title-custome  btn-sm" data-toggle="modal" data-target="#payment_mod"><i class="fa fa-usd" aria-hidden="true"></i> &nbsp;Payment History</button></p>
+                            @*   <p class="card-text">&nbsp; <button class="btn w3-card bg-white card-title-custome  btn-sm" data-toggle="modal" data-target="#all_creditors"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button></p>*@
+
+                        </div>
+                        @*<div class="card-body text-left">
+                            <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                            <h4 class="card-title">Messages</h4>
+                            <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="card w3-card">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+
+
+                    <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                        <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                        <input id="creditors" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search"
+                               aria-label="Search">
+                        &nbsp;
+                        @*<button class="btn btn-primary btn-sm w3-card" data-toggle="modal" data-target="#add_new_item_to_system"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Add new item</button> &nbsp;*@
+                        <button class="btn btn-white w3-card btn-sm m-1" id="creditors_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;Download PDF</button>
+                        <button class="btn btn-white  btn-sm m-1 w3-card" id="creditors_pdf" data-dismiss="modal" data-toggle="modal" data-target="#sell_itemsf"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table font_flex" id="creditors_table">
+                        <tr>
+                            <th style="border:none">Item</th>
+                            <th style="border:none">Quantity</th>
+                            <th style="border:none">Total</th>
+                            <th style="border:none">Date</th>
+                        </tr>
+
+                        @if (@ViewBag.history != null)
+                        {
+            @foreach (var item in @ViewBag.history)
+            {
+<tr>
+    <td class="border_none" style="border-top: none">@item.Item</td>
+    <td class="border_none" style="border-top:none">@item.Quantity</td>
+    <td class="border_none" style="border:none"><span class="badge badge-dark">@item.Total</span></td>
+    <td class="border_none" style="border:none"><span class="badge badge-danger">@item.Date_created</span></td>
+
+</tr>}}
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custome_modal_radius" id="add_client">
+    <div class="modal-dialog">
+        <div class="modal-content border-0">
+
+            <!-- Modal Header -->
+            @*<div class="modal-header  p-2  ">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;  ADD NEW ITEM
+
+                </div>*@
+
+            <!-- Modal body -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/icons/users.png" class="sell" />&nbsp;<b>ITEM SOLD ON CREDIT</b>
+            </div>
+            <div class="modal-body">
+
+
+                <form asp-action="_add_debt">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="group" hidden>
+                        <input name="id" class="custome_input" value="@ViewBag.id" required="required" />
+                        <input name="item_id" class="custome_input" hidden required="required" />
+
+                    </div>
+                    <div class="group">
+                        <input name="item" class="custome_input" type="text" autocomplete="on" required="required" />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Item Name</label>
+                    </div>
+                    <div class="group">
+                        <input name="quantity" class="custome_input" type="number" maxlength="10" required="required" />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Quantity sold</label>
+                    </div>
+                    <div class="group">
+                        <input name="total" class="custome_input" type="number" required="required" />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Total</label>
+                    </div>
+                    <div class="group" hidden>
+                        <input name="date" class="custome_input" value="@DateTime.Now" maxlength="10" required="required" />
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="modal fade custome_modal_radius" id="pay">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>SUBMIT PAYMENTS</b>
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <form asp-action="payment">
+                            <table class="table">
+                                <tr>
+                                    <td style="border:none" class="text-center">
+                                        <input name="id" class="custome_input" value="@ViewBag.id" required="required" hidden />
+                                        <input id="creditors" name="ammount" required class="form-control w-100 search_input mb-2" type="number" placeholder="Enter ammount in Ksh"
+                                               aria-label="Search">
+                                        <br />
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="border:none" class="text-center">
+
+                                        <button type="submit" class="btn btn-white w3-card"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;Submit payment</button>
+
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custome_modal_radius" id="all_creditors">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>ALL DEBTOR</b>
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+
+                                <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                                    <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                                    <input id="creditors" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search"
+                                           aria-label="Search">
+                                    &nbsp;
+                                    @*<button class="btn btn-primary btn-sm w3-card" data-toggle="modal" data-target="#add_new_item_to_system"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Add new item</button> &nbsp;*@
+                                    <button class="btn btn-primary btn-sm" id="creditors_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</button>
+                                    <button class="btn btn-primary btn-sm" id="creditors_pdf" data-dismiss="modal" data-toggle="modal" data-target="#add_client"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;Add new client</button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table font_flex" id="creditors_table">
+                                    <tr>
+                                        <th style="border:none">Item</th>
+                                        <th style="border:none">Quantity</th>
+                                        <th style="border:none">Total</th>
+                                        <th style="border:none">Date</th>
+                                    </tr>
+
+                                    @if (@ViewBag.history != null)
+                                    {
+                        @foreach (var item in @ViewBag.history)
+                        {
+        <tr>
+            <td class="border_none" style="border-top: none">@item.Item</td>
+            <td class="border_none" style="border-top:none">@item.Quantity/=</td>
+            <td class="border_none" style="border:none"><h5><span class="badge badge-danger">@item.Total</span></h5></td>
+            <td class="border_none" style="border:none"><h5><span class="badge badge-danger">@item.Date_created</span></h5></td>
+            <td>
+                <button class="btn w3-card p-1"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+
+            </td>
+        </tr>}}
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custome_modal_radius" id="payment_mod">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>PAYMENT HISTORY</b>
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+
+                                <p>Payment history for:@ViewBag.debtors_name</p>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table font_flex" id="paymenT_table">
+                                    <tr>
+                                        <th style="border:none">Date paid</th>
+                                        <th style="border:none">Ammount paid</th>
+                                        <th style="border:none">Balance</th>
+
+                                    </tr>
+
+                                    @if (@ViewBag.p_history != null)
+                                    {
+                        @foreach (var item in @ViewBag.p_history)
+                        {
+        <tr>
+            <td class="border_none" style="border-top: none">@item.Date_created</td>
+            <td class="border_none" style="border-top:none">@item.Ammount_paid/=</td>
+            <td class="border_none" style="border:none"><span class="badge badge-danger">@item.Balance</span></td>
+
+        </tr>}}
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade custome_modal_radius" id="sell_itemsf">
+    <div class="modal-dialog modal-lg" style="z-index:1020">
+        <div class="modal-content" style="z-index:1020">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>SELLECT ITEM TO SELL</b>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+
+
+
+                <table class="table" style="z-index:1020">
+                    <tr>
+                        <td class="border-0">
+
+                            <input id="sell_item_customer" class="form-control form-control-sm search_input mb-2 w-100" type="text" placeholder="Search"
+                                   aria-label="Search">
+                        </td>
+
+                    </tr>
+                </table>
+                Please select item to sell
+                <table class="table font_flex" id="allbrands_1">
+                    <tr>
+                        @*<th class="border_none" style="border:none">Icon</th>*@
+                        <th class="border_none" style="border:none">Item name</th>
+                        <th class="border_none" style="border:none">Price</th>
+                        <th class="border_none" style="border:none">Qunty</th>
+                    </tr>
+                    @if (@ViewBag.allBrands != null)
+                    {
+        @foreach (var item in ViewBag.allBrands)
+        {
+<tr class="w3-card space_tr" onclick="find_details('@item.id','@item.Item_name','@item.Item_price','@item.Quantity','@item.DateTime',@item.Cost_price)">
+    @*  <td class="border_none" style="border-top: none"><img class="table_image_dynamic" /></td>*@
+    <td class="border_none" style="border-top: none"><b>@item.Item_name</b></td>
+    <td class="border_none" style="border-top:none">@item.Item_price/=</td>
+    <td class="border_none" style="border:none"><span class="badge badge-secondary">@item.Quantity</span></td>
+    <td class="border_none" style="border:none"><button class="btn w3-card p-1"><img src="~/icons/tap.png" class="sell" /></button></td>
+
+</tr>
+} }
+    else
+    {
+
+<tr>
+    <td colspan="4">
+        <div class="alert alert-danger">
+            <p>No item has been added yet</p>
+        </div>
+    </td>
+</tr>
+}
+
+
+                </table>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*//SELECTED ITEM*@
+
+<div class="modal fade custome_modal_radius" id="selected_item">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content" style="z-index:1020">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2 grey_custome">
+                <img src="~/images/sell.png" class="sell" />&nbsp; <p id="item_selected"></p>
+
+            </div>
+
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <table class="table" style="z-index:1020">
+                    @*<tr>
+                            <td>
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp; Item selected:
+                            </td>
+                            <td>
+                                <p id="item_selected"></p>
+                            </td>
+                        </tr>*@
+                    <tr>
+                        <td class="grey_custome border-0">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp; Current Quantity:
+                        </td>
+                        <td class="border-0">
+                            <p id="current_quantity"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="border-0 text-center">
+                            <p class="grey_custome">Please enter quantity sold</p>
+                            @*<form asp-action="restock">*@
+                            <div class="input-group mb-3 w3-card">
+                                <div class="input-group-prepend text-light">
+                                    <a class="btn btn-primary" style="
+" onclick="dincrementInput('quantity_selector')">
+                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <input hidden min="0" autocomplete="on" name="id_select_quantity" id="id_for_restock" type="number"><br />
+                                <input hidden autocomplete="on" id="price_for_quantity_selector" type="number">
+                                <input class="form-control" min="0.5" name="ammount" id="quantity_selector" value="1" type="number">
+                                <div class="input-group-append text-light w3-card">
+                                    <a style="
+" class="btn btn-primary" onclick="incrementInput('quantity_selector')">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td class="text-center border-0">
+                                        <button data-dismiss="modal" data-target="#sell_itemsf" data-toggle="modal" class="btn reduced_radius reduced_radius w3-card"><img src="~/icons/back.png" class="sell_lg" />&nbsp;&nbsp;&nbsp;Back</button>
+                                    </td>
+                                    <td class="text-center border-0">
+                                        <button id="submit_quantity" class="btn reduced_radius reduced_radius w3-card">Next&nbsp;&nbsp;&nbsp;<img src="~/icons/next.png" class="sell_lg" /></button>
+
+                                </tr>
+                            </table>
+                            @*</form>*@
+
+                        </td>
+
+                    </tr>
+                </table>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@*//SELECTED ITEM*@
+
+<div class="modal fade custome_modal_radius" id="selected_item">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content" style="z-index:1020">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2 grey_custome">
+                <img src="~/images/sell.png" class="sell" />&nbsp; <p id="item_selected"></p>
+
+            </div>
+
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <table class="table" style="z-index:1020">
+                    @*<tr>
+                            <td>
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp; Item selected:
+                            </td>
+                            <td>
+                                <p id="item_selected"></p>
+                            </td>
+                        </tr>*@
+                    <tr>
+                        <td class="grey_custome border-0">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp; Current Quantity:
+                        </td>
+                        <td class="border-0">
+                            <p id="current_quantity"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="border-0 text-center">
+                            <p class="grey_custome">Please enter quantity sold</p>
+                            @*<form asp-action="restock">*@
+                            <div class="input-group mb-3 w3-card">
+                                <div class="input-group-prepend text-light">
+                                    <a class="btn btn-primary" style="
+" onclick="dincrementInput('quantity_selector')">
+                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <input hidden min="0" autocomplete="on" name="id_select_quantity" id="id_for_restock" type="number"><br />
+                                <input hidden autocomplete="on" id="price_for_quantity_selector" type="number">
+                                <input class="form-control" min="0.5" name="ammount" id="quantity_selector" value="1" type="number">
+                                <div class="input-group-append text-light w3-card">
+                                    <a style="
+" class="btn btn-primary" onclick="incrementInput('quantity_selector')">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td class="text-center border-0">
+                                        <button data-dismiss="modal" data-target="#sell_itemsf" data-toggle="modal" class="btn reduced_radius reduced_radius w3-card"><img src="~/icons/back.png" class="sell_lg" />&nbsp;&nbsp;&nbsp;Back</button>
+                                    </td>
+                                    <td class="text-center border-0">
+                                        <button id="submit_quantity" class="btn reduced_radius reduced_radius w3-card">Next&nbsp;&nbsp;&nbsp;<img src="~/icons/next.png" class="sell_lg" /></button>
+
+                                </tr>
+                            </table>
+                            @*</form>*@
+
+                        </td>
+
+                    </tr>
+                </table>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@*//CALCULATE CASH*@
+
+<div class="modal fade custome_modal_radius" id="calculate_modal">
+    <div class="modal-dialog" style="z-index:1020">
+        <div class="modal-content" style="z-index:1020">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2 grey_custome">
+                <img src="~/icons/finance.png" class="sell" />&nbsp; <h3 class="pr-2" id="item_selected_finance"></h3>
+
+            </div>
+
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+
+                <table class="table" style="z-index:1020">
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Item price:</td>
+                        <td class="border-0"><p id="item_price"></p></td>
+                    </tr>
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Items sold:</td>
+                        <td class="border-0"><p id="items_sold_finance"></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">NB:Enter discounted value here</td>
+                    </tr>
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Total Cash Expected:</td>
+                        <td class="border-0"><input id="total_cash_paid_out" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td class="border-0 text-center" colspan="2">
+                            @*<form asp-action="post_finish">*@
+                            <input name="id_finish" id="id_finish" hidden />
+                            <input name="quantity_sold" id="quantity_sold" hidden />
+                            <input name="submit_price" id="submit_price" hidden />
+                            <input name="Total_cash_made" id="Total_cash_made" hidden />
+                            <input name="DateTime" id="DateTime" value="@DateTime.Now.ToString("dd/MM/yyyy")" hidden />
+                            <button class="btn w3-card-lg" id="next">Next &nbsp;&nbsp;<img src="~/icons/next.png" class="sell_lg" /></button>
+                            @*</form>*@
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*//CALCULATE CASH*@
+
+<div class="modal fade custome_modal_radius" id="calculate_modal">
+    <div class="modal-dialog" style="z-index:1020">
+        <div class="modal-content" style="z-index:1020">
+
+            <!-- Modal Header -->
+            <div class="modal-header  p-2 grey_custome">
+                <img src="~/icons/finance.png" class="sell" />&nbsp; <h3 class="pr-2" id="item_selected_finance"></h3>
+
+            </div>
+
+
+
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+
+                <table class="table" style="z-index:1020">
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Item price:</td>
+                        <td class="border-0"><p id="item_price"></p></td>
+                    </tr>
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Items sold:</td>
+                        <td class="border-0"><p id="items_sold_finance"></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">NB:Enter discounted value here</td>
+                    </tr>
+                    <tr class="w3-card allbrands_1">
+                        <td class="border-0">Total Cash Expected:</td>
+                        <td class="border-0"><input id="total_cash_paid_out" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td class="border-0 text-center" colspan="2">
+                            @*<form asp-action="post_finish">*@
+                            <input name="id_finish" id="id_finish" hidden />
+                            <input name="quantity_sold" id="quantity_sold" hidden />
+                            <input name="submit_price" id="submit_price" hidden />
+                            <input name="Total_cash_made" id="Total_cash_made" hidden />
+                            <input name="DateTime" id="DateTime" value="@DateTime.Now.ToString("dd/MM/yyyy")" hidden />
+                            <button class="btn w3-card-lg" id="next">Next &nbsp;&nbsp;<img src="~/icons/next.png" class="sell_lg" /></button>
+                            @*</form>*@
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="confirm_sale">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content w3-card">
+
+            <!-- Modal Header -->
+            <div class="modal-header ">
+
+
+
+                <table class="table table-sm border-0">
+                    <tr>
+                        <td colspan="2" class="border-0">
+                            <p>Please confirm sales on credit before submitting</p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <img src="/gif/cofirm.gif" class="confirm_gif" />
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="border-0">Item:</td>
+                                    <td class="border-0"><p id="item_name_confirm"></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0">To be sold:</td>
+                                    <td class="border-0"><p id="item_sold_confirm"></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0">Buying Price:</td>
+                                    <td class="border-0"><p id="cost_price_confirm"></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0">Selling price:</td>
+                                    <td class="border-0"><p id="price_confirm"></p></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="border-0">Sub-Total:</td>
+                                    <td class="border-0"><p id="sub_total_confirm"></p></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Receipt printing:</td>
+                        <td>
+                            <div class="custom-control custom-switch mt-3">
+                                <input type="checkbox" class="custom-control-input" id="customSwitches" checked>
+                                <label class="custom-control-label" for="customSwitches" id="p_status">On</label>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-0 text-left">
+                            <button class="btn w3-card" id="finish_submit">Finish</button>
+                        </td>
+
+                        <td class="border-0 text-right">
+                            <button class="btn w3-card" onclick="goBack()">Back</button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+
+
+    </div><div class="modal" id="done" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content w3-card">
+
+                <table class="table">
+                    <tr>
+                        <td rowspan="2">
+                            <img src="/gif/done.gif" class="done" />
+                        </td>
+                        <td>
+                            <p>Item sold successfully.Customer receipt has been downloaded to your local machine!.</p>
+                            <a data-dismiss="modal" class="btn w3-card">Ok</a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="modal-header ">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section debt1{
+
+    <script type="text/javascript">
+        $('#next').click(function () {
+
+            var qntity_before = $('#quantity_selector').val();
+            var price_before = $("#price_for_quantity_selector").val();
+            var date = $("#DateTime").val();
+            var id = $("#id_finish").val();
+            var qntity = parseFloat(qntity_before);
+            var price = parseFloat(price_before);
+            var calculated = qntity * price;
+            var discounted = $("#total_cash_paid_out").val();
+
+            //LETS FEED THE CONFIRM MODAL
+            $("#sub_total_confirm").text(discounted);
+            $("#item_sold_confirm").text(qntity);
+            $('#calculate_modal').modal('hide');
+            $('#confirm_sale').modal('show');
+            //alert(calculated);
+        });
+        $('#finish_submit').click(function () {
+            var qntity_before = $('#quantity_selector').val();
+            var price_before = $("#price_for_quantity_selector").val();
+            var item_name = $("#item_name_confirm").text();
+            var date = $("#DateTime").val();
+            var id = $("#id_finish").val();
+            var qntity = parseFloat(qntity_before);
+            var discounted = $("#total_cash_paid_out").val();
+            var price = parseFloat(price_before);
+            var calculated = qntity * price;
+            //alert(calculated);
+            $.ajax({
+                type: "POST",
+                url: "/Home/_add_debt",
+                data: {
+                    "id_finish": id, "quantity_sold": qntity, "submit_price": price, "Total_cash_made": discounted, "date": date,"cust_id":'@ViewBag.id',
+                },
+                success: function (response) {
+                    $("#sub_totals").text(response.total);
+                    //$("#left").text(response.Balance);
+
+
+                    $('#done').modal('show');
+                    //alert(response.total)
+                },
+                failure: function (response) {
+                    $("#total_2").text("Error happened while calculating total cash");
+
+
+                },
+                error: function (response) {
+                    $("#token").text(response.responseText);
+                    //$('#mymodalWarning').modal('show');
+
+                }
+            });
+            //LETS FEED THE CONFIRM MODAL
+            var discounted = $("#total_cash_paid_out").val();
+
+            $("#sub_total_confirm").text(discounted);
+            $("#item_sold_confirm").text(qntity);
+            $('#calculate_modal').modal('hide');
+            $('#confirm_sale').modal('show');
+            //alert(id);
+
+        });
+        $("#submit_quantity").click(function () {
+
+            var qntity_before = $('#quantity_selector').val();
+            var price_before = $("#price_for_quantity_selector").val();
+            var qntity = parseFloat(qntity_before);
+            var price = parseFloat(price_before);
+            var calculated = qntity * price;
+            $("#item_price").text(price);
+            $("#items_sold_finance").text(qntity);
+            $("#total_cash_paid_out").val(calculated);
+
+            var id = $("id_for_restock").val();
+
+
+            $('#quantity_sold').val(qntity);
+            $('#Total_cash_made').val(calculated);
+
+            $("#submit_price").val(price);
+
+            $("#items_sold_finance").text(qntity);
+
+
+            //$("#item_selected_finance").text(calculated);
+            //$('#sell_itemsf').modal('show');
+            //$('#sell_itemsf').modal('hide');
+            //$('#calculate_modal').modal('show');
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/setTempData",
+                data: {
+                    "name": calculated
+                },
+                success: function (response) {
+                    $('#selected_item').modal('hide');
+                    $('#calculate_modal').modal('show');
+                    /*write_total(response.total);*/
+                    //alert(response.total);
+
+                    //alert(response.total);
+
+                },
+                failure: function (response) {
+                    $('#selected_item').modal('hide');
+                    $('#calculate_modal').modal('show');
+
+                },
+                error: function (response) {
+                    $('#selected_item').modal('hide');
+                    $('#calculate_modal').modal('show');
+                }
+            });
+
+        });
+        function incrementInput(id) {
+            document.getElementById(id).value++;
+        }
+
+        function dincrementInput(id) {
+            var temp = document.getElementById(id).value;
+            if (temp == 1) {
+                document.getElementById(id).value - 0.5;
+
+            } else {
+                document.getElementById(id).value--;
+            }
+        }
+        function find_details(id, name, price, quantity, date, cost_price,) {
+            $("#item_selected").text(name);
+            $("#id_for_restock").text(id);
+            $("#price_for_quantity_selector").val(price);
+            $("#id_finish").val(id);
+            $("#item_name_confirm").text(name);
+            $("#cost_price_confirm").text(cost_price);
+            $("#price_confirm").text(price);
+            $("#current_quantity").text(quantity);
+            //$('#sell_itemsf').modal('show');
+            $('#sell_itemsf').modal('hide');
+            $('#selected_item').modal('show');
+
+        }
+        $("#sell_item_customer").keyup(function () {
+            $(this).val($(this).val().toUpperCase());
+
+            //$("#already_holder").removeAttr("hidden");
+
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("sell_item_customer");
+            //input = id;search_sold_items sold_items
+            filter = input.value.toUpperCase();
+            table = document.getElementById("allbrands_1");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+
+                    } else {
+                        tr[i].style.display = "none";
+                        //$("#already_holder").hide();
+                    }
+                }
+            }
+            //var value = this.value.toLowerCase().trim();
+            //$("#already_holder").removeAttr("hidden");
+
+            //$("#already_added tr").each(function (index) {
+            //    if (!index) return;
+            //    $(this).find("td").each(function () {
+            //        var id = $(this).text().toLowerCase().trim();
+            //        var not_found = (id.indexOf(value) == -1);
+            //        $(this).closest('tr').toggle(!not_found);
+
+            //        return not_found;
+            //    });
+            //alert("hhjghgjh");
+            //});
+        });
+
+        $(document).ready(function () {
+            var msg = '@TempData["popup"]'
+
+            if (msg == "1") {
+                $("danger").show();
+                $("success").hide();
+
+                $('#positive_results').modal('show');
+                setTimeout(function () {
+                    $('#positive_results').modal('hide');
+                }, 3000);
+
+            }
+            else if (msg == "2") {
+                $("danger").show();
+                $("success").hide();
+                $('#negative_results').modal('show');
+                setTimeout(function () {
+                    $('#negative_results').modal('hide');
+                }, 3000);
+            }
+            else if (msg == "5") {
+
+                $("#add_new_item_to_system").modal('show');
+            }
+            else if (msg == "4") {
+
+                $("#filtered_sold").modal('show');
+            }
+            else {
+
+            }
+        });
+    </script>
+}

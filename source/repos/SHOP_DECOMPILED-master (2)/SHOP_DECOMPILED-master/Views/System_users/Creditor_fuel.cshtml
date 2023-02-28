@@ -1,0 +1,355 @@
+﻿@{
+    ViewData["Title"] = "List of users";
+    Layout = "~/Views/Shared/fuel_layout.cshtml";
+
+}
+<div class="row">
+    <div class="col-lg-12">
+
+
+        <div class="image-flip">
+            <div class="mainflip flip-0">
+                <div class="frontside">
+                    <div class="card w3-card side_custome">
+                        <div class="card-body text-left">
+                            <div class="row">
+
+                                <div class="col-lg-12 col-12">
+                                    <table class="table" style="border:none">
+                                        <tr>
+                                            <td style="border:none">
+                                                @ViewBag.debtors_name
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:none">
+                                                <h2>Ksh. @ViewBag.Balance</h2>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+
+                            <p class="card-text">&nbsp; <button class="btn w3-card bg-white card-title-custome  btn-sm" data-toggle="modal" data-target="#pay"><i class="fa fa-usd" aria-hidden="true"></i> &nbsp;Pay</button></p>
+                            <p class="card-text">&nbsp; <button class="btn w3-card bg-white card-title-custome  btn-sm" data-toggle="modal" data-target="#payment_mod"><i class="fa fa-usd" aria-hidden="true"></i> &nbsp;Payment History</button></p>
+                            @*   <p class="card-text">&nbsp; <button class="btn w3-card bg-white card-title-custome  btn-sm" data-toggle="modal" data-target="#all_creditors"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button></p>*@
+
+                        </div>
+                        @*<div class="card-body text-left">
+                            <p><img class="img-fluid" src="~/images/System/messagesNew.png" alt="card image" style="height:40px;width:40px;"></p>
+                            <h4 class="card-title">Messages</h4>
+                            <p class="card-text">67</p>*@
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="card w3-card">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+
+
+                    <div class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2 ml-3 w-100">
+                        <i class="fa fa-search " aria-hidden="true" style="color:#68213A "></i>
+                        <input id="creditors" class="form-control form-control-sm ml-3 search_input mb-2" type="text" placeholder="Search"
+                               aria-label="Search">
+                        &nbsp;
+                        @*<button class="btn btn-primary btn-sm w3-card" data-toggle="modal" data-target="#add_new_item_to_system"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Add new item</button> &nbsp;*@
+                        <button class="btn btn-white w3-card btn-sm m-1" id="creditors_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;Download PDF</button>
+                        <button class="btn btn-white  btn-sm m-1 w3-card" id="creditors_pdf" data-dismiss="modal" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table font_flex" id="creditors_table">
+                        <tr>
+                            <th style="border:none">Plate No.</th>
+                            <th style="border:none">Fuel</th>
+                            <th style="border:none">Litres</th>
+                            <th style="border:none">Cash on credit</th>
+                            <th style="border:none">Date</th>
+                        </tr>
+
+                        @if (@ViewBag.history != null)
+                        {
+            @foreach (var item in @ViewBag.history)
+            {
+<tr>
+    <td class="border_none" style="border-top: none">@item.Number_plate</td>
+    <td class="border_none" style="border-top: none">@item.Fuel</td>
+    <td class="border_none" style="border-top:none">@item.Ammount_in_litres&nbsp;Ltrs</td>
+    <td class="border_none" style="border-top:none">Ksh. &nbsp;@item.Total</td>
+    <td class="border_none" style="border:none"><span class="badge badge-danger">@item.Date_created</span></td>
+
+</tr>}}
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custome_modal_radius" id="add_client">
+    <div class="modal-dialog">
+        <div class="modal-content border-0">
+
+            <!-- Modal Header -->
+            @*<div class="modal-header  p-2  ">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;  ADD NEW ITEM
+
+                </div>*@
+
+            <!-- Modal body -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/icons/users.png" class="sell" />&nbsp;<b>ITEM SOLD ON CREDIT</b>
+            </div>
+            <div class="modal-body">
+
+
+                <form asp-action="_add_debt">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="group" hidden>
+                        <input name="id" class="custome_input" value="@ViewBag.id" required="required" />
+                        <input name="station_id" class="custome_input" value="@ViewBag.station_id" required="required" />
+
+                    </div>
+                    <div class="form-group">
+                        <select name="fuel" class="form-control" type="text" autocomplete="on" required="required">
+                            <option value="Super">Super</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+
+                    </div>
+                    <div class="group">
+                        <input name="litres" class="custome_input" type="text" maxlength="10" required="required" />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Litres</label>
+                    </div>
+                    <div class="group">
+                        <input name="plate" class="custome_input" type="text" required="required" />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Plate/Identity number:</label>
+                    </div>
+                    <div class="group">
+                        <input name="total" class="custome_input" type="number" required="required" />
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Total:</label>
+                    </div>
+                    <div class="group" hidden>
+                        <input name="date" class="custome_input" value="@DateTime.Now" maxlength="10" required="required" />
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="modal fade custome_modal_radius" id="pay">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>SUBMIT PAYMENTS</b>
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <form asp-action="payment">
+                            <table class="table">
+                                <tr>
+                                    <td style="border:none" class="text-center">
+                                        <input name="id" class="custome_input" value="@ViewBag.id" required="required" hidden />
+                                        <input name="station_id" class="custome_input" value="@ViewBag.station_id" required="required" hidden />
+                                        <input id="creditors" name="ammount" required class="form-control w-100 search_input mb-2" type="number" placeholder="Enter ammount in Ksh"
+                                               aria-label="Search">
+                                        <br />
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="border:none" class="text-center">
+
+                                        <button type="submit" class="btn btn-white w3-card"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;Submit payment</button>
+
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade custome_modal_radius" id="payment_mod">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header  p-2  " style="z-index:1020">
+                <img src="~/images/sell.png" class="sell" />&nbsp;<b>PAYMENT HISTORY</b>
+            </div>
+            <div class="modal-body  p-2 w3-card" style="z-index:1020">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+
+                                <p>Payment history for:@ViewBag.debtors_name</p>
+                                <button class="btn btn-white w3-card btn-sm m-1" id="p_history_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;Download PDF</button>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table font_flex" id="paymenT_table">
+                                    <tr>
+                                        <th style="border:none">Date paid</th>
+                                        <th style="border:none">Ammount paid</th>
+                                        <th style="border:none">Balance</th>
+
+                                    </tr>
+
+                                    @if (@ViewBag.p_history != null)
+                                    {
+                        @foreach (var item in @ViewBag.p_history)
+                        {
+        <tr>
+            <td class="border_none" style="border-top: none">@item.Date_created</td>
+            <td class="border_none" style="border-top:none">@item.Ammount_paid/=</td>
+            <td class="border_none" style="border:none"><span class="badge badge-danger">@item.Balance</span></td>
+
+        </tr>}}
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section debt1{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var msg = '@TempData["popup"]'
+
+            if (msg == "1") {
+                $("danger").show();
+                $("success").hide();
+
+                $('#positive_results').modal('show');
+                setTimeout(function () {
+                    $('#positive_results').modal('hide');
+                }, 3000);
+
+            }
+            else if (msg == "2") {
+                $("danger").show();
+                $("success").hide();
+                $('#negative_results').modal('show');
+                setTimeout(function () {
+                    $('#negative_results').modal('hide');
+                }, 3000);
+            }
+            else if (msg == "5") {
+
+                $("#add_new_item_to_system").modal('show');
+            }
+            else if (msg == "4") {
+
+                $("#filtered_sold").modal('show');
+            }
+            else {
+
+            }
+        });
+
+        $("#p_history_pdf").click(function () {
+            //$("#to_pf_table").tableHTMLExport({
+            //    type: 'pdf',
+            //    orientation: 'p'
+            //});
+            //var date = $("#serach_sales").val();
+            //$("#sales_made_on").text(date);
+            ////var img = new Image()
+            var doc = new jsPDF();
+            //img.src = 'wwwroot/images/logo2.png'
+            //doc.addImage(img, 'png', 10, 78, 12, 15)
+            var htmlstring = '';
+            var tempVarToCheckPageHeight = 0;
+            var pageHeight = 0;
+            //pageHeight = doc.internal.pageSize.height;
+            //specialElementHandlers = {
+            //        // element with id of "bypass" - jQuery style selector
+            //        '#bypassme': function(element, renderer) {
+            //        // true = "handled elsewhere, bypass text extraction"
+            //        return true
+            //    }
+            //};
+            //margins = {
+            //        top: 10,
+            //    bottom: 10,
+            //    left: 10,
+            //    right: 10,
+            //    width: 100
+            //};
+            var y = 20;
+            doc.setLineWidth(2);
+            //doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");
+            doc.autoTable({
+                html: '#paymenT_table ',
+
+            });
+            doc.save('PAYMENT_HISTORY_@DateTime.Now');
+
+        });
+    </script>
+}
