@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Testimonials";
+    Layout = "~/Views/Shared/_Layout_website.cshtml";
+}
+
+ <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Quotation Request Page</h2>
+          <ol>
+            <li><a href="/website/index">Home</a></li>
+            <li>Quotation</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+     
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4 mt-5 mt-lg-0 flex">
+              <img src="/images//quotation.png" class="illustrations" />
+              </div>
+
+          <div class="col-lg-8  mt-lg-0">
+
+            <form asp-action="send_quotation"  role="form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                     <label>Enter Full Name:</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                     <label>Enter email:</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                  <label>Enter Phone number:</label>
+
+                <input type="text" class="form-control mt-3" name="phone" id="subject" placeholder="Subject" value="+254" required>
+              </div> 
+              <div class="form-group mt-3">
+                  <label>Select product:</label>
+                  <select class="form-control mt-3" required name="service" >
+                      <option value=""> --Select service--</option>
+                      <option value="Gate"> Gate Design</option>
+                      <option value="Window"> Window Design</option>
+                      <option value="Door Design"> Door Design</option>
+                      <option value="Desk Design"> Desk Design</option>
+                      <option value="Office Chair Design"> Office Chair Design</option>
+                      <option value="Students Chair Design"> Students Chair Design</option>
+                      <option value="Students Desk Design "> Students Desk Design</option>
+                      <option value="Office Table Design">Office Table Design</option>
+                  </select>
+              </div>
+              <div class="form-group mt-3">
+                  <label>Message (Optional):</label>
+
+                <textarea class="form-control" name="message_" rows="5" placeholder="Message(Optional)" ></textarea>
+              </div>
+              <div class="my-3">
+                
+                <div class="sent-message">@{@TempData["message"]}</div>
+              </div>
+              <div ><button type="submit" class="send">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->

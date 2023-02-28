@@ -132,7 +132,7 @@ namespace SHOP
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=System_users}/{action=landing_page}/{id?}");
+                    pattern: "{controller=website}/{action=index}/{id?}");
             });
       
         }

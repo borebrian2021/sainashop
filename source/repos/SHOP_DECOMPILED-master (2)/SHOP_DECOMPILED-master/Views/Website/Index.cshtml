@@ -1,0 +1,234 @@
+﻿
+@{
+    ViewData["Title"] = "Supremesai Enterprise";
+    Layout = "~/Views/Shared/_Layout_website.cshtml";
+}
+ <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url('https://res.cloudinary.com/dqab6gg7d/image/upload/v1677580644/Agusto/w4_qhto0w.jpg');background-size:100%;">
+          <div class="carousel-container">
+            <div class="container">
+                <img src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677581176/Agusto/763391_syteqp.png" class="auto"/>
+              <h2 class="animate__animated animate__fadeInDown">Welcome to <span style="color:#d9232d!important" id="write"></span></h2>
+              <p class="animate__animated animate__fadeInUp">
+                  Dear valued guests and business partners,
+We are thrilled to welcome you to our enterprise. We appreciate the opportunity to collaborate with you, and we are dedicated to delivering exceptional service and high-quality products to meet your business needs.
+              </p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image:  url('https://res.cloudinary.com/dqab6gg7d/image/upload/v1677580942/Agusto/Lpg-gas_zjk4jb.webp');background-size:cover">
+          <div class="carousel-container">
+            <div class="container">
+                <img src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677581252/Agusto/gas-icon-png-9_ni2oor.png" class="auto"/>
+
+              <h2 class="animate__animated animate__fadeInDown">We value our customers</h2>
+              <p class="animate__animated animate__fadeInUp">A customer is the most important visitor on our premises. He is not dependent on us. We are dependent on him. He is not an interruption in our work. He is the purpose of it.</p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            </div>
+          </div>
+        </div>
+       
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+  </section><!-- End Hero -->
+
+  
+     <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6 text-center" >
+              <img src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677581811/Agusto/1055078_mb39c4.png"  class="illustrations"/>
+            <h4  class="text-bold">Agusto<span class="color"> Holdings Tech | </span><span class="font_small_">Quality and convenient service.</span></h4>
+            <h4>
+
+                Welcome to our petrol station - your one-stop-shop for all your fuel needs!
+
+We offer a wide range of fuel options, including unleaded, premium, and diesel, so you can choose the perfect fuel for your vehicle. Our fuel is of the highest quality, so you can be confident that you're getting the best performance and fuel efficiency.
+
+But that's not all - we also offer a range of convenience services to make your life easier. Our fully stocked convenience store has everything you need for your kitchen, like cooking gas and burners and other kitchen equipment.
+
+We understand that time is precious, which is why we offer a range of payment options, including cash, M-pesa, and other mobile payments, so you can get in and out quickly and efficiently.
+
+At our petrol station, we're committed to providing you with the best service possible. Our friendly staff are always on hand to assist you with any questions or concerns you may have.
+
+So why go anywhere else? Come and visit us today and experience the convenience and quality of our petrol station for yourself!
+            </h4>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+         <img src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677583220/Agusto/pexels-gustavo-fring-4173096_wxfolr.jpg" class="auto1" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+     
+     <section id="portfolio" class="portfolio">
+      <div class="container">
+            <h4  class="text-bold"><span class="color">Our products </h4>
+
+      @*  <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All Furnitures</li>
+              <li data-filter=".filter-app">Desks</li>
+              <li data-filter=".filter-card">Doors</li>
+              <li data-filter=".filter-web">Chairs</li>
+            </ul>
+          </div>
+        </div>*@
+
+       
+
+       <div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="card">
+        <img class="card-img total" src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677585258/Agusto/total-6kg-200x200_mrsliv.png" alt="Vans">
+        <div class="card-img-overlay d-flex justify-content-end">
+          <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Total 6kg Gas Cylinder</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Weight: 6Kgs</h6>
+          <p class="card-text">
+            Total Gas! Our liquefied petroleum gas (LPG) is a safe and efficient way to cook your favorite meals.  </p>
+         
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4"> KSh 3,400.00</h5></div>
+             @*<a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Order</a>*@
+          </div>
+        </div>
+      </div>
+    </div>  <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="card">
+        <img class="card-img total" src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677585906/Agusto/mpishi-6kg-removebg-preview_b66o6k.png" alt="Vans">
+        <div class="card-img-overlay d-flex justify-content-end">
+          <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Total Gas</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Mpishi (OiLibya / OLA) 6KG</h6>
+          <p class="card-text">
+            Oilibya Gas! Our liquefied petroleum gas (LPG) is a safe and efficient way to cook your favorite meals.  </p>
+         
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4">KSh.3,320.00</h5></div>
+             @*<a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Order</a>*@
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="card">
+        <img class="card-img total" src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677586093/Agusto/15w40-1-removebg-preview_wafkcl.png" alt="Vans">
+        <div class="card-img-overlay d-flex justify-content-end">
+          <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Shell Engine Oil Helix 15W40</h4>
+          <h6 class="card-subtitle mb-2 text-muted">5l</h6>
+          <p class="card-text">
+            It is a high-quality lubricant that helps to reduce engine wear and tear, while also protecting against corrosion and rust. </p>
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4">KSh 2,200.00</h5></div>
+             @*<a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Order Now</a>*@
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
+      <div class="card">
+        <img class="card-img total" src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677586617/Agusto/grill-01_-_copy-removebg-preview_gykqfy.png" alt="Vans">
+        <div class="card-img-overlay d-flex justify-content-end">
+          <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">6Kg Meko Grill</h4>
+          <h6 class="card-subtitle mb-2 text-muted">6kg</h6>
+          <p class="card-text">
+           Experience the convenience and deliciousness of cooking with gas with our high-quality cooking gas grill.  </p>
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4">KSh 390.00</h5></div>
+             @*<a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Order Now</a>*@
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
+      <div class="card">
+        <img class="card-img total" src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677586765/Agusto/3_kg_6kgburner-01_-_copy_zs0ltt.webp" alt="Vans">
+        <div class="card-img-overlay d-flex justify-content-end">
+          <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">6Kg & 3Kg Burner</h4>
+          <h6 class="card-subtitle mb-2 text-muted">6kg & 3kg</h6>
+          <p class="card-text">
+           Experience precision and power in your cooking with our high-quality gas burner. Our burner is designed to deliver quick and efficient heat, making it perfect for a range of cooking styles and recipes. </p>
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4">KSh 390.00</h5></div>
+             @*<a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Order Now</a>*@
+          </div>
+        </div>
+      </div>
+    </div><div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
+      <div class="card">
+        <img class="card-img total" src="https://res.cloudinary.com/dqab6gg7d/image/upload/v1677586955/Agusto/total-low-pressure-regulator_wzmqjb.webp" alt="Vans">
+        <div class="card-img-overlay d-flex justify-content-end">
+          <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Unified High Pressure Regulator</h4>
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
+          <p class="card-text">
+           Ensure the safe and efficient operation of your gas appliances with our high-quality gas regulator. </p>
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4">KSh 390.00</h5></div>
+             @*<a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Order Now</a>*@
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+     
+
+      </div>
+    </section>
+
